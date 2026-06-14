@@ -362,7 +362,15 @@ def render_top_picks(df: pd.DataFrame) -> None:
     if df.empty:
         return
 
-    top_rows = df.head(3).to_dict("records")
+    top_rows = (
+        df.sort_values(
+            ["Opinion Score", "Target Upside(%)", "ROE(%)"],
+            ascending=[False, False, False],
+            na_position="last",
+        )
+        .head(3)
+        .to_dict("records")
+    )
     cards = []
     for row in top_rows:
         gap = row["52W High Gap(%)"]
