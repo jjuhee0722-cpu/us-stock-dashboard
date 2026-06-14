@@ -51,7 +51,12 @@ def clean_number(value: Optional[float]) -> Optional[float]:
     return value
 
 
-def opinion_from_info(info: dict) -> tuple[Optional[int], str]:
+def normalize_info(info: object) -> dict:
+    return info if isinstance(info, dict) else {}
+
+
+def opinion_from_info(info: object) -> tuple[Optional[int], str]:
+    info = normalize_info(info)
     key = str(info.get("recommendationKey") or "").lower()
     key_map = {
         "strong_buy": 5,
@@ -106,6 +111,8 @@ def load_fundamentals(tickers: tuple[str, ...]) -> pd.DataFrame:
                 info = yf_ticker.info
             except Exception:
                 info = {}
+        info = normalize_info(info)
+        opinion_score, opinion_label = opinion_from_info(info)
 
         rows.append(
             {
@@ -120,8 +127,8 @@ def load_fundamentals(tickers: tuple[str, ...]) -> pd.DataFrame:
                 "PBR": clean_number(info.get("priceToBook")),
                 "Revenue Growth(%)": pct(clean_number(info.get("revenueGrowth"))),
                 "Debt/Equity": clean_number(info.get("debtToEquity")),
-                "Opinion Score": opinion_from_info(info)[0],
-                "Opinion": opinion_from_info(info)[1],
+                "Opinion Score": opinion_score,
+                "Opinion": opinion_label,
             }
         )
     return pd.DataFrame(rows)
@@ -547,6 +554,33 @@ st.markdown(
         background: #f8fafc;
         color: #0f172a;
     }
+    [data-testid="stExpander"] {
+        background: #ffffff;
+        border: 1px solid #dbe3ef;
+        border-radius: 8px;
+        color: #0f172a;
+    }
+    [data-testid="stExpander"] *,
+    [data-testid="stWidgetLabel"] *,
+    [data-testid="stSelectbox"] *,
+    [data-testid="stSlider"] *,
+    [data-testid="stCheckbox"] *,
+    [data-testid="stButton"] button {
+        color: #0f172a !important;
+    }
+    [data-testid="stSelectbox"] div,
+    [data-testid="stSelectbox"] input {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+    }
+    [data-testid="stButton"] button {
+        background: #0f172a !important;
+        border: 1px solid #0f172a !important;
+        color: #ffffff !important;
+    }
+    [data-testid="stButton"] button * {
+        color: #ffffff !important;
+    }
     .stock-card {
         border: 1px solid #e5e7eb;
         border-radius: 8px;
@@ -635,7 +669,10 @@ st.markdown(
         }
     }
     [data-testid="stSidebar"],
-    [data-testid="collapsedControl"] {
+    [data-testid="collapsedControl"],
+    [data-testid="stToolbar"],
+    [data-testid="stStatusWidget"],
+    .stDeployButton {
         display: none;
     }
     .filter-help {
@@ -725,14 +762,22 @@ selected_tickers = (
     else SECTOR_TICKERS[selected_sector]
 )
 
-with st.spinner("주가와 펀더멘털 데이터를 불러오는 중입니다..."):
-    screened_df = build_screening_table(
-        selected_tickers,
-        min_roe,
-        min_operating_margin,
-        require_above_ma50,
-        max_high_gap,
+try:
+    with st.spinner("주가와 펀더멘털 데이터를 불러오는 중입니다..."):
+        screened_df = build_screening_table(
+            selected_tickers,
+            min_roe,
+            min_operating_margin,
+            require_above_ma50,
+            max_high_gap,
+        )
+except Exception as exc:
+    screened_df = pd.DataFrame()
+    st.error(
+        "일부 금융 데이터를 불러오는 중 문제가 생겼습니다. "
+        "잠시 후 '데이터 다시 불러오기'를 눌러 주세요."
     )
+    st.caption(f"오류 요약: {type(exc).__name__}")
 
 render_overview_cards(
     len(screened_df),
