@@ -1,4 +1,5 @@
 import math
+import re
 from datetime import datetime
 from html import escape
 from typing import Optional
@@ -25,12 +26,24 @@ SECTOR_TICKERS = {
     "Cloud/Software": ["NOW", "ADBE", "INTU", "SHOP", "MDB", "TEAM"],
 }
 
+DEFAULT_FAVORITES = ["NVDA", "MSFT", "AAPL", "GOOGL", "AVGO"]
+
 
 def flatten_tickers(sector_map: dict[str, list[str]]) -> list[str]:
     tickers: list[str] = []
     for sector_tickers in sector_map.values():
         tickers.extend(sector_tickers)
     return sorted(set(tickers))
+
+
+def parse_ticker_text(text: str) -> list[str]:
+    raw_tickers = re.split(r"[\s,;/]+", text.upper().strip())
+    tickers = []
+    for ticker in raw_tickers:
+        ticker = re.sub(r"[^A-Z0-9.\-]", "", ticker)
+        if ticker and ticker not in tickers:
+            tickers.append(ticker)
+    return tickers[:20]
 
 
 def pct(value: Optional[float]) -> Optional[float]:
@@ -49,6 +62,12 @@ def clean_number(value: Optional[float]) -> Optional[float]:
     if math.isnan(value) or math.isinf(value):
         return None
     return value
+
+
+def safe_ratio(numerator: Optional[float], denominator: Optional[float]) -> Optional[float]:
+    if numerator is None or denominator in (None, 0):
+        return None
+    return numerator / denominator
 
 
 def normalize_info(info: object) -> dict:
@@ -120,13 +139,25 @@ def load_fundamentals(tickers: tuple[str, ...]) -> pd.DataFrame:
                 "Name": info.get("longName") or info.get("shortName") or ticker,
                 "ROE(%)": pct(clean_number(info.get("returnOnEquity"))),
                 "Operating Margin(%)": pct(clean_number(info.get("operatingMargins"))),
+                "Gross Margin(%)": pct(clean_number(info.get("grossMargins"))),
+                "Profit Margin(%)": pct(clean_number(info.get("profitMargins"))),
                 "Info 52W High": clean_number(info.get("fiftyTwoWeekHigh")),
                 "Target Price": clean_number(info.get("targetMeanPrice")),
                 "PER": clean_number(info.get("trailingPE")),
                 "Forward PER": clean_number(info.get("forwardPE")),
                 "PBR": clean_number(info.get("priceToBook")),
+                "PSR": clean_number(info.get("priceToSalesTrailing12Months")),
+                "Dividend Yield(%)": pct(clean_number(info.get("dividendYield"))),
                 "Revenue Growth(%)": pct(clean_number(info.get("revenueGrowth"))),
+                "Earnings Growth(%)": pct(clean_number(info.get("earningsGrowth"))),
                 "Debt/Equity": clean_number(info.get("debtToEquity")),
+                "Market Cap": clean_number(info.get("marketCap")),
+                "Total Revenue": clean_number(info.get("totalRevenue")),
+                "Net Income": clean_number(info.get("netIncomeToCommon")),
+                "Free Cashflow": clean_number(info.get("freeCashflow")),
+                "Total Cash": clean_number(info.get("totalCash")),
+                "Total Debt": clean_number(info.get("totalDebt")),
+                "Current Ratio": clean_number(info.get("currentRatio")),
                 "Opinion Score": opinion_score,
                 "Opinion": opinion_label,
             }
@@ -221,6 +252,75 @@ def build_screening_table(
     return df.loc[mask].sort_values(["ROE(%)", "Operating Margin(%)"], ascending=False)
 
 
+def build_favorites_table(tickers: list[str]) -> pd.DataFrame:
+    if not tickers:
+        return pd.DataFrame()
+
+    ticker_tuple = tuple(tickers)
+    history = load_price_history(ticker_tuple)
+    fundamentals = load_fundamentals(ticker_tuple)
+    close_frame = get_close_frame(history, tickers)
+
+    rows = []
+    for ticker in tickers:
+        close = close_frame.get(ticker, pd.Series(dtype="float64")).dropna()
+        price = clean_number(close.iloc[-1]) if not close.empty else None
+        one_year_return = ((price / clean_number(close.iloc[0])) - 1) * 100 if len(close) > 1 and price else None
+        ma50 = clean_number(close.rolling(50).mean().iloc[-1]) if len(close) >= 50 else None
+        ma200 = clean_number(close.rolling(200).mean().iloc[-1]) if len(close) >= 200 else None
+
+        f_row = fundamentals[fundamentals["Ticker"] == ticker]
+        if f_row.empty:
+            continue
+        f_row = f_row.iloc[0]
+
+        target_price = clean_number(f_row["Target Price"])
+        target_upside = ((target_price / price) - 1) * 100 if price and target_price else None
+        cash_to_debt = safe_ratio(clean_number(f_row["Total Cash"]), clean_number(f_row["Total Debt"]))
+        valuation_score = 0
+        valuation_score += 1 if clean_number(f_row["PER"]) is not None and clean_number(f_row["PER"]) <= 25 else 0
+        valuation_score += 1 if clean_number(f_row["PBR"]) is not None and clean_number(f_row["PBR"]) <= 8 else 0
+        valuation_score += 1 if target_upside is not None and target_upside > 10 else 0
+        valuation_note = "저평가 여지" if valuation_score >= 2 else "중립" if valuation_score == 1 else "비싼 편"
+
+        rows.append(
+            {
+                "Ticker": ticker,
+                "Name": f_row["Name"],
+                "Stock": f"{ticker} - {f_row['Name']}",
+                "Price": price,
+                "Target Price": target_price,
+                "Target Upside(%)": target_upside,
+                "Opinion Score": clean_number(f_row["Opinion Score"]),
+                "Opinion": f_row["Opinion"],
+                "Market Cap": clean_number(f_row["Market Cap"]),
+                "Dividend Yield(%)": clean_number(f_row["Dividend Yield(%)"]),
+                "PER": clean_number(f_row["PER"]),
+                "Forward PER": clean_number(f_row["Forward PER"]),
+                "PBR": clean_number(f_row["PBR"]),
+                "PSR": clean_number(f_row["PSR"]),
+                "ROE(%)": clean_number(f_row["ROE(%)"]),
+                "Gross Margin(%)": clean_number(f_row["Gross Margin(%)"]),
+                "Operating Margin(%)": clean_number(f_row["Operating Margin(%)"]),
+                "Profit Margin(%)": clean_number(f_row["Profit Margin(%)"]),
+                "Revenue Growth(%)": clean_number(f_row["Revenue Growth(%)"]),
+                "Earnings Growth(%)": clean_number(f_row["Earnings Growth(%)"]),
+                "Debt/Equity": clean_number(f_row["Debt/Equity"]),
+                "Current Ratio": clean_number(f_row["Current Ratio"]),
+                "Cash/Debt": cash_to_debt,
+                "Total Revenue": clean_number(f_row["Total Revenue"]),
+                "Net Income": clean_number(f_row["Net Income"]),
+                "Free Cashflow": clean_number(f_row["Free Cashflow"]),
+                "One Year Return(%)": one_year_return,
+                "Above MA50": bool(price and ma50 and price > ma50),
+                "Above MA200": bool(price and ma200 and price > ma200),
+                "Valuation": valuation_note,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
 def get_ticker_history(ticker: str) -> pd.DataFrame:
     history = load_price_history((ticker,), period="1y")
     close_frame = get_close_frame(history, [ticker])
@@ -283,6 +383,27 @@ def format_price(value: float) -> str:
     return "-" if pd.isna(value) else f"${value:,.2f}"
 
 
+def format_multiple(value: float) -> str:
+    return "-" if pd.isna(value) else f"{value:.2f}배"
+
+
+def format_large_money(value: float) -> str:
+    if pd.isna(value):
+        return "-"
+    abs_value = abs(value)
+    if abs_value >= 1_000_000_000_000:
+        return f"${value / 1_000_000_000_000:.2f}T"
+    if abs_value >= 1_000_000_000:
+        return f"${value / 1_000_000_000:.2f}B"
+    if abs_value >= 1_000_000:
+        return f"${value / 1_000_000:.2f}M"
+    return f"${value:,.0f}"
+
+
+def format_plain(value: float) -> str:
+    return "-" if pd.isna(value) else f"{value:.2f}"
+
+
 def render_mobile_cards(df: pd.DataFrame) -> None:
     for row in df.to_dict("records"):
         stock = escape(str(row["Stock"]))
@@ -318,6 +439,73 @@ def render_mobile_cards(df: pd.DataFrame) -> None:
             """,
             unsafe_allow_html=True,
         )
+
+
+def render_favorite_cards(df: pd.DataFrame) -> None:
+    for row in df.to_dict("records"):
+        stock = escape(str(row["Stock"]))
+        valuation = escape(str(row["Valuation"]))
+        price = escape(format_price(row["Price"]))
+        target = escape(format_price(row["Target Price"]))
+        upside = escape(format_percent(row["Target Upside(%)"]))
+        per = escape(format_multiple(row["PER"]))
+        pbr = escape(format_multiple(row["PBR"]))
+        psr = escape(format_multiple(row["PSR"]))
+        roe = escape(format_percent(row["ROE(%)"]))
+        dividend = escape(format_percent(row["Dividend Yield(%)"]))
+        revenue_growth = escape(format_percent(row["Revenue Growth(%)"]))
+        profit_margin = escape(format_percent(row["Profit Margin(%)"]))
+        debt_equity = escape(format_plain(row["Debt/Equity"]))
+        trend = "50일/200일 평균선 위" if row["Above MA50"] and row["Above MA200"] else "추세 확인 필요"
+        st.markdown(
+            f"""
+            <div class="stock-card favorite-card">
+                <div class="stock-card-title">{stock}</div>
+                <div class="opinion-bar">
+                    <strong>{valuation}</strong>
+                    <span>현재가 {price} · 목표주가 {target} · 상승여력 {upside}</span>
+                </div>
+                <div class="stock-card-grid">
+                    <div><span>PER</span><strong>{per}</strong></div>
+                    <div><span>PBR</span><strong>{pbr}</strong></div>
+                    <div><span>PSR</span><strong>{psr}</strong></div>
+                    <div><span>ROE</span><strong>{roe}</strong></div>
+                    <div><span>배당수익률</span><strong>{dividend}</strong></div>
+                    <div><span>매출성장률</span><strong>{revenue_growth}</strong></div>
+                    <div><span>순이익률</span><strong>{profit_margin}</strong></div>
+                    <div><span>부채/자본</span><strong>{debt_equity}</strong></div>
+                    <div><span>추세</span><strong>{escape(trend)}</strong></div>
+                    <div><span>시가총액</span><strong>{escape(format_large_money(row["Market Cap"]))}</strong></div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+def make_metric_bar_chart(df: pd.DataFrame, metric: str, label: str) -> go.Figure:
+    plot_df = df[["Ticker", metric]].dropna().sort_values(metric)
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=plot_df[metric],
+            y=plot_df["Ticker"],
+            orientation="h",
+            marker_color="#2563eb",
+            text=[f"{value:.2f}" for value in plot_df[metric]],
+            textposition="auto",
+        )
+    )
+    fig.update_layout(
+        title=f"{label} 비교",
+        height=max(280, 58 * len(plot_df)),
+        margin=dict(l=12, r=12, t=48, b=24),
+        template="plotly_white",
+        xaxis_title=label,
+        yaxis_title=None,
+        showlegend=False,
+    )
+    return fig
 
 
 def render_overview_cards(
@@ -911,6 +1099,148 @@ else:
         st.plotly_chart(
             make_price_chart(selected_ticker, selected_name, chart_df),
             config={"displayModeBar": False, "responsive": True},
+        )
+
+st.divider()
+st.subheader("관심종목 대시보드")
+st.caption("티커를 쉼표나 공백으로 입력하고 저장하면 URL에 관심종목이 반영됩니다. 같은 링크를 열면 같은 목록을 볼 수 있습니다.")
+
+saved_fav_text = st.query_params.get("fav", ",".join(DEFAULT_FAVORITES))
+if isinstance(saved_fav_text, list):
+    saved_fav_text = saved_fav_text[0] if saved_fav_text else ",".join(DEFAULT_FAVORITES)
+
+favorite_input = st.text_input(
+    "관심종목 티커",
+    value=saved_fav_text,
+    placeholder="예: NVDA, MSFT, AAPL, GOOGL",
+    help="최대 20개까지 입력할 수 있습니다. 쉼표, 공백, 줄바꿈으로 구분해도 됩니다.",
+)
+favorite_tickers = parse_ticker_text(favorite_input)
+
+fav_action_cols = st.columns([1, 1])
+with fav_action_cols[0]:
+    if st.button("관심종목 저장", width="stretch"):
+        st.query_params["fav"] = ",".join(favorite_tickers)
+        st.rerun()
+with fav_action_cols[1]:
+    if st.button("기본 관심종목으로 변경", width="stretch"):
+        st.query_params["fav"] = ",".join(DEFAULT_FAVORITES)
+        st.rerun()
+
+if not favorite_tickers:
+    st.warning("관심종목 티커를 하나 이상 입력해 주세요.")
+else:
+    try:
+        with st.spinner("관심종목 투자지표를 불러오는 중입니다..."):
+            favorite_df = build_favorites_table(favorite_tickers)
+    except Exception as exc:
+        favorite_df = pd.DataFrame()
+        st.error("관심종목 데이터를 불러오는 중 문제가 생겼습니다. 잠시 후 다시 시도해 주세요.")
+        st.caption(f"오류 요약: {type(exc).__name__}")
+
+    if favorite_df.empty:
+        st.warning("관심종목 데이터를 불러오지 못했습니다. 티커를 확인하거나 잠시 후 다시 시도해 주세요.")
+    else:
+        favorite_df = favorite_df.round(
+            {
+                "Price": 2,
+                "Target Price": 2,
+                "Target Upside(%)": 2,
+                "Dividend Yield(%)": 2,
+                "PER": 2,
+                "Forward PER": 2,
+                "PBR": 2,
+                "PSR": 2,
+                "ROE(%)": 2,
+                "Gross Margin(%)": 2,
+                "Operating Margin(%)": 2,
+                "Profit Margin(%)": 2,
+                "Revenue Growth(%)": 2,
+                "Earnings Growth(%)": 2,
+                "Debt/Equity": 2,
+                "Current Ratio": 2,
+                "Cash/Debt": 2,
+                "One Year Return(%)": 2,
+            }
+        )
+
+        st.markdown("#### 투자 지표")
+        render_favorite_cards(favorite_df)
+
+        st.markdown("#### 가치평가 비교")
+        metric_options = {
+            "PER": "PER",
+            "PBR": "PBR",
+            "PSR": "PSR",
+            "ROE(%)": "ROE",
+            "Dividend Yield(%)": "배당수익률",
+        }
+        selected_metric = st.segmented_control(
+            "비교 지표",
+            options=list(metric_options.keys()),
+            format_func=lambda value: metric_options[value],
+            default="PER",
+        )
+        if selected_metric and favorite_df[selected_metric].notna().any():
+            st.plotly_chart(
+                make_metric_bar_chart(favorite_df, selected_metric, metric_options[selected_metric]),
+                config={"displayModeBar": False, "responsive": True},
+            )
+        else:
+            st.info("선택한 지표의 데이터가 없습니다.")
+
+        st.markdown("#### 재무 / 실적 요약")
+        finance_columns = [
+            "Stock",
+            "Price",
+            "Market Cap",
+            "PER",
+            "PBR",
+            "PSR",
+            "Dividend Yield(%)",
+            "ROE(%)",
+            "Operating Margin(%)",
+            "Profit Margin(%)",
+            "Revenue Growth(%)",
+            "Earnings Growth(%)",
+            "Debt/Equity",
+            "Current Ratio",
+            "Cash/Debt",
+            "Total Revenue",
+            "Net Income",
+            "Free Cashflow",
+            "Target Price",
+            "Target Upside(%)",
+            "Valuation",
+        ]
+        finance_df = favorite_df[finance_columns].copy()
+        st.dataframe(
+            finance_df,
+            hide_index=True,
+            width="stretch",
+            column_config={
+                "Stock": st.column_config.TextColumn("종목 / 회사명", width="large"),
+                "Price": st.column_config.NumberColumn("현재가", format="$%.2f"),
+                "Market Cap": st.column_config.NumberColumn("시가총액", format="$%.0f"),
+                "PER": st.column_config.NumberColumn("PER", format="%.2f"),
+                "PBR": st.column_config.NumberColumn("PBR", format="%.2f"),
+                "PSR": st.column_config.NumberColumn("PSR", format="%.2f"),
+                "Dividend Yield(%)": st.column_config.NumberColumn("배당수익률(%)", format="%.2f"),
+                "ROE(%)": st.column_config.NumberColumn("ROE(%)", format="%.2f"),
+                "Operating Margin(%)": st.column_config.NumberColumn("영업이익률(%)", format="%.2f"),
+                "Profit Margin(%)": st.column_config.NumberColumn("순이익률(%)", format="%.2f"),
+                "Revenue Growth(%)": st.column_config.NumberColumn("매출성장률(%)", format="%.2f"),
+                "Earnings Growth(%)": st.column_config.NumberColumn("이익성장률(%)", format="%.2f"),
+                "Debt/Equity": st.column_config.NumberColumn("부채/자본", format="%.2f"),
+                "Current Ratio": st.column_config.NumberColumn("유동비율", format="%.2f"),
+                "Cash/Debt": st.column_config.NumberColumn("현금/부채", format="%.2f"),
+                "Total Revenue": st.column_config.NumberColumn("매출", format="$%.0f"),
+                "Net Income": st.column_config.NumberColumn("순이익", format="$%.0f"),
+                "Free Cashflow": st.column_config.NumberColumn("잉여현금흐름", format="$%.0f"),
+                "Target Price": st.column_config.NumberColumn("목표주가", format="$%.2f"),
+                "Target Upside(%)": st.column_config.NumberColumn("상승여력(%)", format="%.2f"),
+                "Valuation": st.column_config.TextColumn("가치평가"),
+            },
         )
 
 st.divider()

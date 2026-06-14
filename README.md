@@ -2,6 +2,8 @@
 
 Streamlit dashboard for screening US stocks by sector, profitability, momentum, analyst target price, and valuation metrics.
 
+It also includes a personal watchlist dashboard. Add tickers in the watchlist box and save them; the list is stored in the URL as a `fav` query parameter so the same link can reopen the same watchlist.
+
 ## Local Run
 
 ```bash
