@@ -634,43 +634,21 @@ st.markdown(
             padding: 12px;
         }
     }
+    [data-testid="stSidebar"],
+    [data-testid="collapsedControl"] {
+        display: none;
+    }
+    .filter-help {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        margin: -4px 0 10px;
+    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-
-with st.sidebar:
-    st.header("필터 컨트롤")
-
-    sector_options = ["전체 보기"] + list(SECTOR_TICKERS.keys())
-    selected_sector = st.selectbox("섹터 선택", sector_options)
-
-    st.divider()
-    st.subheader("펀더멘털")
-    min_roe = st.slider("최소 ROE (%)", min_value=0, max_value=60, value=15, step=1)
-    min_operating_margin = st.slider(
-        "최소 영업이익률 (%)", min_value=0, max_value=60, value=15, step=1
-    )
-
-    st.divider()
-    st.subheader("모멘텀")
-    require_above_ma50 = st.checkbox("현재가가 50일 이동평균선 위", value=True)
-    max_high_gap = st.slider(
-        "52주 고가 대비 최대 괴리율 (%)", min_value=0, max_value=30, value=15, step=1
-    )
-
-    st.divider()
-    if st.button("캐시 새로고침", width="stretch"):
-        st.cache_data.clear()
-        st.rerun()
-
-
-selected_tickers = (
-    flatten_tickers(SECTOR_TICKERS)
-    if selected_sector == "전체 보기"
-    else SECTOR_TICKERS[selected_sector]
-)
 
 st.markdown(
     f"""
@@ -684,6 +662,67 @@ st.markdown(
     </section>
     """,
     unsafe_allow_html=True,
+)
+
+sector_options = ["전체 보기"] + list(SECTOR_TICKERS.keys())
+
+with st.expander("조건 조정하기", expanded=True):
+    st.markdown(
+        "<p class='filter-help'>처음에는 기본값 그대로 보고, 후보가 너무 적으면 ROE·영업이익률·52주 고가 조건을 조금 낮춰보세요.</p>",
+        unsafe_allow_html=True,
+    )
+
+    selected_sector = st.selectbox(
+        "어떤 산업군을 볼까요?",
+        sector_options,
+        help="전체 보기는 기술주, 반도체, 데이터 인프라, 보안, 클라우드 종목을 한 번에 비교합니다.",
+    )
+
+    fundamental_cols = st.columns(2)
+    with fundamental_cols[0]:
+        min_roe = st.slider(
+            "최소 ROE: 자본 대비 이익률",
+            min_value=0,
+            max_value=60,
+            value=15,
+            step=1,
+            help="높을수록 주주 자본으로 이익을 잘 내는 회사만 남깁니다.",
+        )
+    with fundamental_cols[1]:
+        min_operating_margin = st.slider(
+            "최소 영업이익률: 본업 수익성",
+            min_value=0,
+            max_value=60,
+            value=15,
+            step=1,
+            help="높을수록 본업에서 마진이 좋은 회사만 남깁니다.",
+        )
+
+    momentum_cols = st.columns(2)
+    with momentum_cols[0]:
+        require_above_ma50 = st.checkbox(
+            "현재가가 50일 평균선 위인 종목만 보기",
+            value=True,
+            help="최근 주가 흐름이 평균보다 강한 종목을 우선 보려는 조건입니다.",
+        )
+    with momentum_cols[1]:
+        max_high_gap = st.slider(
+            "52주 고가에서 너무 멀어진 종목 제외",
+            min_value=0,
+            max_value=30,
+            value=15,
+            step=1,
+            help="15%라면 최근 1년 고점보다 15% 이상 내려간 종목은 제외합니다.",
+        )
+
+    if st.button("데이터 다시 불러오기", width="stretch"):
+        st.cache_data.clear()
+        st.rerun()
+
+selected_tickers = (
+    flatten_tickers(SECTOR_TICKERS)
+    if selected_sector == "전체 보기"
+    else SECTOR_TICKERS[selected_sector]
 )
 
 with st.spinner("주가와 펀더멘털 데이터를 불러오는 중입니다..."):
