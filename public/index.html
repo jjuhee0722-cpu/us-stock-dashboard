@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>US Equity Sector Screener</title>
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --panel: #ffffff;
+        --ink: #0f172a;
+        --muted: #64748b;
+        --line: #d9e2ec;
+        --accent: #0f766e;
+        --accent-2: #2563eb;
+        --warn: #b45309;
+        --good: #047857;
+        --bad: #b91c1c;
+        --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      main {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 18px 0 38px;
+      }
+      .hero {
+        background: linear-gradient(135deg, #172033 0%, #164e63 55%, #0f766e 100%);
+        color: #fff;
+        border-radius: 8px;
+        padding: 22px;
+        margin-bottom: 14px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+      .hero p {
+        margin: 0;
+        color: #dbeafe;
+        line-height: 1.55;
+        font-size: 0.96rem;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: var(--shadow);
+        margin-bottom: 14px;
+      }
+      .filters {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 1fr 0.9fr;
+        gap: 12px;
+        align-items: end;
+      }
+      label {
+        display: block;
+        color: #334155;
+        font-size: 0.78rem;
+        font-weight: 750;
+        margin-bottom: 6px;
+      }
+      select, input[type="text"], input[type="range"] {
+        width: 100%;
+      }
+      select, input[type="text"] {
+        height: 38px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        padding: 0 10px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 0.92rem;
+      }
+      .check-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 38px;
+        color: #334155;
+        font-size: 0.88rem;
+      }
+      .range-value {
+        float: right;
+        color: var(--accent);
+        font-weight: 800;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 14px 0;
+      }
+      .summary-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 15px 16px;
+        box-shadow: var(--shadow);
+      }
+      .summary-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 750;
+        margin-bottom: 5px;
+      }
+      .summary-card strong {
+        display: block;
+        font-size: 1.28rem;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+      .summary-card small {
+        display: block;
+        color: #475569;
+        font-size: 0.76rem;
+        line-height: 1.35;
+      }
+      .guide-panel {
+        background: #ecfeff;
+        border: 1px solid #99f6e4;
+        border-radius: 8px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+      }
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+      .guide-panel h3 {
+        margin: 0 0 10px;
+        color: #134e4a;
+        font-size: 1.06rem;
+        line-height: 1.42;
+      }
+      .guide-panel ol {
+        margin: 0;
+        padding-left: 20px;
+        color: #164e63;
+      }
+      .guide-panel li { margin: 6px 0; line-height: 1.45; }
+      h2 {
+        margin: 22px 0 10px;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+      }
+      .pick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 8px 0 14px;
+      }
+      .pick-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px;
+      }
+      .pick-card strong {
+        display: block;
+        font-size: 0.96rem;
+        line-height: 1.35;
+        margin-bottom: 6px;
+      }
+      .pick-card p {
+        margin: 0 0 10px;
+        color: #475569;
+        font-size: 0.82rem;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tag-row span {
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        color: #334155;
+        font-size: 0.72rem;
+        padding: 3px 8px;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+      table {
+        width: 100%;
+        min-width: 980px;
+        border-collapse: collapse;
+        font-size: 0.84rem;
+      }
+      th, td {
+        padding: 10px 9px;
+        border-bottom: 1px solid #edf2f7;
+        text-align: right;
+        white-space: nowrap;
+      }
+      th:first-child, td:first-child,
+      th:nth-child(2), td:nth-child(2) {
+        text-align: left;
+      }
+      th {
+        position: sticky;
+        top: 0;
+        background: #f8fafc;
+        color: #475569;
+        font-size: 0.74rem;
+        z-index: 1;
+      }
+      tr:hover td { background: #f8fafc; }
+      .cards {
+        display: none;
+        gap: 10px;
+      }
+      .stock-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 14px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+      .stock-card-title {
+        font-weight: 760;
+        font-size: 0.98rem;
+        margin-bottom: 10px;
+        line-height: 1.35;
+      }
+      .opinion-bar {
+        background: #f0fdfa;
+        border: 1px solid #99f6e4;
+        border-radius: 8px;
+        padding: 10px 11px;
+        margin-bottom: 11px;
+      }
+      .opinion-bar strong {
+        display: block;
+        color: #115e59;
+        font-size: 1rem;
+        margin-bottom: 3px;
+      }
+      .opinion-bar span {
+        display: block;
+        color: var(--accent);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+      .stock-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 12px;
+      }
+      .stock-card-grid span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.76rem;
+        margin-bottom: 2px;
+      }
+      .stock-card-grid strong {
+        font-size: 0.91rem;
+        font-weight: 700;
+      }
+      .watchlist-head {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 8px;
+        align-items: end;
+      }
+      button {
+        height: 38px;
+        border: 1px solid #0f172a;
+        background: #0f172a;
+        color: #fff;
+        border-radius: 6px;
+        padding: 0 13px;
+        font-weight: 750;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #fff;
+        color: #0f172a;
+        border-color: #cbd5e1;
+      }
+      .chart-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+        gap: 14px;
+        align-items: start;
+      }
+      canvas {
+        width: 100%;
+        height: 320px;
+        display: block;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      .metric-bars {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 62px 1fr 68px;
+        gap: 8px;
+        align-items: center;
+        margin: 8px 0;
+        font-size: 0.82rem;
+      }
+      .bar-track {
+        height: 9px;
+        background: #e2e8f0;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        background: var(--accent-2);
+      }
+      .empty {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        color: #9a3412;
+        border-radius: 8px;
+        padding: 13px;
+        margin: 10px 0;
+      }
+      .positive { color: var(--good); font-weight: 750; }
+      .negative { color: var(--bad); font-weight: 750; }
+      .muted { color: var(--muted); }
+      @media (max-width: 780px) {
+        main { width: min(100% - 22px, 1180px); padding-top: 11px; }
+        .hero { padding: 18px 16px; }
+        .hero h1 { font-size: 1.38rem; line-height: 1.28; }
+        .hero p { font-size: 0.88rem; }
+        .filters,
+        .summary-grid,
+        .pick-grid,
+        .watchlist-head,
+        .chart-grid {
+          grid-template-columns: 1fr;
+        }
+        .table-wrap { display: none; }
+        .cards {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .summary-card { padding: 13px 14px; }
+        .summary-card strong { font-size: 1.18rem; }
+        canvas { height: 260px; }
+        button { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>미국 주식 후보 찾기</h1>
+        <p>
+          수익성 좋은 회사 중 주가 흐름이 아직 살아있는 후보를 빠르게 좁혀봅니다.
+          <br />Yahoo Finance 정적 데이터 기준 · 마지막 갱신 <span id="generatedAt">-</span>
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="filters">
+          <div>
+            <label for="sector">산업군</label>
+            <select id="sector"></select>
+          </div>
+          <div>
+            <label for="minRoe">최소 ROE <span class="range-value" id="minRoeValue"></span></label>
+            <input id="minRoe" type="range" min="0" max="60" step="1" value="15" />
+          </div>
+          <div>
+            <label for="minMargin">최소 영업이익률 <span class="range-value" id="minMarginValue"></span></label>
+            <input id="minMargin" type="range" min="0" max="60" step="1" value="15" />
+          </div>
+          <div>
+            <label for="maxHighGap">52주 고가 이탈 허용 <span class="range-value" id="maxHighGapValue"></span></label>
+            <input id="maxHighGap" type="range" min="0" max="30" step="1" value="15" />
+          </div>
+          <div class="check-row">
+            <input id="aboveMa50" type="checkbox" checked />
+            <span>50일 평균선 위만 보기</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-grid" id="summary"></section>
+
+      <section class="guide-panel">
+        <p class="eyebrow">처음 볼 때는 이렇게 보세요</p>
+        <h3>이 화면은 바로 사라는 신호가 아니라, 더 공부할 후보를 줄여주는 필터입니다.</h3>
+        <ol>
+          <li>후보 종목 수가 너무 적으면 조건이 빡빡한 것입니다.</li>
+          <li>ROE와 영업이익률은 회사가 돈을 잘 버는지 보는 기준입니다.</li>
+          <li>MA50 위와 52주 고가 근처는 주가 흐름이 아직 살아있는지 보는 기준입니다.</li>
+        </ol>
+      </section>
+
+      <h2>스크리닝 결과</h2>
+      <section id="topPicks"></section>
+      <section class="cards" id="screenCards"></section>
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>티커</th><th>회사명</th><th>현재가</th><th>목표가</th><th>상승여력</th>
+              <th>의견</th><th>ROE</th><th>영업이익률</th><th>PER</th><th>PBR</th>
+              <th>매출성장률</th><th>부채/자본</th><th>52주 고가</th><th>고가 대비</th>
+            </tr>
+          </thead>
+          <tbody id="screenRows"></tbody>
+        </table>
+      </section>
+
+      <h2>상세 차트</h2>
+      <section class="chart-grid">
+        <canvas id="priceChart" width="900" height="360"></canvas>
+        <div class="panel">
+          <label for="chartTicker">차트 종목</label>
+          <select id="chartTicker"></select>
+          <p class="muted" id="chartCaption"></p>
+        </div>
+      </section>
+
+      <h2>관심종목 대시보드</h2>
+      <section class="panel">
+        <div class="watchlist-head">
+          <div>
+            <label for="favorites">관심종목 티커</label>
+            <input id="favorites" type="text" placeholder="예: NVDA, MSFT, AAPL, GOOGL" />
+          </div>
+          <button id="saveFavorites">저장</button>
+          <button id="resetFavorites" class="secondary">기본값</button>
+        </div>
+      </section>
+      <section class="cards" id="favoriteCards"></section>
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>티커</th><th>회사명</th><th>현재가</th><th>시가총액</th><th>PER</th><th>PBR</th><th>PSR</th>
+              <th>배당</th><th>ROE</th><th>영업이익률</th><th>매출성장률</th><th>부채/자본</th><th>목표가</th><th>상승여력</th><th>판단</th>
+            </tr>
+          </thead>
+          <tbody id="favoriteRows"></tbody>
+        </table>
+      </section>
+
+      <h2>관심종목 가치평가 비교</h2>
+      <section class="panel">
+        <label for="metricSelect">비교 지표</label>
+        <select id="metricSelect">
+          <option value="PER">PER</option>
+          <option value="PBR">PBR</option>
+          <option value="PSR">PSR</option>
+          <option value="ROE(%)">ROE</option>
+          <option value="Dividend Yield(%)">배당수익률</option>
+        </select>
+      </section>
+      <section class="metric-bars" id="metricBars"></section>
+    </main>
+
+    <script>
+      const state = { data: null, screened: [], favorites: [] };
+      const $ = (id) => document.getElementById(id);
+      const num = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
+      const fmt = (value, digits = 2) => num(value) === null ? "-" : Number(value).toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits });
+      const money = (value) => num(value) === null ? "-" : "$" + Number(value).toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+      const pct = (value) => num(value) === null ? "-" : fmt(value) + "%";
+      const multiple = (value) => num(value) === null ? "-" : fmt(value) + "배";
+      const largeMoney = (value) => {
+        const n = num(value);
+        if (n === null) return "-";
+        const a = Math.abs(n);
+        if (a >= 1e12) return "$" + fmt(n / 1e12) + "T";
+        if (a >= 1e9) return "$" + fmt(n / 1e9) + "B";
+        if (a >= 1e6) return "$" + fmt(n / 1e6) + "M";
+        return "$" + Math.round(n).toLocaleString("en-US");
+      };
+      const cls = (value) => num(value) === null ? "" : Number(value) >= 0 ? "positive" : "negative";
+      const parseTickers = (text) => [...new Set(String(text).toUpperCase().split(/[\s,;/]+/).map(t => t.replace(/[^A-Z0-9.\-]/g, "")).filter(Boolean))].slice(0, 20);
+
+      function stockByTicker(ticker) {
+        return state.data.stocks.find((stock) => stock.Ticker === ticker);
+      }
+
+      function applyFilters() {
+        const sector = $("sector").value;
+        const minRoe = Number($("minRoe").value);
+        const minMargin = Number($("minMargin").value);
+        const maxHighGap = Number($("maxHighGap").value);
+        const requireMa50 = $("aboveMa50").checked;
+        const sectorTickers = sector === "전체 보기"
+          ? Object.values(state.data.sectors).flat()
+          : state.data.sectors[sector];
+        const tickerSet = new Set(sectorTickers);
+        state.screened = state.data.stocks
+          .filter((s) => tickerSet.has(s.Ticker))
+          .filter((s) => num(s["ROE(%)"]) !== null && s["ROE(%)"] >= minRoe)
+          .filter((s) => num(s["Operating Margin(%)"]) !== null && s["Operating Margin(%)"] >= minMargin)
+          .filter((s) => num(s["52W High Gap(%)"]) !== null && s["52W High Gap(%)"] >= -maxHighGap)
+          .filter((s) => !requireMa50 || s["Above MA50"])
+          .sort((a, b) => (b["ROE(%)"] ?? -999) - (a["ROE(%)"] ?? -999));
+        renderScreening(sector, sectorTickers.length, minRoe, minMargin, maxHighGap);
+      }
+
+      function renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap) {
+        const cards = [
+          ["후보 종목", `${state.screened.length}개`, `전체 ${totalCount}개 중 조건 통과`],
+          ["선택 섹터", sector, "전체 보기는 모든 섹터를 함께 비교"],
+          ["수익성 기준", `ROE ${minRoe}% 이상`, `영업이익률 ${minMargin}% 이상`],
+          ["가격 위치", `고점 대비 ${maxHighGap}% 이내`, "최근 강한 흐름을 유지한 종목 우선"],
+        ];
+        $("summary").innerHTML = cards.map(([label, value, helper]) => `
+          <div class="summary-card"><span>${label}</span><strong>${value}</strong><small>${helper}</small></div>
+        `).join("");
+      }
+
+      function cardHtml(row, favorite = false) {
+        const trend = row["Above MA50"] && row["Above MA200"] ? "50일/200일 평균선 위" : "추세 확인 필요";
+        const top = favorite
+          ? `<strong>${row.Valuation}</strong><span>현재가 ${money(row.Price)} · 목표주가 ${money(row["Target Price"])} · 상승여력 ${pct(row["Target Upside(%)"])}</span>`
+          : `<strong>${row["Opinion Score"] ? Math.round(row["Opinion Score"]) + " · " : ""}${row.Opinion}</strong><span>목표주가 ${money(row["Target Price"])} · 상승여력 ${pct(row["Target Upside(%)"])}</span>`;
+        const items = favorite
+          ? [["PER", multiple(row.PER)], ["PBR", multiple(row.PBR)], ["PSR", multiple(row.PSR)], ["ROE", pct(row["ROE(%)"])], ["배당수익률", pct(row["Dividend Yield(%)"])], ["매출성장률", pct(row["Revenue Growth(%)"])], ["순이익률", pct(row["Profit Margin(%)"])], ["부채/자본", fmt(row["Debt/Equity"])], ["추세", trend], ["시가총액", largeMoney(row["Market Cap"])]]
+          : [["현재가", money(row.Price)], ["목표주가", money(row["Target Price"])], ["ROE", pct(row["ROE(%)"])], ["영업이익률", pct(row["Operating Margin(%)"])], ["PER", fmt(row.PER)], ["PBR", fmt(row.PBR)], ["52주 고가", money(row["52W High"])], ["고가 대비", pct(row["52W High Gap(%)"])]];
+        return `<article class="stock-card">
+          <div class="stock-card-title">${row.Stock}</div>
+          <div class="opinion-bar">${top}</div>
+          <div class="stock-card-grid">${items.map(([k, v]) => `<div><span>${k}</span><strong>${v}</strong></div>`).join("")}</div>
+        </article>`;
+      }
+
+      function renderTopPicks() {
+        if (!state.screened.length) {
+          $("topPicks").innerHTML = `<div class="empty">현재 필터 조건을 통과한 종목이 없습니다. 슬라이더 조건을 조금 완화해 보세요.</div>`;
+          return;
+        }
+        const rows = [...state.screened]
+          .sort((a, b) => (b["Opinion Score"] ?? -1) - (a["Opinion Score"] ?? -1) || (b["Target Upside(%)"] ?? -999) - (a["Target Upside(%)"] ?? -999))
+          .slice(0, 3);
+        $("topPicks").innerHTML = `<p class="eyebrow">먼저 볼 후보</p><div class="pick-grid">${rows.map((row) => {
+          const gapText = num(row["52W High Gap(%)"]) !== null && row["52W High Gap(%)"] >= -8 ? "고점 근처" : "고점 대비 조정";
+          return `<div class="pick-card"><strong>${row.Stock}</strong><p>현재 ${money(row.Price)} · 목표 ${money(row["Target Price"])}</p><div class="tag-row"><span>${row.Opinion}</span><span>상승여력 ${pct(row["Target Upside(%)"])}</span><span>${gapText}</span></div></div>`;
+        }).join("")}</div>`;
+      }
+
+      function renderScreening(sector, totalCount, minRoe, minMargin, maxHighGap) {
+        renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap);
+        renderTopPicks();
+        $("screenCards").innerHTML = state.screened.map((row) => cardHtml(row)).join("");
+        $("screenRows").innerHTML = state.screened.map((row) => `
+          <tr>
+            <td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${money(row["Target Price"])}</td>
+            <td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Opinion}</td>
+            <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td>
+            <td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td><td>${fmt(row["Debt/Equity"])}</td>
+            <td>${money(row["52W High"])}</td><td class="${cls(row["52W High Gap(%)"])}">${pct(row["52W High Gap(%)"])}</td>
+          </tr>
+        `).join("");
+        populateChartOptions();
+      }
+
+      function renderFavorites() {
+        const tickers = parseTickers($("favorites").value);
+        state.favorites = tickers.map(stockByTicker).filter(Boolean);
+        $("favoriteCards").innerHTML = state.favorites.map((row) => cardHtml(row, true)).join("");
+        $("favoriteRows").innerHTML = state.favorites.map((row) => `
+          <tr>
+            <td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${largeMoney(row["Market Cap"])}</td>
+            <td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td><td>${fmt(row.PSR)}</td><td>${pct(row["Dividend Yield(%)"])}</td>
+            <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td>
+            <td>${fmt(row["Debt/Equity"])}</td><td>${money(row["Target Price"])}</td><td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Valuation}</td>
+          </tr>
+        `).join("");
+        renderMetricBars();
+      }
+
+      function renderMetricBars() {
+        const metric = $("metricSelect").value;
+        const rows = state.favorites.filter((row) => num(row[metric]) !== null).sort((a, b) => b[metric] - a[metric]);
+        if (!rows.length) {
+          $("metricBars").innerHTML = `<div class="empty">선택한 지표의 데이터가 없습니다.</div>`;
+          return;
+        }
+        const max = Math.max(...rows.map((row) => Math.abs(row[metric])), 1);
+        $("metricBars").innerHTML = rows.map((row) => `
+          <div class="bar-row"><strong>${row.Ticker}</strong><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100, Math.abs(row[metric]) / max * 100)}%"></div></div><span>${metric.includes("%") ? pct(row[metric]) : fmt(row[metric])}</span></div>
+        `).join("");
+      }
+
+      function populateChartOptions() {
+        const rows = state.screened.length ? state.screened : state.data.stocks;
+        const current = $("chartTicker").value;
+        $("chartTicker").innerHTML = rows.map((row) => `<option value="${row.Ticker}">${row.Ticker} - ${row.Name}</option>`).join("");
+        if (rows.some((row) => row.Ticker === current)) $("chartTicker").value = current;
+        drawChart();
+      }
+
+      function drawChart() {
+        const ticker = $("chartTicker").value || (state.screened[0] && state.screened[0].Ticker) || state.data.stocks[0].Ticker;
+        const points = state.data.charts[ticker] || [];
+        const stock = stockByTicker(ticker);
+        $("chartCaption").textContent = stock ? `${stock.Stock} · 현재가 ${money(stock.Price)} · 목표가 ${money(stock["Target Price"])}` : "";
+        const canvas = $("priceChart");
+        const ctx = canvas.getContext("2d");
+        const rect = canvas.getBoundingClientRect();
+        const scale = window.devicePixelRatio || 1;
+        canvas.width = Math.round(rect.width * scale);
+        canvas.height = Math.round(rect.height * scale);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        const w = rect.width;
+        const h = rect.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, w, h);
+        if (points.length < 2) return;
+        const pad = { l: 52, r: 18, t: 18, b: 34 };
+        const values = points.flatMap(p => [p.close, p.ma50, p.ma200]).filter(v => num(v) !== null);
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const x = (i) => pad.l + (i / (points.length - 1)) * (w - pad.l - pad.r);
+        const y = (v) => h - pad.b - ((v - min) / (max - min || 1)) * (h - pad.t - pad.b);
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.lineWidth = 1;
+        for (let i = 0; i < 5; i++) {
+          const yy = pad.t + i * (h - pad.t - pad.b) / 4;
+          ctx.beginPath(); ctx.moveTo(pad.l, yy); ctx.lineTo(w - pad.r, yy); ctx.stroke();
+        }
+        function line(key, color, width) {
+          ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath();
+          let started = false;
+          points.forEach((p, i) => {
+            if (num(p[key]) === null) return;
+            if (!started) { ctx.moveTo(x(i), y(p[key])); started = true; }
+            else ctx.lineTo(x(i), y(p[key]));
+          });
+          ctx.stroke();
+        }
+        line("close", "#2563eb", 2.4);
+        line("ma50", "#f59e0b", 1.8);
+        line("ma200", "#16a34a", 1.8);
+        ctx.fillStyle = "#475569";
+        ctx.font = "12px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+        ctx.fillText("$" + fmt(max), 8, pad.t + 4);
+        ctx.fillText("$" + fmt(min), 8, h - pad.b);
+        ctx.fillText("Close", pad.l, h - 12);
+        ctx.fillStyle = "#f59e0b"; ctx.fillText("MA50", pad.l + 55, h - 12);
+        ctx.fillStyle = "#16a34a"; ctx.fillText("MA200", pad.l + 105, h - 12);
+      }
+
+      function bindEvents() {
+        ["sector", "minRoe", "minMargin", "maxHighGap", "aboveMa50"].forEach((id) => $(id).addEventListener("input", () => {
+          $("minRoeValue").textContent = $("minRoe").value + "%";
+          $("minMarginValue").textContent = $("minMargin").value + "%";
+          $("maxHighGapValue").textContent = $("maxHighGap").value + "%";
+          applyFilters();
+        }));
+        $("chartTicker").addEventListener("change", drawChart);
+        $("favorites").addEventListener("input", renderFavorites);
+        $("metricSelect").addEventListener("change", renderMetricBars);
+        $("saveFavorites").addEventListener("click", () => {
+          const tickers = parseTickers($("favorites").value);
+          const url = new URL(window.location.href);
+          url.searchParams.set("fav", tickers.join(","));
+          history.replaceState(null, "", url);
+          $("favorites").value = tickers.join(", ");
+          renderFavorites();
+        });
+        $("resetFavorites").addEventListener("click", () => {
+          $("favorites").value = state.data.defaultFavorites.join(", ");
+          const url = new URL(window.location.href);
+          url.searchParams.set("fav", state.data.defaultFavorites.join(","));
+          history.replaceState(null, "", url);
+          renderFavorites();
+        });
+        window.addEventListener("resize", drawChart);
+      }
+
+      async function init() {
+        try {
+          const response = await fetch("data.json", { cache: "no-store" });
+          state.data = await response.json();
+          const generated = new Date(state.data.meta.generatedAt);
+          $("generatedAt").textContent = Number.isNaN(generated.getTime()) ? state.data.meta.generatedAt : generated.toLocaleString("ko-KR");
+          $("sector").innerHTML = [`<option>전체 보기</option>`, ...Object.keys(state.data.sectors).map((sector) => `<option>${sector}</option>`)].join("");
+          const params = new URLSearchParams(window.location.search);
+          $("favorites").value = (params.get("fav") || state.data.defaultFavorites.join(",")).split(",").join(", ");
+          $("minRoeValue").textContent = $("minRoe").value + "%";
+          $("minMarginValue").textContent = $("minMargin").value + "%";
+          $("maxHighGapValue").textContent = $("maxHighGap").value + "%";
+          bindEvents();
+          applyFilters();
+          renderFavorites();
+        } catch (error) {
+          document.querySelector("main").insertAdjacentHTML("beforeend", `<div class="empty">데이터 파일을 읽지 못했습니다. generate_data.py를 실행해 public/data.json을 생성해 주세요.</div>`);
+          console.error(error);
+        }
+      }
+      init();
+    </script>
+  </body>
+</html>

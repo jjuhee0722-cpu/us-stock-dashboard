@@ -1,21 +1,37 @@
 # US Stock Dashboard
 
-Streamlit dashboard for screening US stocks by sector, profitability, momentum, analyst target price, and valuation metrics.
+Static US stock dashboard for sector screening and a personal watchlist.
 
-It also includes a personal watchlist dashboard. Add tickers in the watchlist box and save them; the list is stored in the URL as a `fav` query parameter so the same link can reopen the same watchlist.
+The public site is just static files:
 
-## Local Run
+- `public/index.html`
+- `public/data.json`
+
+Python is only used to refresh Yahoo Finance data and write `public/data.json`.
+
+## Local Build
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+python generate_data.py
+python -m http.server 8000 --directory public
 ```
 
-## Render
+Then open `http://localhost:8000`.
 
-Render can deploy this repository using `render.yaml`.
+## Deploy
 
-- Build command: `pip install -r requirements.txt`
-- Start command: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true`
+### GitHub Pages
+
+The workflow in `.github/workflows/update-static-dashboard.yml` refreshes data once per hour and deploys the `public` directory to GitHub Pages.
+
+In GitHub, set Pages source to **GitHub Actions**.
+
+### Cloudflare Pages
+
+Use these settings:
+
+- Build command: `pip install -r requirements.txt && python generate_data.py`
+- Output directory: `public`
 
 The dashboard uses Yahoo Finance data through `yfinance`; values may be delayed or missing for some tickers.
