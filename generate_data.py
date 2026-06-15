@@ -2,14 +2,17 @@ import json
 import math
 import re
 from datetime import datetime, timezone
+from io import StringIO
 from pathlib import Path
 from typing import Optional
+from urllib.error import URLError
 
 import pandas as pd
+import requests
 import yfinance as yf
 
 
-SECTOR_TICKERS = {
+CURATED_SECTOR_TICKERS = {
     "Technology": ["NVDA", "AVGO", "MSFT", "AAPL", "GOOGL", "META", "CRM", "ORCL"],
     "Semiconductors": ["TSM", "AMD", "LRCX", "ASML", "AMAT", "QCOM", "MU", "KLAC"],
     "Infrastructure/Data": ["AMT", "EQIX", "ANET", "CSCO", "NET", "DDOG", "SNOW"],
@@ -22,6 +25,12 @@ SECTOR_TICKERS = {
     "ETFs": ["SPY", "QQQ", "VOO", "VTI", "SCHD"],
 }
 
+S_AND_P_500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+MAJOR_ETFS = ["SPY", "QQQ", "VOO", "VTI", "SCHD", "DIA", "IWM", "SOXX", "SMH", "XLK", "XLF", "XLV", "XLE"]
+EXTRA_TICKERS = [
+    "TSM", "ASML", "SHOP", "BABA", "NVO", "ARM", "PLTR", "COIN", "MSTR", "ARKK",
+    "RIVN", "HOOD", "NET", "CRWD", "DDOG", "SNOW", "OKTA", "MDB", "SE", "MELI",
+]
 DEFAULT_FAVORITES = ["NVDA", "MSFT", "AAPL", "GOOGL", "AVGO"]
 PUBLIC_DIR = Path(__file__).resolve().parent / "public"
 DATA_PATH = PUBLIC_DIR / "data.json"
@@ -32,6 +41,54 @@ def flatten_tickers(sector_map: dict[str, list[str]]) -> list[str]:
     for sector_tickers in sector_map.values():
         tickers.extend(sector_tickers)
     return sorted(set(tickers))
+
+
+def yahoo_symbol(symbol: str) -> str:
+    return str(symbol).strip().upper().replace(".", "-")
+
+
+def load_sp500_sectors() -> dict[str, list[str]]:
+    try:
+        response = requests.get(
+            S_AND_P_500_URL,
+            headers={"User-Agent": "Mozilla/5.0 us-stock-dashboard data refresh"},
+            timeout=30,
+        )
+        response.raise_for_status()
+        table = pd.read_html(StringIO(response.text))[0]
+    except (ImportError, ValueError, URLError, OSError, requests.RequestException) as error:
+        print(f"Could not load S&P 500 constituents: {error}")
+        return {}
+
+    sectors: dict[str, list[str]] = {}
+    for _, row in table.iterrows():
+        ticker = yahoo_symbol(row.get("Symbol", ""))
+        sector = str(row.get("GICS Sector") or "S&P 500").strip()
+        if not ticker:
+            continue
+        sectors.setdefault(sector, []).append(ticker)
+
+    return {sector: sorted(set(tickers)) for sector, tickers in sorted(sectors.items())}
+
+
+def build_sector_universe() -> tuple[dict[str, list[str]], str]:
+    sectors = load_sp500_sectors()
+    if not sectors:
+        sectors = {sector: list(tickers) for sector, tickers in CURATED_SECTOR_TICKERS.items()}
+        source = "Curated fallback list"
+    else:
+        sectors["Major ETFs"] = sorted(set(MAJOR_ETFS))
+        sectors["Additional Tickers"] = sorted(set(EXTRA_TICKERS))
+        source = "S&P 500 구성종목 + 주요 ETF + 추가 티커"
+
+    for ticker in DEFAULT_FAVORITES:
+        sectors.setdefault("Favorites", [])
+        if ticker not in sectors["Favorites"] and ticker not in flatten_tickers(sectors):
+            sectors["Favorites"].append(ticker)
+    if not sectors.get("Favorites"):
+        sectors.pop("Favorites", None)
+
+    return sectors, source
 
 
 def parse_ticker_text(text: str) -> list[str]:
@@ -274,16 +331,20 @@ def sanitize_for_json(value):
 
 
 def main() -> None:
-    tickers = flatten_tickers(SECTOR_TICKERS)
+    sectors, universe_source = build_sector_universe()
+    tickers = flatten_tickers(sectors)
     rows, charts = build_stock_rows(tickers)
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     payload = {
         "meta": {
             "generatedAt": generated_at,
             "source": "Yahoo Finance via yfinance",
-            "refreshCadence": "GitHub Actions schedule: hourly",
+            "refreshCadence": "GitHub Actions schedule: every 3 hours",
+            "universe": universe_source,
+            "tickerCount": len(tickers),
+            "stockCount": len(rows),
         },
-        "sectors": SECTOR_TICKERS,
+        "sectors": sectors,
         "defaultFavorites": DEFAULT_FAVORITES,
         "stocks": rows,
         "charts": charts,

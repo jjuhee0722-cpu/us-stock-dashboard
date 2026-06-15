@@ -1,6 +1,6 @@
 # US Stock Dashboard
 
-Static US stock dashboard for sector screening and a personal watchlist.
+Static US stock dashboard for S&P 500 screening, major ETF tracking, additional tickers, and a personal watchlist.
 
 The public site is just static files:
 
@@ -23,7 +23,7 @@ Then open `http://localhost:8000`.
 
 ### GitHub Pages
 
-The workflow in `.github/workflows/update-static-dashboard.yml` refreshes data once per hour and publishes the `public` directory to the `gh-pages` branch.
+The workflow in `.github/workflows/update-static-dashboard.yml` refreshes data every 3 hours and publishes the `public` directory to the `gh-pages` branch.
 
 Public URL:
 
@@ -38,4 +38,4 @@ Use these settings:
 - Build command: `pip install -r requirements.txt && python generate_data.py`
 - Output directory: `public`
 
-The dashboard uses Yahoo Finance data through `yfinance`; values may be delayed or missing for some tickers.
+The dashboard uses Yahoo Finance data through `yfinance`; values may be delayed or missing for some tickers. The static search universe is S&P 500 constituents plus major ETFs and the extra tickers configured in `generate_data.py`.
