@@ -337,6 +337,44 @@
         align-items: end;
         margin-bottom: 12px;
       }
+      .watchlist-sector-tools {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.36fr) 1fr;
+        gap: 12px;
+        align-items: end;
+        margin: 12px 0 0;
+      }
+      .watchlist-sector-tools p {
+        margin: 0 0 8px;
+        line-height: 1.45;
+      }
+      .grouped-cards {
+        display: none;
+        gap: 12px;
+      }
+      .sector-group {
+        margin-bottom: 14px;
+      }
+      .sector-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 12px 0 8px;
+        color: #0f172a;
+        font-size: 1rem;
+      }
+      .sector-title span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .sector-row td {
+        background: #f1f5f9;
+        color: #334155;
+        font-weight: 800;
+        text-align: left;
+      }
       .search-results {
         display: grid;
         gap: 8px;
@@ -455,6 +493,7 @@
         .pick-grid,
         .watchlist-search,
         .watchlist-head,
+        .watchlist-sector-tools,
         .chart-grid {
           grid-template-columns: 1fr;
         }
@@ -468,6 +507,9 @@
         .cards {
           display: grid;
           grid-template-columns: 1fr;
+        }
+        .grouped-cards {
+          display: grid;
         }
         .summary-card { padding: 13px 14px; }
         .summary-card strong { font-size: 1.18rem; }
@@ -571,14 +613,21 @@
         <div class="watchlist-head">
           <div>
             <label for="favorites">관심종목 티커 직접 편집</label>
-            <input id="favorites" type="text" placeholder="예: NVDA, MSFT, AAPL, GOOGL" />
+            <input id="favorites" type="text" placeholder="예: NVDA, MSFT, AAPL, GOOGL, RKLB" />
           </div>
           <button id="saveFavorites">URL 저장</button>
           <button id="resetFavorites" class="secondary">기본값</button>
         </div>
+        <div class="watchlist-sector-tools">
+          <div>
+            <label for="favoriteSector">관심종목 섹터</label>
+            <select id="favoriteSector"></select>
+          </div>
+          <p class="muted">기본 관심종목은 요청하신 보유 종목 기준이며, 검색 결과의 별표로 추가하거나 뺄 수 있습니다.</p>
+        </div>
         <p class="muted" id="favoriteStatus"></p>
       </section>
-      <section class="cards" id="favoriteCards"></section>
+      <section class="grouped-cards" id="favoriteCards"></section>
       <section class="table-wrap">
         <table>
           <thead>
@@ -608,7 +657,9 @@
 
     <script>
       const FAVORITES_KEY = "us-stock-dashboard:favorites";
-      const state = { data: null, screened: [], favorites: [], favoriteTickers: [], activeTab: "recommendations" };
+      const FAVORITES_BOOTSTRAP_KEY = "us-stock-dashboard:default-favorites:v2";
+      const ALL_FAVORITE_SECTORS = "전체 관심섹터";
+      const state = { data: null, screened: [], favorites: [], visibleFavorites: [], favoriteTickers: [], favoriteSector: ALL_FAVORITE_SECTORS, activeTab: "recommendations" };
       const $ = (id) => document.getElementById(id);
       const num = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
       const fmt = (value, digits = 2) => num(value) === null ? "-" : Number(value).toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits });
@@ -625,10 +676,47 @@
         return "$" + Math.round(n).toLocaleString("en-US");
       };
       const cls = (value) => num(value) === null ? "" : Number(value) >= 0 ? "positive" : "negative";
-      const parseTickers = (text) => [...new Set(String(text).toUpperCase().split(/[\s,;/]+/).map(t => t.replace(/[^A-Z0-9.\-]/g, "")).filter(Boolean))].slice(0, 20);
+      const parseTickers = (text) => [...new Set(String(text).toUpperCase().split(/[\s,;/]+/).map(t => t.replace(/[^A-Z0-9.\-]/g, "")).filter(Boolean))].slice(0, 80);
 
       function stockByTicker(ticker) {
         return state.data.stocks.find((stock) => stock.Ticker === ticker);
+      }
+
+      function favoriteGroupName(ticker) {
+        const favoriteGroups = state.data.favoriteGroups || {};
+        for (const [group, tickers] of Object.entries(favoriteGroups)) {
+          if (tickers.includes(ticker)) return group;
+        }
+        for (const [sector, tickers] of Object.entries(state.data.sectors || {})) {
+          if (tickers.includes(ticker)) return sector;
+        }
+        return "기타";
+      }
+
+      function groupedFavorites() {
+        const groups = new Map();
+        state.favorites.forEach((row) => {
+          const group = favoriteGroupName(row.Ticker);
+          if (state.favoriteSector !== ALL_FAVORITE_SECTORS && group !== state.favoriteSector) return;
+          if (!groups.has(group)) groups.set(group, []);
+          groups.get(group).push(row);
+        });
+        return groups;
+      }
+
+      function populateFavoriteSectorOptions() {
+        const current = $("favoriteSector").value || state.favoriteSector || ALL_FAVORITE_SECTORS;
+        const groups = [...new Set(state.favorites.map((row) => favoriteGroupName(row.Ticker)))];
+        const preferred = Object.keys(state.data.favoriteGroups || {});
+        const orderedGroups = [
+          ...preferred.filter((group) => groups.includes(group)),
+          ...groups.filter((group) => !preferred.includes(group)).sort(),
+        ];
+        $("favoriteSector").innerHTML = [ALL_FAVORITE_SECTORS, ...orderedGroups]
+          .map((group) => `<option value="${group}">${group}</option>`)
+          .join("");
+        state.favoriteSector = orderedGroups.includes(current) ? current : ALL_FAVORITE_SECTORS;
+        $("favoriteSector").value = state.favoriteSector;
       }
 
       function favoriteButton(ticker) {
@@ -641,7 +729,7 @@
         const available = new Set(state.data.stocks.map((stock) => stock.Ticker));
         state.favoriteTickers = [...new Set(tickers.map((ticker) => String(ticker).toUpperCase()))]
           .filter((ticker) => available.has(ticker))
-          .slice(0, 20);
+          .slice(0, 80);
         $("favorites").value = state.favoriteTickers.join(", ");
         if (persist) localStorage.setItem(FAVORITES_KEY, state.favoriteTickers.join(","));
         renderFavorites();
@@ -769,19 +857,30 @@
 
       function renderFavorites() {
         state.favorites = state.favoriteTickers.map(stockByTicker).filter(Boolean);
-        $("favoriteCards").innerHTML = state.favorites.length
-          ? state.favorites.map((row) => cardHtml(row, true)).join("")
+        populateFavoriteSectorOptions();
+        const groups = groupedFavorites();
+        state.visibleFavorites = [...groups.values()].flat();
+        $("favoriteCards").innerHTML = state.visibleFavorites.length
+          ? [...groups.entries()].map(([group, rows]) => `
+            <section class="sector-group">
+              <h3 class="sector-title">${group}<span>${rows.length}개</span></h3>
+              <div class="cards">${rows.map((row) => cardHtml(row, true)).join("")}</div>
+            </section>
+          `).join("")
           : `<div class="empty">검색에서 별표를 누르면 관심종목에 추가됩니다.</div>`;
-        $("favoriteRows").innerHTML = state.favorites.map((row) => `
-          <tr>
-            <td>${favoriteButton(row.Ticker)}</td><td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${largeMoney(row["Market Cap"])}</td>
-            <td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td><td>${fmt(row.PSR)}</td><td>${pct(row["Dividend Yield(%)"])}</td>
-            <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td>
-            <td>${fmt(row["Debt/Equity"])}</td><td>${money(row["Target Price"])}</td><td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Valuation}</td>
-          </tr>
+        $("favoriteRows").innerHTML = [...groups.entries()].map(([group, rows]) => `
+          <tr class="sector-row"><td colspan="16">${group} · ${rows.length}개</td></tr>
+          ${rows.map((row) => `
+            <tr>
+              <td>${favoriteButton(row.Ticker)}</td><td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${largeMoney(row["Market Cap"])}</td>
+              <td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td><td>${fmt(row.PSR)}</td><td>${pct(row["Dividend Yield(%)"])}</td>
+              <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td>
+              <td>${fmt(row["Debt/Equity"])}</td><td>${money(row["Target Price"])}</td><td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Valuation}</td>
+            </tr>
+          `).join("")}
         `).join("");
         $("favoriteStatus").textContent = state.favoriteTickers.length
-          ? `${state.favoriteTickers.length}개 관심종목이 이 브라우저에 저장되었습니다. URL 저장을 누르면 링크로도 공유됩니다.`
+          ? `${state.favoriteTickers.length}개 관심종목 중 ${state.visibleFavorites.length}개를 표시 중입니다. URL 저장을 누르면 링크로도 공유됩니다.`
           : "관심종목이 비어 있습니다.";
         renderMetricBars();
         updateTabCounts();
@@ -815,7 +914,7 @@
 
       function renderMetricBars() {
         const metric = $("metricSelect").value;
-        const rows = state.favorites.filter((row) => num(row[metric]) !== null).sort((a, b) => b[metric] - a[metric]);
+        const rows = state.visibleFavorites.filter((row) => num(row[metric]) !== null).sort((a, b) => b[metric] - a[metric]);
         if (!rows.length) {
           $("metricBars").innerHTML = `<div class="empty">선택한 지표의 데이터가 없습니다.</div>`;
           return;
@@ -911,6 +1010,10 @@
           toggleFavorite(button.dataset.fav);
         });
         $("metricSelect").addEventListener("change", renderMetricBars);
+        $("favoriteSector").addEventListener("change", () => {
+          state.favoriteSector = $("favoriteSector").value;
+          renderFavorites();
+        });
         $("saveFavorites").addEventListener("click", () => {
           setFavoriteTickers(parseTickers($("favorites").value));
           syncFavoritesToUrl();
@@ -933,7 +1036,11 @@
           $("sector").innerHTML = [`<option>전체 보기</option>`, ...Object.keys(state.data.sectors).map((sector) => `<option>${sector}</option>`)].join("");
           const params = new URLSearchParams(window.location.search);
           const storedFavorites = localStorage.getItem(FAVORITES_KEY);
-          const initialFavorites = parseTickers(params.get("fav") || storedFavorites || state.data.defaultFavorites.join(","));
+          let initialFavorites = parseTickers(params.get("fav") || storedFavorites || state.data.defaultFavorites.join(","));
+          if (!params.get("fav") && !localStorage.getItem(FAVORITES_BOOTSTRAP_KEY)) {
+            initialFavorites = parseTickers([...initialFavorites, ...(state.data.defaultFavorites || [])].join(","));
+            localStorage.setItem(FAVORITES_BOOTSTRAP_KEY, "1");
+          }
           const initialTab = params.get("tab") === "watchlist" ? "watchlist" : "recommendations";
           $("minRoeValue").textContent = $("minRoe").value + "%";
           $("minMarginValue").textContent = $("minMargin").value + "%";

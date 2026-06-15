@@ -30,8 +30,24 @@ MAJOR_ETFS = ["SPY", "QQQ", "VOO", "VTI", "SCHD", "DIA", "IWM", "SOXX", "SMH", "
 EXTRA_TICKERS = [
     "TSM", "ASML", "SHOP", "BABA", "NVO", "ARM", "PLTR", "COIN", "MSTR", "ARKK",
     "RIVN", "HOOD", "NET", "CRWD", "DDOG", "SNOW", "OKTA", "MDB", "SE", "MELI",
+    "RKLB", "MRVL", "BMNR", "CRDO", "ARKX", "BITO", "BOTZ", "DRAM", "IREN", "IONQ",
 ]
-DEFAULT_FAVORITES = ["NVDA", "MSFT", "AAPL", "GOOGL", "AVGO"]
+DEFAULT_FAVORITES = [
+    "RKLB", "LITE", "MRVL", "MSFT", "MU", "META", "VRT", "AVGO", "BMNR", "SNDK",
+    "COHR", "CRDO", "TSLA", "PLTR", "AMD", "ARKX", "ARM", "BITO", "BOTZ", "DRAM",
+    "STX", "AMZN", "IREN", "IONQ", "GOOGL", "AAPL", "NVDA", "WDC", "ETN", "INTC",
+]
+FAVORITE_GROUPS = {
+    "반도체/하드웨어": [
+        "LITE", "MRVL", "MU", "AVGO", "SNDK", "COHR", "CRDO", "AMD", "ARM", "DRAM",
+        "STX", "WDC", "NVDA", "INTC",
+    ],
+    "AI/플랫폼": ["MSFT", "META", "PLTR", "AMZN", "GOOGL", "AAPL"],
+    "전력/인프라": ["VRT", "ETN"],
+    "우주/로보틱스/퀀텀": ["RKLB", "ARKX", "BOTZ", "IONQ"],
+    "크립토/비트코인": ["BMNR", "BITO", "IREN"],
+    "전기차": ["TSLA"],
+}
 PUBLIC_DIR = Path(__file__).resolve().parent / "public"
 DATA_PATH = PUBLIC_DIR / "data.json"
 
@@ -98,7 +114,7 @@ def parse_ticker_text(text: str) -> list[str]:
         ticker = re.sub(r"[^A-Z0-9.\-]", "", ticker)
         if ticker and ticker not in tickers:
             tickers.append(ticker)
-    return tickers[:20]
+    return tickers[:80]
 
 
 def clean_number(value: Optional[float]) -> Optional[float]:
@@ -346,6 +362,7 @@ def main() -> None:
         },
         "sectors": sectors,
         "defaultFavorites": DEFAULT_FAVORITES,
+        "favoriteGroups": FAVORITE_GROUPS,
         "stocks": rows,
         "charts": charts,
     }
