@@ -15,6 +15,11 @@ SECTOR_TICKERS = {
     "Infrastructure/Data": ["AMT", "EQIX", "ANET", "CSCO", "NET", "DDOG", "SNOW"],
     "Cybersecurity": ["PANW", "CRWD", "ZS", "FTNT", "OKTA"],
     "Cloud/Software": ["NOW", "ADBE", "INTU", "SHOP", "MDB", "TEAM"],
+    "Consumer/Internet": ["AMZN", "TSLA", "NFLX", "COST", "WMT", "HD", "MCD", "NKE", "UBER"],
+    "Healthcare": ["LLY", "UNH", "JNJ", "ABBV", "MRK", "TMO", "ISRG"],
+    "Financials": ["JPM", "BAC", "V", "MA", "BRK-B", "GS", "MS"],
+    "Energy/Industrial": ["XOM", "CVX", "CAT", "GE", "RTX", "BA", "LIN", "NEE"],
+    "ETFs": ["SPY", "QQQ", "VOO", "VTI", "SCHD"],
 }
 
 DEFAULT_FAVORITES = ["NVDA", "MSFT", "AAPL", "GOOGL", "AVGO"]
