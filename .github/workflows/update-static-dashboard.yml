@@ -8,20 +8,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: gh-pages
   cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,32 +33,9 @@ jobs:
       - name: Generate static data
         run: python generate_data.py
 
-      - name: Check Pages enablement
-        id: pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if curl -fsS \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages" >/tmp/pages.json; then
-            echo "enabled=true" >> "${GITHUB_OUTPUT}"
-          else
-            echo "enabled=false" >> "${GITHUB_OUTPUT}"
-            echo "::warning::GitHub Pages is not enabled yet. Enable Pages with source 'GitHub Actions', then rerun this workflow."
-          fi
-
-      - name: Configure Pages
-        if: steps.pages.outputs.enabled == 'true'
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        if: steps.pages.outputs.enabled == 'true'
-        uses: actions/upload-pages-artifact@v3
+      - name: Publish public directory
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: public
-
-      - name: Deploy to GitHub Pages
-        if: steps.pages.outputs.enabled == 'true'
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public

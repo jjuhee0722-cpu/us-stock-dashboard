@@ -23,9 +23,13 @@ Then open `http://localhost:8000`.
 
 ### GitHub Pages
 
-The workflow in `.github/workflows/update-static-dashboard.yml` refreshes data once per hour and deploys the `public` directory to GitHub Pages.
+The workflow in `.github/workflows/update-static-dashboard.yml` refreshes data once per hour and publishes the `public` directory to the `gh-pages` branch.
 
-In GitHub, set Pages source to **GitHub Actions**.
+Public URL:
+
+```text
+https://jjuhee0722-cpu.github.io/us-stock-dashboard/
+```
 
 ### Cloudflare Pages
 
