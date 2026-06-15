@@ -49,6 +49,47 @@
         line-height: 1.55;
         font-size: 0.96rem;
       }
+      .tabs {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        background: rgba(245, 247, 250, 0.94);
+        backdrop-filter: blur(10px);
+        padding: 8px 0 12px;
+        margin-bottom: 2px;
+      }
+      .tab-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        height: 42px;
+        border-color: #cbd5e1;
+        background: #fff;
+        color: #334155;
+      }
+      .tab-button.active {
+        border-color: #0f766e;
+        background: #0f766e;
+        color: #fff;
+      }
+      .tab-button span {
+        min-width: 24px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        color: #334155;
+        padding: 2px 7px;
+        font-size: 0.72rem;
+      }
+      .tab-button.active span {
+        background: rgba(255, 255, 255, 0.22);
+        color: #fff;
+      }
+      .tab-panel { display: none; }
+      .tab-panel.active { display: block; }
       .panel {
         background: var(--panel);
         border: 1px solid var(--line);
@@ -407,6 +448,8 @@
         .hero { padding: 18px 16px; }
         .hero h1 { font-size: 1.38rem; line-height: 1.28; }
         .hero p { font-size: 0.88rem; }
+        .tabs { padding-top: 7px; }
+        .tab-button { width: 100%; }
         .filters,
         .summary-grid,
         .pick-grid,
@@ -443,6 +486,12 @@
         </p>
       </section>
 
+      <nav class="tabs" aria-label="대시보드 보기">
+        <button class="tab-button active" type="button" data-tab-target="recommendations">추천종목 <span id="recommendationCount">0</span></button>
+        <button class="tab-button" type="button" data-tab-target="watchlist">관심종목 <span id="watchlistCount">0</span></button>
+      </nav>
+
+      <section class="tab-panel active" id="recommendationsTab">
       <section class="panel">
         <div class="filters">
           <div>
@@ -505,7 +554,9 @@
           <p class="muted" id="chartCaption"></p>
         </div>
       </section>
+      </section>
 
+      <section class="tab-panel" id="watchlistTab">
       <h2>관심종목 대시보드</h2>
       <section class="panel">
         <div class="watchlist-search">
@@ -551,11 +602,12 @@
         </select>
       </section>
       <section class="metric-bars" id="metricBars"></section>
+      </section>
     </main>
 
     <script>
       const FAVORITES_KEY = "us-stock-dashboard:favorites";
-      const state = { data: null, screened: [], favorites: [], favoriteTickers: [] };
+      const state = { data: null, screened: [], favorites: [], favoriteTickers: [], activeTab: "recommendations" };
       const $ = (id) => document.getElementById(id);
       const num = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
       const fmt = (value, digits = 2) => num(value) === null ? "-" : Number(value).toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits });
@@ -608,7 +660,28 @@
         const url = new URL(window.location.href);
         if (state.favoriteTickers.length) url.searchParams.set("fav", state.favoriteTickers.join(","));
         else url.searchParams.delete("fav");
+        url.searchParams.set("tab", state.activeTab);
         history.replaceState(null, "", url);
+      }
+
+      function setActiveTab(tabName, updateUrl = true) {
+        state.activeTab = tabName === "watchlist" ? "watchlist" : "recommendations";
+        document.querySelectorAll(".tab-button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.tabTarget === state.activeTab);
+        });
+        $("recommendationsTab").classList.toggle("active", state.activeTab === "recommendations");
+        $("watchlistTab").classList.toggle("active", state.activeTab === "watchlist");
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("tab", state.activeTab);
+          history.replaceState(null, "", url);
+        }
+        if (state.activeTab === "recommendations") requestAnimationFrame(drawChart);
+      }
+
+      function updateTabCounts() {
+        $("recommendationCount").textContent = state.screened.length;
+        $("watchlistCount").textContent = state.favoriteTickers.length;
       }
 
       function applyFilters() {
@@ -629,6 +702,7 @@
           .filter((s) => !requireMa50 || s["Above MA50"])
           .sort((a, b) => (b["ROE(%)"] ?? -999) - (a["ROE(%)"] ?? -999));
         renderScreening(sector, sectorTickers.length, minRoe, minMargin, maxHighGap);
+        updateTabCounts();
       }
 
       function renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap) {
@@ -709,6 +783,7 @@
           ? `${state.favoriteTickers.length}개 관심종목이 이 브라우저에 저장되었습니다. URL 저장을 누르면 링크로도 공유됩니다.`
           : "관심종목이 비어 있습니다.";
         renderMetricBars();
+        updateTabCounts();
       }
 
       function renderSearchResults() {
@@ -811,6 +886,9 @@
       }
 
       function bindEvents() {
+        document.querySelectorAll("[data-tab-target]").forEach((button) => {
+          button.addEventListener("click", () => setActiveTab(button.dataset.tabTarget));
+        });
         ["sector", "minRoe", "minMargin", "maxHighGap", "aboveMa50"].forEach((id) => $(id).addEventListener("input", () => {
           $("minRoeValue").textContent = $("minRoe").value + "%";
           $("minMarginValue").textContent = $("minMargin").value + "%";
@@ -853,12 +931,14 @@
           const params = new URLSearchParams(window.location.search);
           const storedFavorites = localStorage.getItem(FAVORITES_KEY);
           const initialFavorites = parseTickers(params.get("fav") || storedFavorites || state.data.defaultFavorites.join(","));
+          const initialTab = params.get("tab") === "watchlist" ? "watchlist" : "recommendations";
           $("minRoeValue").textContent = $("minRoe").value + "%";
           $("minMarginValue").textContent = $("minMargin").value + "%";
           $("maxHighGapValue").textContent = $("maxHighGap").value + "%";
           bindEvents();
           setFavoriteTickers(initialFavorites, false);
           applyFilters();
+          setActiveTab(initialTab, false);
         } catch (error) {
           document.querySelector("main").insertAdjacentHTML("beforeend", `<div class="empty">데이터 파일을 읽지 못했습니다. generate_data.py를 실행해 public/data.json을 생성해 주세요.</div>`);
           console.error(error);
