@@ -237,10 +237,17 @@
         box-shadow: var(--shadow);
       }
       .stock-card-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: start;
         font-weight: 760;
         font-size: 0.98rem;
         margin-bottom: 10px;
         line-height: 1.35;
+      }
+      .stock-card-title span {
+        min-width: 0;
       }
       .opinion-bar {
         background: #f0fdfa;
@@ -282,6 +289,38 @@
         gap: 8px;
         align-items: end;
       }
+      .watchlist-search {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: end;
+        margin-bottom: 12px;
+      }
+      .search-results {
+        display: grid;
+        gap: 8px;
+        margin: 10px 0 14px;
+      }
+      .search-result {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) repeat(4, auto);
+        gap: 10px;
+        align-items: center;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f8fafc;
+        font-size: 0.84rem;
+      }
+      .search-result strong,
+      .search-result span {
+        white-space: nowrap;
+      }
+      .search-result .result-name {
+        min-width: 0;
+        white-space: normal;
+        line-height: 1.35;
+      }
       button {
         height: 38px;
         border: 1px solid #0f172a;
@@ -296,6 +335,23 @@
         background: #fff;
         color: #0f172a;
         border-color: #cbd5e1;
+      }
+      .icon-button {
+        width: 34px;
+        min-width: 34px;
+        height: 34px;
+        padding: 0;
+        border-radius: 999px;
+        border-color: #cbd5e1;
+        background: #fff;
+        color: #64748b;
+        font-size: 1.08rem;
+        line-height: 1;
+      }
+      .icon-button.active {
+        border-color: #f59e0b;
+        background: #fffbeb;
+        color: #b45309;
       }
       .chart-grid {
         display: grid;
@@ -354,9 +410,16 @@
         .filters,
         .summary-grid,
         .pick-grid,
+        .watchlist-search,
         .watchlist-head,
         .chart-grid {
           grid-template-columns: 1fr;
+        }
+        .search-result {
+          grid-template-columns: auto minmax(0, 1fr);
+        }
+        .search-result .compact-metric {
+          display: none;
         }
         .table-wrap { display: none; }
         .cards {
@@ -424,7 +487,7 @@
         <table>
           <thead>
             <tr>
-              <th>티커</th><th>회사명</th><th>현재가</th><th>목표가</th><th>상승여력</th>
+              <th>관심</th><th>티커</th><th>회사명</th><th>현재가</th><th>목표가</th><th>상승여력</th>
               <th>의견</th><th>ROE</th><th>영업이익률</th><th>PER</th><th>PBR</th>
               <th>매출성장률</th><th>부채/자본</th><th>52주 고가</th><th>고가 대비</th>
             </tr>
@@ -445,21 +508,30 @@
 
       <h2>관심종목 대시보드</h2>
       <section class="panel">
+        <div class="watchlist-search">
+          <div>
+            <label for="stockSearch">종목 검색</label>
+            <input id="stockSearch" type="text" placeholder="티커 또는 회사명 입력: TSLA, COST, Amazon" autocomplete="off" />
+          </div>
+          <button id="clearSearch" class="secondary">지우기</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
         <div class="watchlist-head">
           <div>
-            <label for="favorites">관심종목 티커</label>
+            <label for="favorites">관심종목 티커 직접 편집</label>
             <input id="favorites" type="text" placeholder="예: NVDA, MSFT, AAPL, GOOGL" />
           </div>
-          <button id="saveFavorites">저장</button>
+          <button id="saveFavorites">URL 저장</button>
           <button id="resetFavorites" class="secondary">기본값</button>
         </div>
+        <p class="muted" id="favoriteStatus"></p>
       </section>
       <section class="cards" id="favoriteCards"></section>
       <section class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>티커</th><th>회사명</th><th>현재가</th><th>시가총액</th><th>PER</th><th>PBR</th><th>PSR</th>
+              <th>관심</th><th>티커</th><th>회사명</th><th>현재가</th><th>시가총액</th><th>PER</th><th>PBR</th><th>PSR</th>
               <th>배당</th><th>ROE</th><th>영업이익률</th><th>매출성장률</th><th>부채/자본</th><th>목표가</th><th>상승여력</th><th>판단</th>
             </tr>
           </thead>
@@ -482,7 +554,8 @@
     </main>
 
     <script>
-      const state = { data: null, screened: [], favorites: [] };
+      const FAVORITES_KEY = "us-stock-dashboard:favorites";
+      const state = { data: null, screened: [], favorites: [], favoriteTickers: [] };
       const $ = (id) => document.getElementById(id);
       const num = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
       const fmt = (value, digits = 2) => num(value) === null ? "-" : Number(value).toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits });
@@ -503,6 +576,39 @@
 
       function stockByTicker(ticker) {
         return state.data.stocks.find((stock) => stock.Ticker === ticker);
+      }
+
+      function favoriteButton(ticker) {
+        const active = state.favoriteTickers.includes(ticker);
+        const label = active ? `${ticker} 관심종목에서 제거` : `${ticker} 관심종목에 추가`;
+        return `<button class="icon-button ${active ? "active" : ""}" data-fav="${ticker}" title="${label}" aria-label="${label}">${active ? "★" : "☆"}</button>`;
+      }
+
+      function setFavoriteTickers(tickers, persist = true) {
+        const available = new Set(state.data.stocks.map((stock) => stock.Ticker));
+        state.favoriteTickers = [...new Set(tickers.map((ticker) => String(ticker).toUpperCase()))]
+          .filter((ticker) => available.has(ticker))
+          .slice(0, 20);
+        $("favorites").value = state.favoriteTickers.join(", ");
+        if (persist) localStorage.setItem(FAVORITES_KEY, state.favoriteTickers.join(","));
+        renderFavorites();
+        renderSearchResults();
+        if (state.screened.length) renderScreeningRowsOnly();
+      }
+
+      function toggleFavorite(ticker) {
+        const active = state.favoriteTickers.includes(ticker);
+        const next = active
+          ? state.favoriteTickers.filter((item) => item !== ticker)
+          : [...state.favoriteTickers, ticker];
+        setFavoriteTickers(next);
+      }
+
+      function syncFavoritesToUrl() {
+        const url = new URL(window.location.href);
+        if (state.favoriteTickers.length) url.searchParams.set("fav", state.favoriteTickers.join(","));
+        else url.searchParams.delete("fav");
+        history.replaceState(null, "", url);
       }
 
       function applyFilters() {
@@ -546,7 +652,7 @@
           ? [["PER", multiple(row.PER)], ["PBR", multiple(row.PBR)], ["PSR", multiple(row.PSR)], ["ROE", pct(row["ROE(%)"])], ["배당수익률", pct(row["Dividend Yield(%)"])], ["매출성장률", pct(row["Revenue Growth(%)"])], ["순이익률", pct(row["Profit Margin(%)"])], ["부채/자본", fmt(row["Debt/Equity"])], ["추세", trend], ["시가총액", largeMoney(row["Market Cap"])]]
           : [["현재가", money(row.Price)], ["목표주가", money(row["Target Price"])], ["ROE", pct(row["ROE(%)"])], ["영업이익률", pct(row["Operating Margin(%)"])], ["PER", fmt(row.PER)], ["PBR", fmt(row.PBR)], ["52주 고가", money(row["52W High"])], ["고가 대비", pct(row["52W High Gap(%)"])]];
         return `<article class="stock-card">
-          <div class="stock-card-title">${row.Stock}</div>
+          <div class="stock-card-title"><span>${row.Stock}</span>${favoriteButton(row.Ticker)}</div>
           <div class="opinion-bar">${top}</div>
           <div class="stock-card-grid">${items.map(([k, v]) => `<div><span>${k}</span><strong>${v}</strong></div>`).join("")}</div>
         </article>`;
@@ -569,32 +675,66 @@
       function renderScreening(sector, totalCount, minRoe, minMargin, maxHighGap) {
         renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap);
         renderTopPicks();
+        renderScreeningRowsOnly();
+        populateChartOptions();
+      }
+
+      function renderScreeningRowsOnly() {
         $("screenCards").innerHTML = state.screened.map((row) => cardHtml(row)).join("");
         $("screenRows").innerHTML = state.screened.map((row) => `
           <tr>
-            <td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${money(row["Target Price"])}</td>
+            <td>${favoriteButton(row.Ticker)}</td><td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${money(row["Target Price"])}</td>
             <td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Opinion}</td>
             <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td>
             <td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td><td>${fmt(row["Debt/Equity"])}</td>
             <td>${money(row["52W High"])}</td><td class="${cls(row["52W High Gap(%)"])}">${pct(row["52W High Gap(%)"])}</td>
           </tr>
         `).join("");
-        populateChartOptions();
       }
 
       function renderFavorites() {
-        const tickers = parseTickers($("favorites").value);
-        state.favorites = tickers.map(stockByTicker).filter(Boolean);
-        $("favoriteCards").innerHTML = state.favorites.map((row) => cardHtml(row, true)).join("");
+        state.favorites = state.favoriteTickers.map(stockByTicker).filter(Boolean);
+        $("favoriteCards").innerHTML = state.favorites.length
+          ? state.favorites.map((row) => cardHtml(row, true)).join("")
+          : `<div class="empty">검색에서 별표를 누르면 관심종목에 추가됩니다.</div>`;
         $("favoriteRows").innerHTML = state.favorites.map((row) => `
           <tr>
-            <td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${largeMoney(row["Market Cap"])}</td>
+            <td>${favoriteButton(row.Ticker)}</td><td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${largeMoney(row["Market Cap"])}</td>
             <td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td><td>${fmt(row.PSR)}</td><td>${pct(row["Dividend Yield(%)"])}</td>
             <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td>
             <td>${fmt(row["Debt/Equity"])}</td><td>${money(row["Target Price"])}</td><td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Valuation}</td>
           </tr>
         `).join("");
+        $("favoriteStatus").textContent = state.favoriteTickers.length
+          ? `${state.favoriteTickers.length}개 관심종목이 이 브라우저에 저장되었습니다. URL 저장을 누르면 링크로도 공유됩니다.`
+          : "관심종목이 비어 있습니다.";
         renderMetricBars();
+      }
+
+      function renderSearchResults() {
+        const query = $("stockSearch").value.trim().toUpperCase();
+        if (!query) {
+          $("searchResults").innerHTML = "";
+          return;
+        }
+        const rows = state.data.stocks
+          .filter((stock) => stock.Ticker.includes(query) || String(stock.Name).toUpperCase().includes(query))
+          .sort((a, b) => a.Ticker.localeCompare(b.Ticker))
+          .slice(0, 8);
+        if (!rows.length) {
+          $("searchResults").innerHTML = `<div class="empty">현재 data.json에 ${query} 데이터가 없습니다. 정적 대시보드는 미리 수집된 종목만 표시할 수 있습니다.</div>`;
+          return;
+        }
+        $("searchResults").innerHTML = rows.map((row) => `
+          <div class="search-result">
+            ${favoriteButton(row.Ticker)}
+            <div class="result-name"><strong>${row.Ticker}</strong> · ${row.Name}</div>
+            <span class="compact-metric">현재 ${money(row.Price)}</span>
+            <span class="compact-metric">목표 ${money(row["Target Price"])}</span>
+            <span class="compact-metric ${cls(row["Target Upside(%)"])}">상승 ${pct(row["Target Upside(%)"])}</span>
+            <span class="compact-metric">ROE ${pct(row["ROE(%)"])}</span>
+          </div>
+        `).join("");
       }
 
       function renderMetricBars() {
@@ -678,22 +818,27 @@
           applyFilters();
         }));
         $("chartTicker").addEventListener("change", drawChart);
-        $("favorites").addEventListener("input", renderFavorites);
+        $("stockSearch").addEventListener("input", renderSearchResults);
+        $("clearSearch").addEventListener("click", () => {
+          $("stockSearch").value = "";
+          renderSearchResults();
+        });
+        $("favorites").addEventListener("input", () => {
+          setFavoriteTickers(parseTickers($("favorites").value));
+        });
+        document.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-fav]");
+          if (!button) return;
+          toggleFavorite(button.dataset.fav);
+        });
         $("metricSelect").addEventListener("change", renderMetricBars);
         $("saveFavorites").addEventListener("click", () => {
-          const tickers = parseTickers($("favorites").value);
-          const url = new URL(window.location.href);
-          url.searchParams.set("fav", tickers.join(","));
-          history.replaceState(null, "", url);
-          $("favorites").value = tickers.join(", ");
-          renderFavorites();
+          setFavoriteTickers(parseTickers($("favorites").value));
+          syncFavoritesToUrl();
         });
         $("resetFavorites").addEventListener("click", () => {
-          $("favorites").value = state.data.defaultFavorites.join(", ");
-          const url = new URL(window.location.href);
-          url.searchParams.set("fav", state.data.defaultFavorites.join(","));
-          history.replaceState(null, "", url);
-          renderFavorites();
+          setFavoriteTickers(state.data.defaultFavorites);
+          syncFavoritesToUrl();
         });
         window.addEventListener("resize", drawChart);
       }
@@ -706,13 +851,14 @@
           $("generatedAt").textContent = Number.isNaN(generated.getTime()) ? state.data.meta.generatedAt : generated.toLocaleString("ko-KR");
           $("sector").innerHTML = [`<option>전체 보기</option>`, ...Object.keys(state.data.sectors).map((sector) => `<option>${sector}</option>`)].join("");
           const params = new URLSearchParams(window.location.search);
-          $("favorites").value = (params.get("fav") || state.data.defaultFavorites.join(",")).split(",").join(", ");
+          const storedFavorites = localStorage.getItem(FAVORITES_KEY);
+          const initialFavorites = parseTickers(params.get("fav") || storedFavorites || state.data.defaultFavorites.join(","));
           $("minRoeValue").textContent = $("minRoe").value + "%";
           $("minMarginValue").textContent = $("minMargin").value + "%";
           $("maxHighGapValue").textContent = $("maxHighGap").value + "%";
           bindEvents();
+          setFavoriteTickers(initialFavorites, false);
           applyFilters();
-          renderFavorites();
         } catch (error) {
           document.querySelector("main").insertAdjacentHTML("beforeend", `<div class="empty">데이터 파일을 읽지 못했습니다. generate_data.py를 실행해 public/data.json을 생성해 주세요.</div>`);
           console.error(error);
