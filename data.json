@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-06-15T02:50:10+00:00",
+    "generatedAt": "2026-06-15T05:40:32+00:00",
     "source": "Yahoo Finance via yfinance",
     "refreshCadence": "GitHub Actions schedule: hourly"
   },
@@ -99,8 +99,8 @@
       "Name": "Adobe Inc.",
       "Stock": "ADBE - Adobe Inc.",
       "Price": 204.02000427246094,
-      "Target Price": 289.6775,
-      "Target Upside(%)": 41.98485145267752,
+      "Target Price": 288.47516,
+      "Target Upside(%)": 41.395526888996834,
       "Opinion Score": 3.0,
       "Opinion": "중립",
       "ROE(%)": 62.953996999999994,
@@ -279,8 +279,8 @@
       "Name": "ASML Holding N.V.",
       "Stock": "ASML - ASML Holding N.V.",
       "Price": 1863.550048828125,
-      "Target Price": 1706.0599,
-      "Target Upside(%)": -8.451082326828896,
+      "Target Price": 1708.6367,
+      "Target Upside(%)": -8.312808605571965,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 52.236000000000004,
