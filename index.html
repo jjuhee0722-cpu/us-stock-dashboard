@@ -234,6 +234,54 @@
         font-size: 0.72rem;
         padding: 3px 8px;
       }
+      .opinion-filter {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px;
+        margin: 10px 0 14px;
+        box-shadow: var(--shadow);
+      }
+      .opinion-filter-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 12px;
+        margin-bottom: 9px;
+      }
+      .opinion-filter-head strong {
+        display: block;
+        font-size: 0.9rem;
+      }
+      .opinion-filter-head span {
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+      .score-segments {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .score-button {
+        min-width: 0;
+        height: 40px;
+        padding: 0 8px;
+        border-color: #cbd5e1;
+        background: #fff;
+        color: #334155;
+        font-size: 0.78rem;
+      }
+      .score-button.active {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
+      }
+      .score-button small {
+        display: inline;
+        margin-left: 3px;
+        font-size: 0.7rem;
+        opacity: 0.8;
+      }
       .table-wrap {
         overflow-x: auto;
         background: #fff;
@@ -651,6 +699,13 @@
         .search-result .compact-metric {
           display: none;
         }
+        .opinion-filter-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .score-segments {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .table-wrap { display: none; }
         .cards {
           display: grid;
@@ -722,13 +777,14 @@
 
       <h2>스크리닝 결과</h2>
       <section id="topPicks"></section>
+      <section class="opinion-filter" id="opinionFilter"></section>
       <section class="cards" id="screenCards"></section>
       <section class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>관심</th><th>티커</th><th>회사명</th><th>현재가</th><th>목표가</th><th>상승여력</th>
-              <th>의견</th><th>ROE</th><th>영업이익률</th><th>PER</th><th>PBR</th>
+              <th>점수/의견</th><th>ROE</th><th>영업이익률</th><th>PER</th><th>PBR</th>
               <th>매출성장률</th><th>부채/자본</th><th>52주 고가</th><th>고가 대비</th>
             </tr>
           </thead>
@@ -816,6 +872,7 @@
       const ALL_FAVORITE_SECTORS = "전체 관심섹터";
       const state = {
         data: null,
+        screenedAll: [],
         screened: [],
         favorites: [],
         visibleFavorites: [],
@@ -823,6 +880,7 @@
         removedTickers: [],
         favoriteSector: ALL_FAVORITE_SECTORS,
         selectedTicker: null,
+        opinionFilter: "all",
         activeTab: "recommendations"
       };
       const $ = (id) => document.getElementById(id);
@@ -976,20 +1034,24 @@
           ? Object.values(state.data.sectors).flat()
           : state.data.sectors[sector];
         const tickerSet = new Set(sectorTickers);
-        state.screened = state.data.stocks
+        state.screenedAll = state.data.stocks
           .filter((s) => tickerSet.has(s.Ticker))
           .filter((s) => num(s["ROE(%)"]) !== null && s["ROE(%)"] >= minRoe)
           .filter((s) => num(s["Operating Margin(%)"]) !== null && s["Operating Margin(%)"] >= minMargin)
           .filter((s) => num(s["52W High Gap(%)"]) !== null && s["52W High Gap(%)"] >= -maxHighGap)
           .filter((s) => !requireMa50 || s["Above MA50"])
           .sort((a, b) => (b["ROE(%)"] ?? -999) - (a["ROE(%)"] ?? -999));
+        state.screened = state.opinionFilter === "all"
+          ? [...state.screenedAll]
+          : state.screenedAll.filter((s) => Math.round(num(s["Opinion Score"]) || 0) === Number(state.opinionFilter));
         renderScreening(sector, sectorTickers.length, minRoe, minMargin, maxHighGap);
         updateTabCounts();
       }
 
       function renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap) {
+        const scoreText = state.opinionFilter === "all" ? "전체 의견 점수" : `${state.opinionFilter}점 의견만`;
         const cards = [
-          ["후보 종목", `${state.screened.length}개`, `전체 ${totalCount}개 중 조건 통과`],
+          ["후보 종목", `${state.screened.length}개`, `${scoreText} · 기본 조건 통과 ${state.screenedAll.length}개`],
           ["선택 섹터", sector, "전체 보기는 모든 섹터를 함께 비교"],
           ["수익성 기준", `ROE ${minRoe}% 이상`, `영업이익률 ${minMargin}% 이상`],
           ["가격 위치", `고점 대비 ${maxHighGap}% 이내`, "최근 강한 흐름을 유지한 종목 우선"],
@@ -997,6 +1059,37 @@
         $("summary").innerHTML = cards.map(([label, value, helper]) => `
           <div class="summary-card"><span>${label}</span><strong>${value}</strong><small>${helper}</small></div>
         `).join("");
+      }
+
+      function renderOpinionFilter() {
+        const labels = {
+          1: "강력매도",
+          2: "매도추천",
+          3: "중립",
+          4: "매수추천",
+          5: "강력매수",
+        };
+        const counts = Object.fromEntries([1, 2, 3, 4, 5].map((score) => [
+          score,
+          state.screenedAll.filter((row) => Math.round(num(row["Opinion Score"]) || 0) === score).length,
+        ]));
+        const buttons = [
+          ["all", "전체", state.screenedAll.length],
+          ...[1, 2, 3, 4, 5].map((score) => [String(score), `${score}점 ${labels[score]}`, counts[score]]),
+        ];
+        $("opinionFilter").innerHTML = `
+          <div class="opinion-filter-head">
+            <strong>추천 의견 점수 필터</strong>
+            <span>Yahoo Finance 애널리스트 의견을 1점(강력매도)~5점(강력매수)으로 변환한 값입니다.</span>
+          </div>
+          <div class="score-segments">
+            ${buttons.map(([value, label, count]) => `
+              <button type="button" class="score-button ${state.opinionFilter === value ? "active" : ""}" data-opinion-score="${value}">
+                ${label}<small>${count}개</small>
+              </button>
+            `).join("")}
+          </div>
+        `;
       }
 
       function businessLine(row) {
@@ -1063,7 +1156,7 @@
         const trend = row["Above MA50"] && row["Above MA200"] ? "50일/200일 평균선 위" : "추세 확인 필요";
         const top = favorite
           ? `<strong>${row.Valuation}</strong><span>현재가 ${money(row.Price)} · 목표주가 ${money(row["Target Price"])} · 상승여력 ${pct(row["Target Upside(%)"])}</span>`
-          : `<strong>${row["Opinion Score"] ? Math.round(row["Opinion Score"]) + " · " : ""}${row.Opinion}</strong><span>목표주가 ${money(row["Target Price"])} · 상승여력 ${pct(row["Target Upside(%)"])}</span>`;
+          : `<strong>${row["Opinion Score"] ? Math.round(row["Opinion Score"]) + "점 · " : ""}${row.Opinion}</strong><span>목표주가 ${money(row["Target Price"])} · 상승여력 ${pct(row["Target Upside(%)"])}</span>`;
         const items = favorite
           ? [["PER", multiple(row.PER)], ["PBR", multiple(row.PBR)], ["PSR", multiple(row.PSR)], ["ROE", pct(row["ROE(%)"])], ["배당수익률", pct(row["Dividend Yield(%)"])], ["매출성장률", pct(row["Revenue Growth(%)"])], ["순이익률", pct(row["Profit Margin(%)"])], ["부채/자본", fmt(row["Debt/Equity"])], ["추세", trend], ["시가총액", largeMoney(row["Market Cap"])]]
           : [["현재가", money(row.Price)], ["목표주가", money(row["Target Price"])], ["ROE", pct(row["ROE(%)"])], ["영업이익률", pct(row["Operating Margin(%)"])], ["PER", fmt(row.PER)], ["PBR", fmt(row.PBR)], ["52주 고가", money(row["52W High"])], ["고가 대비", pct(row["52W High Gap(%)"])]];
@@ -1076,21 +1169,24 @@
 
       function renderTopPicks() {
         if (!state.screened.length) {
-          $("topPicks").innerHTML = `<div class="empty">현재 필터 조건을 통과한 종목이 없습니다. 슬라이더 조건을 조금 완화해 보세요.</div>`;
+          $("topPicks").innerHTML = `<div class="empty">현재 조건과 의견 점수를 함께 통과한 종목이 없습니다. 점수 필터를 전체로 바꾸거나 슬라이더 조건을 완화해 보세요.</div>`;
           return;
         }
         const rows = [...state.screened]
           .sort((a, b) => (b["Opinion Score"] ?? -1) - (a["Opinion Score"] ?? -1) || (b["Target Upside(%)"] ?? -999) - (a["Target Upside(%)"] ?? -999))
           .slice(0, 3);
-        $("topPicks").innerHTML = `<p class="eyebrow">먼저 볼 후보</p><div class="pick-grid">${rows.map((row) => {
+        const heading = state.opinionFilter === "all" ? "먼저 볼 후보" : `${state.opinionFilter}점 종목 중 먼저 볼 후보`;
+        $("topPicks").innerHTML = `<p class="eyebrow">${heading}</p><div class="pick-grid">${rows.map((row) => {
           const gapText = num(row["52W High Gap(%)"]) !== null && row["52W High Gap(%)"] >= -8 ? "고점 근처" : "고점 대비 조정";
-          return `<div class="pick-card"><strong>${row.Stock}</strong><p>현재 ${money(row.Price)} · 목표 ${money(row["Target Price"])}</p><div class="tag-row"><span>${row.Opinion}</span><span>상승여력 ${pct(row["Target Upside(%)"])}</span><span>${gapText}</span></div></div>`;
+          const score = num(row["Opinion Score"]) === null ? "점수 없음" : `${Math.round(row["Opinion Score"])}점`;
+          return `<div class="pick-card"><strong>${row.Stock}</strong><p>현재 ${money(row.Price)} · 목표 ${money(row["Target Price"])}</p><div class="tag-row"><span>${score} · ${row.Opinion}</span><span>상승여력 ${pct(row["Target Upside(%)"])}</span><span>${gapText}</span></div></div>`;
         }).join("")}</div>`;
       }
 
       function renderScreening(sector, totalCount, minRoe, minMargin, maxHighGap) {
         renderSummary(sector, totalCount, minRoe, minMargin, maxHighGap);
         renderTopPicks();
+        renderOpinionFilter();
         renderScreeningRowsOnly();
         populateChartOptions();
       }
@@ -1100,7 +1196,7 @@
         $("screenRows").innerHTML = state.screened.map((row) => `
           <tr data-stock-detail="${row.Ticker}">
             <td>${favoriteButton(row.Ticker)}</td><td>${row.Ticker}</td><td>${row.Name}</td><td>${money(row.Price)}</td><td>${money(row["Target Price"])}</td>
-            <td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${row.Opinion}</td>
+            <td class="${cls(row["Target Upside(%)"])}">${pct(row["Target Upside(%)"])}</td><td>${num(row["Opinion Score"]) === null ? "-" : Math.round(row["Opinion Score"]) + "점"} · ${row.Opinion}</td>
             <td>${pct(row["ROE(%)"])}</td><td>${pct(row["Operating Margin(%)"])}</td><td>${fmt(row.PER)}</td><td>${fmt(row.PBR)}</td>
             <td class="${cls(row["Revenue Growth(%)"])}">${pct(row["Revenue Growth(%)"])}</td><td>${fmt(row["Debt/Equity"])}</td>
             <td>${money(row["52W High"])}</td><td class="${cls(row["52W High Gap(%)"])}">${pct(row["52W High Gap(%)"])}</td>
@@ -1258,6 +1354,12 @@
           setFavoriteTickers(parseTickers($("favorites").value));
         });
         document.addEventListener("click", (event) => {
+          const scoreButton = event.target.closest("[data-opinion-score]");
+          if (scoreButton) {
+            state.opinionFilter = scoreButton.dataset.opinionScore;
+            applyFilters();
+            return;
+          }
           const button = event.target.closest("[data-fav]");
           if (button) {
             event.stopPropagation();
