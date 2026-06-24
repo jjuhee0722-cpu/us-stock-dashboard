@@ -27,6 +27,49 @@ CURATED_SECTOR_TICKERS = {
 
 S_AND_P_500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
 MAJOR_ETFS = ["SPY", "QQQ", "VOO", "VTI", "SCHD", "DIA", "IWM", "SOXX", "SMH", "XLK", "XLF", "XLV", "XLE"]
+KOREAN_TICKERS = [
+    "005930.KS", "000660.KS", "373220.KS", "207940.KS", "005380.KS", "000270.KS",
+    "068270.KS", "035420.KS", "035720.KS", "005490.KS", "105560.KS", "055550.KS",
+    "012330.KS", "028260.KS", "051910.KS", "006400.KS", "003550.KS", "032830.KS",
+    "086790.KS", "096770.KS", "066570.KS", "034020.KS", "009540.KS", "010140.KS",
+    "247540.KQ", "293490.KQ", "196170.KQ", "086520.KQ", "112040.KQ",
+    "069500.KS", "102110.KS", "091160.KS", "305720.KS",
+]
+KOREAN_NAMES = {
+    "005930.KS": "삼성전자",
+    "000660.KS": "SK하이닉스",
+    "373220.KS": "LG에너지솔루션",
+    "207940.KS": "삼성바이오로직스",
+    "005380.KS": "현대차",
+    "000270.KS": "기아",
+    "068270.KS": "셀트리온",
+    "035420.KS": "NAVER",
+    "035720.KS": "카카오",
+    "005490.KS": "POSCO홀딩스",
+    "105560.KS": "KB금융",
+    "055550.KS": "신한지주",
+    "012330.KS": "현대모비스",
+    "028260.KS": "삼성물산",
+    "051910.KS": "LG화학",
+    "006400.KS": "삼성SDI",
+    "003550.KS": "LG",
+    "032830.KS": "삼성생명",
+    "086790.KS": "하나금융지주",
+    "096770.KS": "SK이노베이션",
+    "066570.KS": "LG전자",
+    "034020.KS": "두산에너빌리티",
+    "009540.KS": "HD한국조선해양",
+    "010140.KS": "삼성중공업",
+    "247540.KQ": "에코프로비엠",
+    "293490.KQ": "카카오게임즈",
+    "196170.KQ": "알테오젠",
+    "086520.KQ": "에코프로",
+    "112040.KQ": "위메이드",
+    "069500.KS": "KODEX 200",
+    "102110.KS": "TIGER 200",
+    "091160.KS": "KODEX 반도체",
+    "305720.KS": "KODEX 2차전지산업",
+}
 EXTRA_TICKERS = [
     "TSM", "ASML", "SHOP", "BABA", "NVO", "ARM", "PLTR", "COIN", "MSTR", "ARKK",
     "RIVN", "HOOD", "NET", "CRWD", "DDOG", "SNOW", "OKTA", "MDB", "SE", "MELI",
@@ -60,7 +103,10 @@ def flatten_tickers(sector_map: dict[str, list[str]]) -> list[str]:
 
 
 def yahoo_symbol(symbol: str) -> str:
-    return str(symbol).strip().upper().replace(".", "-")
+    symbol = str(symbol).strip().upper()
+    if symbol.endswith((".KS", ".KQ")):
+        return symbol
+    return symbol.replace(".", "-")
 
 
 def load_sp500_sectors() -> dict[str, list[str]]:
@@ -91,11 +137,13 @@ def build_sector_universe() -> tuple[dict[str, list[str]], str]:
     sectors = load_sp500_sectors()
     if not sectors:
         sectors = {sector: list(tickers) for sector, tickers in CURATED_SECTOR_TICKERS.items()}
-        source = "Curated fallback list"
+        source = "Curated fallback list + 한국 주요 종목/ETF"
     else:
         sectors["Major ETFs"] = sorted(set(MAJOR_ETFS))
         sectors["Additional Tickers"] = sorted(set(EXTRA_TICKERS))
-        source = "S&P 500 구성종목 + 주요 ETF + 추가 티커"
+        source = "S&P 500 구성종목 + 주요 ETF + 추가 티커 + 한국 주요 종목/ETF"
+
+    sectors["Korea Stocks/ETFs"] = sorted(set(KOREAN_TICKERS))
 
     for ticker in DEFAULT_FAVORITES:
         sectors.setdefault("Favorites", [])
@@ -198,14 +246,21 @@ def load_fundamentals(tickers: list[str]) -> pd.DataFrame:
                 info = {}
         info = normalize_info(info)
         opinion_score, opinion_label = opinion_from_info(info)
+        local_name = KOREAN_NAMES.get(ticker)
+        yahoo_name = info.get("longName") or info.get("shortName") or ticker
 
         rows.append(
             {
                 "Ticker": ticker,
-                "Name": info.get("longName") or info.get("shortName") or ticker,
+                "Name": local_name or yahoo_name,
+                "Yahoo Name": yahoo_name,
+                "Search Aliases": " ".join(
+                    item for item in [ticker, ticker.replace(".KS", "").replace(".KQ", ""), local_name, yahoo_name] if item
+                ),
                 "Sector": info.get("sector"),
                 "Industry": info.get("industry"),
                 "Business Summary": info.get("longBusinessSummary"),
+                "Currency": info.get("currency"),
                 "ROE(%)": pct(info.get("returnOnEquity")),
                 "Operating Margin(%)": pct(info.get("operatingMargins")),
                 "Gross Margin(%)": pct(info.get("grossMargins")),
@@ -285,10 +340,13 @@ def build_stock_rows(tickers: list[str]) -> tuple[list[dict], dict[str, list[dic
         row = {
             "Ticker": ticker,
             "Name": f_row["Name"],
+            "Yahoo Name": f_row["Yahoo Name"],
+            "Search Aliases": f_row["Search Aliases"],
             "Stock": f"{ticker} - {f_row['Name']}",
             "Sector": f_row["Sector"],
             "Industry": f_row["Industry"],
             "Business Summary": f_row["Business Summary"],
+            "Currency": f_row["Currency"],
             "Price": price,
             "Target Price": target_price,
             "Target Upside(%)": target_upside,
