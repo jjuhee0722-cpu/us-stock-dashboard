@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-10-17T23:02:13+00:00",
+    "generatedAt": "2026-10-18T04:13:10+00:00",
     "source": "Yahoo Finance via yfinance",
     "refreshCadence": "GitHub Actions schedule: every 3 hours",
     "universe": "S&P 500 구성종목 + 주요 ETF + 추가 티커 + 한국 주요 종목/ETF",
@@ -4400,8 +4400,8 @@
       "Business Summary": "Alibaba Group Holding Limited, through its subsidiaries, provides technology infrastructure and marketing reach to help merchants, brands, retailers, and other businesses in the People's Republic of China and internationally. It operates through the Alibaba China E-Commerce Group, Alibaba International Digital Commerce Group, Cloud Intelligence Group, and All Others segments. The Alibaba China E-commerce Group segment operates Taobao and Tmall, which are digital retail platforms; Taobao Instant Commerce, a local services and on-demand delivery platform; 1688.com, a domestic wholesale marketplace; and Xianyu, a consumer-to-consumer community and marketplace for idle goods. Its Alibaba International Digital Commerce Group segment includes AliExpress, a global e-commerce platform; Trendyol, an e-commerce platform in Turkey; Lazada, an e-commerce platform in Southeast Asia; Daraz, an e-commerce platform in South Asia, primarily in Pakistan and Bangladesh; and Alibaba.com, an integrated international online wholesale marketplace. The Cloud Intelligence Group segment offers a suite of cloud services based on infrastructure-as-a-service, platform-as-a-service, and model-as-a-service. Its All Others segment comprises Amap, a provider of mobile digital maps, navigation, and real-time traffic information in China; Cainiao, which provides logistics solutions; Youku, an online long-form video platform in China; Freshippo, a retail platform for groceries and fresh goods; and Alibaba Health, a pharmaceutical and healthcare services platform. Alibaba Group Holding Limited was incorporated in 1999 and is based in Hangzhou, China.",
       "Currency": "USD",
       "Price": 109.11000061035156,
-      "Target Price": 186.61528,
-      "Target Upside(%)": 71.03407474666929,
+      "Target Price": 186.35292,
+      "Target Upside(%)": 70.79362016090045,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 6.36,
@@ -15917,7 +15917,7 @@
       "Gross Margin(%)": 75.9,
       "Profit Margin(%)": 4.7659997,
       "PER": 115.83333,
-      "Forward PER": 15.721543,
+      "Forward PER": 15.707938,
       "PBR": 8.59237,
       "PSR": 5.4091797,
       "Dividend Yield(%)": 233.0,
