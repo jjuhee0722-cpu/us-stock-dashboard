@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-11-15T20:17:56+00:00",
+    "generatedAt": "2026-11-16T00:58:27+00:00",
     "source": "Yahoo Finance via yfinance",
     "refreshCadence": "GitHub Actions schedule: every 3 hours",
     "universe": "S&P 500 구성종목 + 주요 ETF + 추가 티커 + 한국 주요 종목/ETF",
@@ -703,9 +703,9 @@
       "Industry": "Auto Manufacturers",
       "Business Summary": "Kia Corporation manufactures and sells vehicles in South Korea, North America, and Europe. The company offers cars, SUVs and MPV, commercial, electric, and hybrid vehicles. It sells its products through a network of dealers. The company was formerly known as Kia Motors Corporation and changed its name to Kia Corporation in January 2021. Kia Corporation was founded in 1944 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 94600.0,
+      "Price": 95400.0,
       "Target Price": 163033.33,
-      "Target Upside(%)": 72.33967230443974,
+      "Target Upside(%)": 70.89447589098532,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 11.598,
@@ -713,26 +713,26 @@
       "Gross Margin(%)": 18.691999,
       "Profit Margin(%)": 5.9159998,
       "PER": null,
-      "Forward PER": 4.877675,
+      "Forward PER": 4.918924,
       "PBR": null,
-      "PSR": 0.30815545,
+      "PSR": 0.31076142,
       "Dividend Yield(%)": 719.0,
       "Revenue Growth(%)": 12.6,
       "Earnings Growth(%)": 3.2,
       "Debt/Equity": 3.484,
       "Current Ratio": 1.514,
       "Cash/Debt": 10.448375446308676,
-      "Market Cap": 36766862016512.0,
+      "Market Cap": 37077785772032.0,
       "Total Revenue": 119312706699264.0,
       "Net Income": 7058195218432.0,
       "Free Cashflow": 2845027336192.0,
       "52W High": 212500.0,
-      "52W High Gap(%)": -55.48235294117647,
+      "52W High Gap(%)": -55.10588235294118,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 111858.0,
-      "MA200": 143416.5,
-      "One Year Return(%)": -19.83050847457627,
+      "MA50": 111142.0,
+      "MA200": 143074.0,
+      "One Year Return(%)": -18.73935264054515,
       "Valuation": "중립"
     },
     {
@@ -745,9 +745,9 @@
       "Industry": "Semiconductors",
       "Business Summary": "SK hynix Inc. through its subsidiaries, engages in research, develops, manufactures, distributes, and sells semiconductor devices in Korea, China, rest of Asia, the United States, Europe, and internationally. It offers DRAM, such as server memory, graphics memory, mobile memory, PC memory, consumer memory; NAND flash memory; SSD; and MCP products. It also engages in foundry business, produces non-memory semiconductors. The company serves its products for server, networking, mobile, personal computer, consumer, and automotive applications. The company was formerly known as Hynix Semiconductor Inc. and changed its name to SK hynix Inc. in March 2012. SK hynix Inc. was incorporated in 1949 and is headquartered in Icheon-si, South Korea.",
       "Currency": "KRW",
-      "Price": 1216000.0,
+      "Price": 1193000.0,
       "Target Price": 3097152.2,
-      "Target Upside(%)": 154.70001644736843,
+      "Target Upside(%)": 159.61041072925403,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 92.542,
@@ -755,26 +755,26 @@
       "Gross Margin(%)": 77.380997,
       "Profit Margin(%)": 70.269996,
       "PER": null,
-      "Forward PER": 2.2638927,
+      "Forward PER": 2.2173488,
       "PBR": null,
-      "PSR": 3.1837132,
+      "PSR": 3.1182585,
       "Dividend Yield(%)": 25.0,
       "Revenue Growth(%)": 327.9,
       "Earnings Growth(%)": 205.10000000000002,
       "Debt/Equity": 5.111,
       "Current Ratio": 26.882,
       "Cash/Debt": 7.244761948565952,
-      "Market Cap": 857490757517312.0,
+      "Market Cap": 839861393162240.0,
       "Total Revenue": 269336677711872.0,
       "Net Income": 189262280523776.0,
       "Free Cashflow": null,
       "52W High": 2987000.0,
-      "52W High Gap(%)": -59.290257783729494,
+      "52W High Gap(%)": -60.06026113157014,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 1544460.0,
-      "MA200": 1519410.0,
-      "One Year Return(%)": 98.69281045751634,
+      "MA50": 1534460.0,
+      "MA200": 1521660.0,
+      "One Year Return(%)": 96.86468646864685,
       "Valuation": "중립"
     },
     {
@@ -787,9 +787,9 @@
       "Industry": "Consumer Electronics",
       "Business Summary": "LG Corp., through its subsidiaries, operates in the electronics, chemicals, and telecommunication and services sectors. The company offers TVs, home appliances, air solutions, monitors, automotive components and solutions; LG displays, including mobile, IT, TV, and automotive display products. It also provides vehicle sensing, communication, and lighting solutions, as well as substrates for AI and semiconductors, such as FC-BGA. In addition, the company offers advanced materials, and petrochemical and life science products; daily necessities, cosmetics, and beverages; automotive, mobility and IT, and energy storage system batteries; telecommunications services; cable TV and internet services; mobile services as a mobile virtual network operator; and localTV channel that realizes regional values through media. Further, it provides IT solutions and services, including customized system development, strategic consulting, and IT services outsourcing; space solutions; economic analysis, countermeasure preparation, and industrial research and corporate management consulting services; and professional sports management services. LG Corp. was founded in 1947 and is based in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 86800.0,
+      "Price": 88300.0,
       "Target Price": 117083.336,
-      "Target Upside(%)": 34.88863594470046,
+      "Target Upside(%)": 32.597209513023785,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 3.4610000000000003,
@@ -797,26 +797,26 @@
       "Gross Margin(%)": 18.75,
       "Profit Margin(%)": 10.1610005,
       "PER": null,
-      "Forward PER": 8.498381,
+      "Forward PER": 8.635451,
       "PBR": null,
-      "PSR": 1.7944678,
+      "PSR": 1.8234107,
       "Dividend Yield(%)": 357.0,
       "Revenue Growth(%)": 19.0,
       "Earnings Growth(%)": 123.2,
       "Debt/Equity": 1.79,
       "Current Ratio": 2.886,
       "Cash/Debt": 5.341375342425906,
-      "Market Cap": 13384837758976.0,
+      "Market Cap": 13600721731584.0,
       "Total Revenue": 7458945761280.0,
       "Net Income": 727503011840.0,
       "Free Cashflow": 584844771328.0,
       "52W High": 185900.0,
-      "52W High Gap(%)": -53.30823023130715,
+      "52W High Gap(%)": -52.50134480903712,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 106266.0,
-      "MA200": 102660.5,
-      "One Year Return(%)": 2.4793388429751984,
+      "MA50": 105626.0,
+      "MA200": 102656.0,
+      "One Year Return(%)": 5.622009569377995,
       "Valuation": "중립"
     },
     {
@@ -829,9 +829,9 @@
       "Industry": "Auto Manufacturers",
       "Business Summary": "Hyundai Motor Company, together with its subsidiaries, manufactures and distributes motor vehicles and parts. The company operates through Vehicle, Finance, and Others segments. It offers cars under the ELANTRA, SONATA, AZERA, i30, ACCENT, i20, and i10 names; eco vehicles under the IONIQ 9, NEXO, PALISADE Hybrid, IONIQ 6, INSTER, IONIQ 5, ELANTRA Hybrid, KONA Hybrid, KONA Electric, TUCSON Hybrid, SANTA FE Hybrid, SONATA Hybrid, AZERA Hybrid, i30 Hybrid, and STARIA Hybrid names; SUVs under the PALISADE, TUCSON, SANTA FE, KONA, and VENUE names; MPVs under the STARIA name; and commercial vehicles under the STARIA, H-1, and H-100 names, as well as N series and N Line series vehicles under various names. The company also provides trucks and vans; vehicle financing, credit card processing, and other financing activities; train manufacturing services and other activities; and marketing, engineering, mobility, logistics, and insurance services, as well as operates a football club. Further, it is involved in research and development, investment, racing team, and real estate development activities. Hyundai Motor Company was incorporated in 1967 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 269500.0,
+      "Price": 270750.0,
       "Target Price": 525810.6,
-      "Target Upside(%)": 95.10597402597402,
+      "Target Upside(%)": 94.20520775623267,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": null,
@@ -839,26 +839,26 @@
       "Gross Margin(%)": 17.058999999999997,
       "Profit Margin(%)": 4.0560003,
       "PER": null,
-      "Forward PER": 6.5307713,
+      "Forward PER": 6.555004,
       "PBR": null,
-      "PSR": 0.37900656,
+      "PSR": 0.38041288,
       "Dividend Yield(%)": 371.0,
       "Revenue Growth(%)": -3.4000000000000004,
       "Earnings Growth(%)": null,
       "Debt/Equity": 134.048,
       "Current Ratio": null,
       "Cash/Debt": 0.085179583954736,
-      "Market Cap": 70913064173568.0,
+      "Market Cap": 71176189640704.0,
       "Total Revenue": 187102465622016.0,
       "Net Income": 7588987011072.0,
       "Free Cashflow": null,
       "52W High": 783000.0,
-      "52W High Gap(%)": -65.58109833971903,
+      "52W High Gap(%)": -65.42145593869732,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 329230.0,
-      "MA200": 469075.0,
-      "One Year Return(%)": -3.2315978456014416,
+      "MA50": 326635.0,
+      "MA200": 468033.75,
+      "One Year Return(%)": -0.2762430939226568,
       "Valuation": "중립"
     },
     {
@@ -871,9 +871,9 @@
       "Industry": "Steel",
       "Business Summary": "POSCO Holdings Inc., together with its subsidiaries, operates as an integrated steel producer in Korea and internationally. It operates through six segments: Steel, Trading, Construction, Logistics and Others, Green Materials and Energy, and Others. The company engages in the production, import, sale, and export of steel products, such as hot and cold rolled steel, stainless steel, plates, wire rods, and silicon steel sheets, as well as pig iron, billets, blooms, and slabs; trading of steel and raw materials, textiles, agricultural commodities, and other goods; natural resources development and power generation activities; and planning, designing, and construction of industrial plants, civil engineering projects, and commercial and residential buildings. It is also involved in the manufacture and sale of various energy-related and other industrial materials, including anode and cathode materials for rechargeable batteries; investment business; and provision of alternative environmentally-friendly energy solutions, as well as information technology and operational technology, and integrated logistics services. POSCO Holdings Inc. was incorporated in 1968 and is based in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 275000.0,
+      "Price": 268500.0,
       "Target Price": 430000.0,
-      "Target Upside(%)": 56.363636363636374,
+      "Target Upside(%)": 60.1489757914339,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 2.214,
@@ -881,26 +881,26 @@
       "Gross Margin(%)": 7.865,
       "Profit Margin(%)": 1.8919999,
       "PER": null,
-      "Forward PER": 9.941263,
+      "Forward PER": 9.706288,
       "PBR": null,
-      "PSR": 0.29192162,
+      "PSR": 0.28502166,
       "Dividend Yield(%)": 291.0,
       "Revenue Growth(%)": 9.700000000000001,
       "Earnings Growth(%)": 328.3,
       "Debt/Equity": 49.601,
       "Current Ratio": 1.983,
       "Cash/Debt": 0.4493324857463917,
-      "Market Cap": 20795713650688.0,
+      "Market Cap": 20304178970624.0,
       "Total Revenue": 71237317427200.0,
       "Net Income": 1347453845504.0,
       "Free Cashflow": -3462723010560.0,
       "52W High": 542000.0,
-      "52W High Gap(%)": -49.2619926199262,
+      "52W High Gap(%)": -50.46125461254613,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 303030.0,
-      "MA200": 349475.0,
-      "One Year Return(%)": -14.463452566096425,
+      "MA50": 301580.0,
+      "MA200": 349030.0,
+      "One Year Return(%)": -14.62639109697933,
       "Valuation": "중립"
     },
     {
@@ -923,16 +923,16 @@
       "Gross Margin(%)": 64.053,
       "Profit Margin(%)": 35.823001999999995,
       "PER": null,
-      "Forward PER": 2.6641266,
+      "Forward PER": 2.6576605,
       "PBR": null,
-      "PSR": 2.256524,
+      "PSR": 2.2510471,
       "Dividend Yield(%)": 893.0,
       "Revenue Growth(%)": 126.8,
       "Earnings Growth(%)": 536.1,
       "Debt/Equity": 2.799,
       "Current Ratio": 9.575,
       "Cash/Debt": 12.49609711758712,
-      "Market Cap": 1341457067671552.0,
+      "Market Cap": 1338201079808000.0,
       "Total Revenue": 594479375450112.0,
       "Net Income": 212962144944128.0,
       "Free Cashflow": 83820791463936.0,
@@ -940,9 +940,9 @@
       "52W High Gap(%)": -44.99332443257676,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 240860.0,
-      "MA200": 240570.25,
-      "One Year Return(%)": 100.38910505836576,
+      "MA50": 239760.0,
+      "MA200": 240874.25,
+      "One Year Return(%)": 104.77137176938372,
       "Valuation": "중립"
     },
     {
@@ -955,9 +955,9 @@
       "Industry": "Electrical Equipment & Parts",
       "Business Summary": "Samsung SDI Co., Ltd. manufactures and sells batteries in South Korea, Europe, China, North America, Southeast Asia, and internationally. The company operates through Energy Solutions and Electronic Materials segments. It offers small-sized lithium ion batteries used in laptops, tablets, mobile phones, wearable devices, power banks, power tools, garden tools, vacuum cleaners, e-bikes, e-scooters, and ignition products; automotive batteries; and energy storage systems for use in residential, utility, commercial, UPS, and base transceiver station applications. In addition, the company provides electronic materials, including semiconductor products, such as spin-on hardmasks, spin-on dielectrics, and epoxy molding compounds; LCD products, such as polarizing films and color photo resist products; and OLED products comprising evaporation materials and thin film encapsulation products. Further, it manufactures and sells rechargeable battery raw materials; and invests in new technology venture business. Samsung SDI Co., Ltd. was incorporated in 1970 and is headquartered in Yongin-Si, South Korea.",
       "Currency": "KRW",
-      "Price": 478000.0,
+      "Price": 479500.0,
       "Target Price": 750303.0,
-      "Target Upside(%)": 56.96715481171548,
+      "Target Upside(%)": 56.47612095933263,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": null,
@@ -965,26 +965,26 @@
       "Gross Margin(%)": 23.31,
       "Profit Margin(%)": -0.245,
       "PER": null,
-      "Forward PER": 26.943085,
+      "Forward PER": 27.027634,
       "PBR": null,
-      "PSR": 2.3672469,
+      "PSR": 2.3746755,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 53.5,
       "Earnings Growth(%)": null,
       "Debt/Equity": 34.187,
       "Current Ratio": 1.197,
       "Cash/Debt": 0.2766107073377799,
-      "Market Cap": 37615554265088.0,
+      "Market Cap": 37733594562560.0,
       "Total Revenue": 15890000117760.0,
       "Net Income": 244999995392.0,
       "Free Cashflow": null,
       "52W High": 723000.0,
-      "52W High Gap(%)": -33.8865836791148,
+      "52W High Gap(%)": -33.67911479944675,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 529680.0,
-      "MA200": 493727.5,
-      "One Year Return(%)": 42.899850523168915,
+      "MA50": 527890.0,
+      "MA200": 494495.0,
+      "One Year Return(%)": 51.26182965299684,
       "Valuation": "중립"
     },
     {
@@ -997,9 +997,9 @@
       "Industry": "Aerospace & Defense",
       "Business Summary": "HD Korea Shipbuilding & Offshore Engineering Co., Ltd. engages in shipbuilding and offshore engineering business in South Korea. The company offers ship types, including tankers, container ships, petrochemical carriers, LNG carriers, LNG-FSRUs, LPG carriers, LEG carriers, car carriers, Ro-Pax, Ro-Ro, LNG bunkering carriers, and LCO2 ships; and offshore plant business includes the manufacturing and installation of offshore structures, floating crude oil production facilities, power generation facilities, and other individual equipment units. It also specializes in building various types of special-purpose ships, such as destroyers, frigates, corvettes, logistics support ships, amphibious, minelaying, marine intelligence, surface, rescue, and training ships, support vessels, high-speed boats, and patrol/rescue ships; and engine and machinery division, the company provides heavy and medium engines, propellers, marine axle meters, selective catalytic reduction systems, and methanation catalytic systems. In addition, it develops and supplies photovoltaic modules and systems, solid oxide fuel cells for onshore power generation and marine applications, and solid oxide electrolyzers; gas and green system offerings include Methanol LFSS, Ammonia LFSS, LPG CHS, Re-Liquefaction Unit, Re-Gasifier, and Hi-ALS; and shipbuilding also provides green ship propulsion solutions, including four-stroke marine engines, as well as electric power systems such as batteries and fuel cells to drive propulsion motors without the use of traditional power generation engines. Further, it provides other offerings including equipment such as propellers, shafts, SCR systems, ballast water treatment systems, engine power plants, industrial boilers, solar modules and systems, ITER, industrial cranes, and comprehensive marine system solutions. The company was formerly known as Korea Shipbuilding & Offshore Engineering Co., Ltd. The company was founded in 1972 and is based in Seongnam-si, South Korea.",
       "Currency": "KRW",
-      "Price": 237500.0,
+      "Price": 238750.0,
       "Target Price": 403466.66,
-      "Target Upside(%)": 69.88069894736842,
+      "Target Upside(%)": 68.99127120418846,
       "Opinion Score": null,
       "Opinion": "의견 없음",
       "ROE(%)": 26.907999999999998,
@@ -1007,26 +1007,26 @@
       "Gross Margin(%)": 20.372,
       "Profit Margin(%)": 10.5129994,
       "PER": null,
-      "Forward PER": 3.8616276,
+      "Forward PER": 3.877887,
       "PBR": null,
-      "PSR": 0.51201826,
+      "PSR": 0.5141741,
       "Dividend Yield(%)": 657.0,
       "Revenue Growth(%)": 20.200000000000003,
       "Earnings Growth(%)": 261.2,
       "Debt/Equity": 18.303,
       "Current Ratio": 1.212,
       "Cash/Debt": 3.9244245084804077,
-      "Market Cap": 16794725122048.0,
+      "Market Cap": 16865440038912.0,
       "Total Revenue": 32801028046848.0,
       "Net Income": 3448323702784.0,
       "Free Cashflow": 2573530824704.0,
       "52W High": 488000.0,
-      "52W High Gap(%)": -51.33196721311475,
+      "52W High Gap(%)": -51.07581967213115,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 294120.0,
-      "MA200": 372160.0,
-      "One Year Return(%)": -45.8997722095672,
+      "MA50": 291825.0,
+      "MA200": 371138.75,
+      "One Year Return(%)": -45.30355097365406,
       "Valuation": "중립"
     },
     {
@@ -1039,9 +1039,9 @@
       "Industry": "Aerospace & Defense",
       "Business Summary": "Samsung Heavy Industries Co., Ltd. engages in shipbuilding, offshore, and energy and infra businesses worldwide. The company offers shipbuilding products, including LNG carriers, LNG-FSRU, small LNG carriers/LNG bunkering vessels, VLEC ethane carriers, VLAC ammonia carriers, LCO2, container ships, crude oil tankers, shuttle tankers, arctic shuttle tankers, petroleum carriers/chemical carriers, and wind turbine installation vessels. Its offshore projects include products and services, such as FLNG; floating production, storage, and offloading facility; floating production units (FPU) and TLP; drillships; semi-submersible; jack-up rigs; and fixed offshore platforms. In addition, the company offers digital solutions, including smartship, autonomous operation and ship, and virtual reality technology solutions; smart yard solutions comprising engineering, robotic welding, pipe welding, cargo containment, cable laying, and robotic process automation solutions; design engineering and market research services; and green solutions, such as alternative fuel and CCS technologies, and energy saving devices. Samsung Heavy Industries Co., Ltd. was incorporated in 1974 and is based in Seongnam-si, South Korea.",
       "Currency": "KRW",
-      "Price": 16610.0,
+      "Price": 16650.0,
       "Target Price": 29068.182,
-      "Target Upside(%)": 75.0041059602649,
+      "Target Upside(%)": 74.58367567567568,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 13.370999999999999,
@@ -1049,26 +1049,26 @@
       "Gross Margin(%)": 14.49,
       "Profit Margin(%)": 4.8699997,
       "PER": null,
-      "Forward PER": 9.725014,
+      "Forward PER": 9.760143,
       "PBR": null,
-      "PSR": 1.2224532,
+      "PSR": 1.226869,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 20.4,
       "Earnings Growth(%)": 5.1,
       "Debt/Equity": 28.348,
       "Current Ratio": 0.878,
       "Cash/Debt": 1.7498446387840687,
-      "Market Cap": 14187437752320.0,
+      "Market Cap": 14238686904320.0,
       "Total Revenue": 11605710471168.0,
       "Net Income": 565177352192.0,
       "Free Cashflow": 3042812100608.0,
       "52W High": 35350.0,
-      "52W High Gap(%)": -53.01272984441301,
+      "52W High Gap(%)": -52.89957567185291,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 18825.8,
-      "MA200": 24676.45,
-      "One Year Return(%)": -37.32075471698113,
+      "MA50": 18738.8,
+      "MA200": 24605.45,
+      "One Year Return(%)": -36.45038167938931,
       "Valuation": "중립"
     },
     {
@@ -1081,9 +1081,9 @@
       "Industry": "Auto Parts",
       "Business Summary": "Hyundai Mobis Co.,Ltd engages in the auto parts business in Korea, China, the United States, Europe, and internationally. It operates in two segments, Auto Parts and After-Sales Services. The Auto Parts segment sells auto modules and parts for manufacturing vehicles. The After-Sales Services segment engages in sale of after-sales services parts and accessories. It offers autonomous driving solutions, including driving, parking, in-cabin sensing, and electronic control; and lamps, such as headlamps, rear, small, and grille lamps, as well as lamp parts. The company provides electrification products comprising power conversion, drive, battery, and 48V mild hybrid; safety products consisting of airbag modules and control units; IVI systems, which comprise infotainment head unit, CSD, cluster, HUD, and sound; and braking solutions that include integrated Mobis electronic brake, VEB, MEB, and EPB, as well as steering systems. In addition, it offers chassis modules, cockpit modules, front end modules, and bumpers. The company was formerly known as Hyundai Precision Industry Co., Ltd and changed its name to Hyundai Mobis Co.,Ltd in November 2000. Hyundai Mobis Co.,Ltd was founded in 1977 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 355500.0,
+      "Price": 361000.0,
       "Target Price": 592600.0,
-      "Target Upside(%)": 66.69479606188466,
+      "Target Upside(%)": 64.1551246537396,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 7.403,
@@ -1091,26 +1091,26 @@
       "Gross Margin(%)": 14.643,
       "Profit Margin(%)": 5.829,
       "PER": null,
-      "Forward PER": 7.312938,
+      "Forward PER": 7.4157925,
       "PBR": null,
-      "PSR": 0.5087646,
+      "PSR": 0.5159202,
       "Dividend Yield(%)": 183.0,
       "Revenue Growth(%)": 2.4,
       "Earnings Growth(%)": 14.099999999999998,
       "Debt/Equity": 6.717,
       "Current Ratio": 2.108,
       "Cash/Debt": 3.5663454203560305,
-      "Market Cap": 31703697457152.0,
+      "Market Cap": 32149600206848.0,
       "Total Revenue": 62315059740672.0,
       "Net Income": 3632284041216.0,
       "Free Cashflow": 1246081843200.0,
       "52W High": 822000.0,
-      "52W High Gap(%)": -56.75182481751825,
+      "52W High Gap(%)": -56.08272506082726,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 370470.0,
-      "MA200": 459357.5,
-      "One Year Return(%)": 18.500000000000007,
+      "MA50": 368820.0,
+      "MA200": 458907.5,
+      "One Year Return(%)": 22.789115646258495,
       "Valuation": "중립"
     },
     {
@@ -1123,9 +1123,9 @@
       "Industry": "Engineering & Construction",
       "Business Summary": "Samsung C&T Corporation engages in the engineering and construction, trading and investment, fashion, and resort businesses in South Korea, Europe, the Middle East, Africa, the Asia Pacific, and the Americas. Its engineering and construction business cover building, civil infrastructure, plant, housing construction, electrical testing, commissioning, engineering, operations and maintenance, equipment hire, and calibration services. The company trades in chemicals such as polymers, fertilizers, methanol, general chemical, and mining materials; hot and cold-rolled, stainless steel, coated/colored steel, plates, and wire rods products; energy resources comprising renewable energy, biofuel, hydrogen, LNG power plants, and project organizing; and industrial materials, including component and process chemical, equipment, consumables, ore concentrate, electrolytic copper and precious metals, and battery materials. In addition, the company provides men and women clothing under the GALAXY, BEANPOLE, KUHO, LEBEIGE, and 8 Seconds brand names. Further, it engages in theme park, water park, golf club, and landscaping business. The company was formerly known as Cheil Industries Inc. and changed its name to Samsung C&T Corporation in September 2015. Samsung C&T Corporation was founded in 1938 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 285000.0,
+      "Price": 286500.0,
       "Target Price": 500000.0,
-      "Target Upside(%)": 75.43859649122805,
+      "Target Upside(%)": 74.52006980802793,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 5.742,
@@ -1133,26 +1133,26 @@
       "Gross Margin(%)": 18.913999,
       "Profit Margin(%)": 6.43,
       "PER": null,
-      "Forward PER": 12.485264,
+      "Forward PER": 12.529072,
       "PBR": null,
-      "PSR": 1.073468,
+      "PSR": 1.0772345,
       "Dividend Yield(%)": 98.0,
       "Revenue Growth(%)": 19.7,
       "Earnings Growth(%)": 67.30000000000001,
       "Debt/Equity": 3.488,
       "Current Ratio": 1.5,
       "Cash/Debt": 1.9591352434795615,
-      "Market Cap": 46636021579776.0,
+      "Market Cap": 46799658156032.0,
       "Total Revenue": 43444261093376.0,
       "Net Income": 2758451396608.0,
       "Free Cashflow": 1918768381952.0,
       "52W High": 565000.0,
-      "52W High Gap(%)": -49.557522123893804,
+      "52W High Gap(%)": -49.292035398230084,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 326360.0,
-      "MA200": 346775.0,
-      "One Year Return(%)": 26.66666666666666,
+      "MA50": 324280.0,
+      "MA200": 346727.5,
+      "One Year Return(%)": 29.931972789115658,
       "Valuation": "중립"
     },
     {
@@ -1165,9 +1165,9 @@
       "Industry": "Insurance - Life",
       "Business Summary": "Samsung Life Insurance Co., Ltd., together with its subsidiaries, engages in the life insurance business to corporate and individual customers in South Korea and internationally. The company operates through Domestic Insurance; Credit Card Service, Installment Financing and Leasing; and Overseas segments. It also offers various loan products for companies, household, and stocks and bonds, as well as mortgage loans; and retirement pension, funds, and asset management services. The company was formerly known as Dongbang Life Insurance and changed its name to Samsung Life Insurance Co., Ltd. in July 1989. Samsung Life Insurance Co., Ltd. was founded in 1957 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 252000.0,
+      "Price": 255000.0,
       "Target Price": 377205.88,
-      "Target Upside(%)": 49.68487301587301,
+      "Target Upside(%)": 47.92387450980393,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 3.2649999999999997,
@@ -1175,26 +1175,26 @@
       "Gross Margin(%)": 44.134,
       "Profit Margin(%)": 8.924999999999999,
       "PER": null,
-      "Forward PER": 8.794604,
+      "Forward PER": 8.864403,
       "PBR": null,
-      "PSR": 1.4413357,
+      "PSR": 1.4527749,
       "Dividend Yield(%)": 210.0,
       "Revenue Growth(%)": 63.3,
       "Earnings Growth(%)": -9.1,
       "Debt/Equity": 21.298,
       "Current Ratio": 42.578,
       "Cash/Debt": 11.602370020479176,
-      "Market Cap": 45252844978176.0,
+      "Market Cap": 45611994841088.0,
       "Total Revenue": 31396464689152.0,
       "Net Income": 2802190123008.0,
       "Free Cashflow": -133065988898816.0,
       "52W High": 516500.0,
-      "52W High Gap(%)": -51.210067763794775,
+      "52W High Gap(%)": -50.62923523717329,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 272180.0,
-      "MA200": 282855.5,
-      "One Year Return(%)": 49.64370546318291,
+      "MA50": 271090.0,
+      "MA200": 283254.5,
+      "One Year Return(%)": 66.015625,
       "Valuation": "중립"
     },
     {
@@ -1207,9 +1207,9 @@
       "Industry": "Specialty Industrial Machinery",
       "Business Summary": "Doosan Enerbility Co., Ltd. operates as an energy company in South Korea, the Americas, Asia, the Middle East, Europe, and internationally. The company offers new energy solutions, including wind power solutions, gas turbines for power generation, small modular reactors, hydrogen energy, and energy storage systems. It also engages in the manufacture of power generation equipment, including boilers, turbines, and generators; engineering, procurement, and construction of thermal power plants; general construction; seawater desalination; 3D printing technology; and castings and forgings for power plants, marine vessels, steelworks, molds and tool steel, and other various industrial facilities. In addition, it is involved in construction works, including roads, railways, bridges, industrial complexes and ports, multipurpose buildings, apartments, business facilities, educational and research facilities, and thermal and combined cycle power plants. Further, the company provides professional and financial investment services, software and system engineering, and construction equipment; produces and sells fuel cells; and operates resort and golf clubs. Doosan Enerbility Co., Ltd. was incorporated in 1962 and is headquartered in Changwon-si, South Korea.",
       "Currency": "KRW",
-      "Price": 46850.0,
+      "Price": 45950.0,
       "Target Price": 112503.52,
-      "Target Upside(%)": 140.13558164354322,
+      "Target Upside(%)": 144.83899891186073,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 2.5940001,
@@ -1217,26 +1217,26 @@
       "Gross Margin(%)": 17.091998,
       "Profit Margin(%)": 1.0210000000000001,
       "PER": null,
-      "Forward PER": 49.276344,
+      "Forward PER": 48.32973,
       "PBR": null,
-      "PSR": 1.6892136,
+      "PSR": 1.6567634,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 3.4000000000000004,
       "Earnings Growth(%)": 20.9,
       "Debt/Equity": 58.402,
       "Current Ratio": 1.033,
       "Cash/Debt": 0.3910968765713974,
-      "Market Cap": 29943371137024.0,
+      "Market Cap": 29368151703552.0,
       "Total Revenue": 17726219223040.0,
       "Net Income": 181072003072.0,
       "Free Cashflow": -378220118016.0,
       "52W High": 139200.0,
-      "52W High Gap(%)": -66.3433908045977,
+      "52W High Gap(%)": -66.98994252873563,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 70442.0,
-      "MA200": 88813.5,
-      "One Year Return(%)": -43.62214199759325,
+      "MA50": 69733.0,
+      "MA200": 88566.75,
+      "One Year Return(%)": -41.68781725888325,
       "Valuation": "중립"
     },
     {
@@ -1249,9 +1249,9 @@
       "Industry": "Internet Content & Information",
       "Business Summary": "NAVER Corporation, together with its subsidiaries, provides online search portal and information services in South Korea and internationally. It is involved in the electronic financial; film and audio content production and distribution; Webtoon service development and operation; language learning application development; monitoring and advertisement operation; mobile service operation; trading platform operation; clothes, accessories, and news distribution; web novel platform support; and e-commerce businesses. In addition, the company engages in the provision of cloud service management, business support, workforce supply, and employee dispatch; camera and communication application development service; groupware service operation and distribution; exhibition and performance planning; new technology development and research; global business support; software consulting, development, and distribution; IT investment and research; online live broadcast service and local marketing; contents production and reinforcement; IT infrastructure operation; commerce platform; and customer center operation businesses. NAVER Corporation was formerly known as NHN Corporation. The company was founded in 1999 and is based in Seongnam-si, South Korea.",
       "Currency": "KRW",
-      "Price": 172500.0,
+      "Price": 173800.0,
       "Target Price": 279730.78,
-      "Target Upside(%)": 62.16277101449277,
+      "Target Upside(%)": 60.94981588032222,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 6.421,
@@ -1259,26 +1259,26 @@
       "Gross Margin(%)": 100.0,
       "Profit Margin(%)": 15.609999,
       "PER": null,
-      "Forward PER": 12.902311,
+      "Forward PER": 13.007026,
       "PBR": null,
-      "PSR": 1.9900379,
+      "PSR": 2.0061889,
       "Dividend Yield(%)": 152.0,
       "Revenue Growth(%)": 16.2,
       "Earnings Growth(%)": 43.6,
       "Debt/Equity": 18.159,
       "Current Ratio": 1.487,
       "Cash/Debt": 1.5957294829305764,
-      "Market Cap": 25796771053568.0,
+      "Market Cap": 26006136029184.0,
       "Total Revenue": 12962954739712.0,
       "Net Income": 2002864308224.0,
       "Free Cashflow": 902243549184.0,
       "52W High": 304000.0,
-      "52W High Gap(%)": -43.25657894736842,
+      "52W High Gap(%)": -42.828947368421055,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 190238.0,
-      "MA200": 213909.5,
-      "One Year Return(%)": -35.02824858757062,
+      "MA50": 189414.0,
+      "MA200": 213558.5,
+      "One Year Return(%)": -31.843137254901965,
       "Valuation": "중립"
     },
     {
@@ -1291,9 +1291,9 @@
       "Industry": "Internet Content & Information",
       "Business Summary": "Kakao Corp. operates mobile and online platforms in South Korea. The company offers Kakao Pay, a financial service solution; Kakao Bank, a banking solution; Kakao Mobility for mobility services; Kakao Style, a lifestyle solution; Kakao Entertainment, a solution for entertainment industry; Kakao Games, a solution for the gaming industry; Kakao piccoma, a content service platform; Kakao Brain, an artificial intelligence solution; Kakao Enterprise, a cloud service solution; and Kakao Healthcare, a mobile-based personal healthcare solution. It also provides Linkagelab, a workplace for individuals with disabilities; investment services in start-ups under the Kakao Investment name; and various solutions under the KakaoTalk, Kakao Business Service, Daum, Kakao Ventures, and Kakao Map names. The company was formerly known as Daum Kakao Corp. and changed its name to Kakao Corp. in October 2015. Kakao Corp. was founded in 1995 and is headquartered in Jeju-si, South Korea.",
       "Currency": "KRW",
-      "Price": 31700.0,
+      "Price": 32150.0,
       "Target Price": 44056.0,
-      "Target Upside(%)": 38.97791798107255,
+      "Target Upside(%)": 37.032659409020205,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 3.7219996999999996,
@@ -1301,26 +1301,26 @@
       "Gross Margin(%)": 93.477,
       "Profit Margin(%)": 4.088,
       "PER": null,
-      "Forward PER": 17.630215,
+      "Forward PER": 17.852678,
       "PBR": null,
-      "PSR": 1.6551585,
+      "PSR": 1.6760436,
       "Dividend Yield(%)": 24.0,
       "Revenue Growth(%)": 9.4,
       "Earnings Growth(%)": null,
       "Debt/Equity": 20.724,
       "Current Ratio": 1.533,
       "Cash/Debt": 4.555983556721297,
-      "Market Cap": 14026352361472.0,
+      "Market Cap": 14203340455936.0,
       "Total Revenue": 8474325942272.0,
       "Net Income": 508148678656.0,
       "Free Cashflow": 3416082612224.0,
       "52W High": 64500.0,
-      "52W High Gap(%)": -50.85271317829457,
+      "52W High Gap(%)": -50.155038759689916,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 32586.0,
-      "MA200": 41973.25,
-      "One Year Return(%)": -50.23547880690737,
+      "MA50": 32499.0,
+      "MA200": 41839.0,
+      "One Year Return(%)": -47.03459637561779,
       "Valuation": "중립"
     },
     {
@@ -1333,9 +1333,9 @@
       "Industry": "Chemicals",
       "Business Summary": "LG Chem, Ltd., together with its subsidiaries, operates as a chemical company in Korea, China, Asia/Oceania, the United States, Europe, and internationally. It offers ethylene-based synthetic resin products, such as ethylene vinyl acetate, high density polyethylene, low density polyethylene, linear low-density polyethylene, polyolefin elastomer, polyvinyl chloride, metallocene PE, and UNIQABLE, a recyclable all-PE packaging solution; and styrene-based synthetic resin, including acrylonitrile butadiene styrene, acrylonitrile styrene acrylate, expandable polystyrene, polystyrene, styrene acrylonitrile copolymer. The company also provides polycarbonate, a benzene-based synthetic resin product; polypropylene, a propylene-based synthetic resin; superabsorbent polymer; butadiene rubber, nitrile butadiene rubber, nitrile butadiene rubber latex, styrene butadiene latex, and solution styrene butadiene rubber; caustic soda; plasticizer; and base oil. In addition, it offers bisphenol A; acrylate, alcohol, isopropyl alcohol, methacrylate butadiene styrene, neopentyl glycol, and styrene butadiene styrene; aerogel; anode binder and carbon nanotube; KEYFLEX BT, KEYFLEX TO, LUCEL, LUCON, LUMID/LUXY, LUMILOY, LUMIPLAS, LUPOL, LUPOS, LUPOX/LUMAX, LUPOY, and LUSEP high-performance plastics; display materials; adhesives for automotive bodyshop and cathode material paintshop, cathode material, dispersant for conductive agent, flame barrier material, and separators. Further, the company provides semiconductor materials and automobiles materials; life science products for arthritis, diabetes, growth hormone, fertility, anemia, anti-adhesive agent, antimicrobials, bovine somatotropin, vaccines, and crop protection agents. LG Chem, Ltd. was founded in 1947 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 232000.0,
+      "Price": 227500.0,
       "Target Price": 366869.56,
-      "Target Upside(%)": 58.13343103448276,
+      "Target Upside(%)": 61.261345054945046,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": -8.304,
@@ -1343,26 +1343,26 @@
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 0.0,
       "PER": null,
-      "Forward PER": 11.033734,
+      "Forward PER": 10.819718,
       "PBR": null,
-      "PSR": 0.3481071,
+      "PSR": 0.34135503,
       "Dividend Yield(%)": 86.0,
       "Revenue Growth(%)": 38.4,
       "Earnings Growth(%)": null,
       "Debt/Equity": 81.516,
       "Current Ratio": 1.88,
       "Cash/Debt": 0.2588539765362498,
-      "Market Cap": 18159824273408.0,
+      "Market Cap": 17807586623488.0,
       "Total Revenue": 52167348060160.0,
       "Net Income": -2860350963712.0,
       "Free Cashflow": null,
       "52W High": 437500.0,
-      "52W High Gap(%)": -46.971428571428575,
+      "52W High Gap(%)": -48.0,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 256580.0,
-      "MA200": 304110.0,
-      "One Year Return(%)": -44.69606674612634,
+      "MA50": 255490.0,
+      "MA200": 303552.5,
+      "One Year Return(%)": -43.40796019900498,
       "Valuation": "중립"
     },
     {
@@ -1375,9 +1375,9 @@
       "Industry": "Banks - Regional",
       "Business Summary": "Shinhan Financial Group Co., Ltd. provides financial products and services in South Korea and overseas. It offers credit, lending and receiving deposits; credit cards, short-term and long-term card loan services, installment financing, and leases; securities trading, consignment trading, and underwriting; life and non-life insurance business; facility rental and new technology business financing; and real estate trust, investment advisory services, venture business investment, and other businesses. Shinhan Financial Group Co., Ltd. was founded in 1982 and is based in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 89800.0,
+      "Price": 89300.0,
       "Target Price": 130122.73,
-      "Target Upside(%)": 44.902817371937644,
+      "Target Upside(%)": 45.71414333706607,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 8.941,
@@ -1385,26 +1385,26 @@
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 26.150997999999998,
       "PER": null,
-      "Forward PER": 6.773479,
+      "Forward PER": 6.735765,
       "PBR": null,
-      "PSR": 2.0217388,
+      "PSR": 2.010482,
       "Dividend Yield(%)": 345.0,
       "Revenue Growth(%)": 5.7,
       "Earnings Growth(%)": 22.5,
       "Debt/Equity": null,
       "Current Ratio": null,
       "Cash/Debt": 1.327910262488148,
-      "Market Cap": 41569470119936.0,
+      "Market Cap": 41338015842304.0,
       "Total Revenue": 20561245765632.0,
       "Net Income": 5178363740160.0,
       "Free Cashflow": null,
       "52W High": 116500.0,
-      "52W High Gap(%)": -22.91845493562231,
+      "52W High Gap(%)": -23.347639484978544,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 99784.0,
-      "MA200": 98396.0,
-      "One Year Return(%)": 11.276332094175956,
+      "MA50": 99348.0,
+      "MA200": 98433.0,
+      "One Year Return(%)": 14.194373401534532,
       "Valuation": "중립"
     },
     {
@@ -1417,9 +1417,9 @@
       "Industry": "Consumer Electronics",
       "Business Summary": "LG Electronics Inc., together with its subsidiaries, manufactures and sells consumer and commercial products in South Korea and internationally. It operates through the Home Appliance & Air Solution, Home Entertainment, Vehicle Component Solutions, Business Solutions, LG Innotek Co., Ltd. (Innotek), and Other segments. The Home Appliance & Air Solution segment provides refrigerators, washing machines, vacuum cleaners, and residential and commercial air conditioners. Its Home Entertainment segment offers televisions and digital media products. The Vehicle Component Solutions segment designs and manufactures automobile parts. Its Business Solutions segment provides monitors, PCs, information displays, and other products. The Innotek segment offers optics solutions, substrate materials, and automotive components, as well as camera modules and motors/sensors. Its Other segment engages in equipment production and other activities. The company was formerly known as GoldStar and changed its name to LG Electronics Inc. in 1995. LG Electronics Inc. was founded in 1958 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 135600.0,
+      "Price": 135200.0,
       "Target Price": 238000.0,
-      "Target Upside(%)": 75.51622418879056,
+      "Target Upside(%)": 76.03550295857988,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 5.284,
@@ -1427,26 +1427,26 @@
       "Gross Margin(%)": 24.485001,
       "Profit Margin(%)": 1.1159999999999999,
       "PER": null,
-      "Forward PER": 8.383815,
+      "Forward PER": 8.371449,
       "PBR": null,
-      "PSR": 0.26069888,
+      "PSR": 0.26031438,
       "Dividend Yield(%)": 100.0,
       "Revenue Growth(%)": 14.899999999999999,
       "Earnings Growth(%)": 0.3,
       "Debt/Equity": 44.485,
       "Current Ratio": 1.306,
       "Cash/Debt": 0.7094143506392848,
-      "Market Cap": 24317895114752.0,
+      "Market Cap": 24282027524096.0,
       "Total Revenue": 93279626461184.0,
       "Net Income": 811718017024.0,
       "Free Cashflow": 1215334187008.0,
       "52W High": 438000.0,
-      "52W High Gap(%)": -69.04109589041096,
+      "52W High Gap(%)": -69.13242009132419,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 181226.0,
-      "MA200": 168666.0,
-      "One Year Return(%)": 46.59459459459458,
+      "MA50": 179800.0,
+      "MA200": 168817.0,
+      "One Year Return(%)": 47.92122538293218,
       "Valuation": "중립"
     },
     {
@@ -1459,9 +1459,9 @@
       "Industry": "Biotechnology",
       "Business Summary": "Celltrion, Inc., a biopharmaceutical company, engages in the development, production, and sale of development, production, and sale of medicinal products. It offers biosimilars, including Remsima for rheumatoid arthritis and inflammatory bowel disease; Truxima for non-hodgkin's lymphoma and chronic lymphocytic leukemia; Herzuma for metastatic breast and gastric cancer; Remsima SC and Yuflyma for rheumatoid arthritis and inflammatory bowel disease; Vegzelma for metastatic colorectal cancer and non-small cell lung cancer; Omlyclo for Asthma and urticaria; Eydenzelt for diabetic macular edema and wet age-related macular degeneration; Steqeyma for psoriasis and inflammatory bowel disease; Stoboclo/Osenvelt for osteoporosis; Avtozma for rheumatoid arthritis and active systemic juvenile idiopathic arthritis; Zymfentra for inflammatory bowel disease; and Regkirona for COVID-19, as well as CT-G07 for HIV/AIDS and Donerion Patch for Alzheimer's dementia symptoms. The company is also developing biosimilars, which are in Phase 3 clinical trials include CT-P44 for multiple myeloma, CT-P51 for melanoma and lung cancer, CT-P53 for multiple sclerosis, and CT-P55 for psoriasis, as well as CT-G20 for hypertrophic cardiomyopathy. It distributes its products in approximately 100 countries, including the United States and Europe. The company was founded in 2002 and is headquartered in Incheon, South Korea.",
       "Currency": "KRW",
-      "Price": 214000.0,
+      "Price": 215000.0,
       "Target Price": 278545.47,
-      "Target Upside(%)": 30.161434579439252,
+      "Target Upside(%)": 29.55603255813952,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 9.110999999999999,
@@ -1469,26 +1469,26 @@
       "Gross Margin(%)": 61.861999999999995,
       "Profit Margin(%)": 32.18,
       "PER": null,
-      "Forward PER": 27.072275,
+      "Forward PER": 27.135529,
       "PBR": null,
-      "PSR": 10.012572,
+      "PSR": 10.035966,
       "Dividend Yield(%)": 33.0,
       "Revenue Growth(%)": 45.0,
       "Earnings Growth(%)": 511.8,
       "Debt/Equity": 21.425,
       "Current Ratio": 1.364,
       "Cash/Debt": 0.3253819175761201,
-      "Market Cap": 49039622012928.0,
+      "Market Cap": 49154202009600.0,
       "Total Revenue": 4897804648448.0,
       "Net Income": 1576118648832.0,
       "Free Cashflow": -28898297856.0,
       "52W High": 239047.62,
-      "52W High Gap(%)": -10.478088006063391,
+      "52W High Gap(%)": -10.059761314502946,
       "Above MA50": true,
       "Above MA200": true,
-      "MA50": 188734.0,
-      "MA200": 190035.45234375,
-      "One Year Return(%)": 15.171702205131087,
+      "MA50": 189274.0,
+      "MA200": 190124.738046875,
+      "One Year Return(%)": 18.87835849721513,
       "Valuation": "중립"
     },
     {
@@ -1501,7 +1501,7 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 83115.0,
+      "Price": 82685.0,
       "Target Price": null,
       "Target Upside(%)": null,
       "Opinion Score": null,
@@ -1525,12 +1525,12 @@
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 152455.0,
-      "52W High Gap(%)": -45.48227345774163,
+      "52W High Gap(%)": -45.764323898855395,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 98649.6,
-      "MA200": 101807.4,
-      "One Year Return(%)": 40.70594210259016,
+      "MA50": 98145.6,
+      "MA200": 101864.875,
+      "One Year Return(%)": 43.26431603569263,
       "Valuation": "비싼 편"
     },
     {
@@ -1543,9 +1543,9 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 72700.0,
+      "Price": 72100.0,
       "Target Price": 45000.0,
-      "Target Upside(%)": -38.101788170563964,
+      "Target Upside(%)": -37.586685159500696,
       "Opinion Score": 1.0,
       "Opinion": "강력매도",
       "ROE(%)": null,
@@ -1562,17 +1562,17 @@
       "Debt/Equity": null,
       "Current Ratio": null,
       "Cash/Debt": null,
-      "Market Cap": 9848376786944.0,
+      "Market Cap": 9780644020224.0,
       "Total Revenue": null,
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 190000.0,
-      "52W High Gap(%)": -61.73684210526316,
+      "52W High Gap(%)": -62.05263157894737,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 79964.0,
-      "MA200": 114977.0,
-      "One Year Return(%)": -23.231256599788807,
+      "MA50": 79662.0,
+      "MA200": 114846.0,
+      "One Year Return(%)": -18.253968253968257,
       "Valuation": "비싼 편"
     },
     {
@@ -1585,9 +1585,9 @@
       "Industry": "Banks - Regional",
       "Business Summary": "Hana Financial Group Inc., through its subsidiaries, provides financial services in South Korea, Hong Kong, Singapore, the United States, Japan, China, Indonesia, the United Kingdom, Canada, and internationally. It operates through five segments: Banking, Securities, Credit Card, Capital Financing, and Others. The company engages in banking services; financial investments; credit card business; installment credit financing; real estate trust; system development service; mutual savings banking; life and non-life insurance; transfer agent; asset management; investment and management service for non-performing loan asset-backed securities; private placed fund; trust account; special purpose vehicle; and trust and collective investment. It is also involved in seafood processing; payment processing; technology financial; asset securitization; other financial; real estate; and elderly care and welfare facilities businesses. The company was founded in 1971 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 124600.0,
+      "Price": 124300.0,
       "Target Price": 163804.34,
-      "Target Upside(%)": 31.464157303370776,
+      "Target Upside(%)": 31.7814481094127,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": null,
@@ -1595,26 +1595,26 @@
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 32.027,
       "PER": null,
-      "Forward PER": 7.012706,
+      "Forward PER": 6.990193,
       "PBR": null,
-      "PSR": 2.5416539,
+      "PSR": 2.5334945,
       "Dividend Yield(%)": 388.0,
       "Revenue Growth(%)": 8.4,
       "Earnings Growth(%)": null,
       "Debt/Equity": null,
       "Current Ratio": null,
       "Cash/Debt": 0.9186184100883285,
-      "Market Cap": 33281563164672.0,
+      "Market Cap": 33174719561728.0,
       "Total Revenue": 13094451412992.0,
       "Net Income": 4026806042624.0,
       "Free Cashflow": null,
       "52W High": 142500.0,
-      "52W High Gap(%)": -12.561403508771928,
+      "52W High Gap(%)": -12.7719298245614,
       "Above MA50": false,
       "Above MA200": true,
-      "MA50": 126978.0,
-      "MA200": 121889.0,
-      "One Year Return(%)": 29.521829521829513,
+      "MA50": 126716.0,
+      "MA200": 122009.0,
+      "One Year Return(%)": 33.51235230934479,
       "Valuation": "중립"
     },
     {
@@ -1627,7 +1627,7 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 98520.0,
+      "Price": 95600.0,
       "Target Price": null,
       "Target Upside(%)": null,
       "Opinion Score": null,
@@ -1651,12 +1651,12 @@
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 188760.0,
-      "52W High Gap(%)": -47.806738715829624,
+      "52W High Gap(%)": -49.353676626403896,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 121322.3,
-      "MA200": 121577.05,
-      "One Year Return(%)": 65.38526103743496,
+      "MA50": 120739.9,
+      "MA200": 121702.55,
+      "One Year Return(%)": 62.87588380611637,
       "Valuation": "비싼 편"
     },
     {
@@ -1669,9 +1669,9 @@
       "Industry": "Oil & Gas Refining & Marketing",
       "Business Summary": "SK Innovation Co., Ltd., together with its subsidiaries, engages in the development, production, and sale of petroleum, natural gas, petrochemical, lubricants, and base oil products in South Korea, Asia, Europe, the United States, and internationally. The company operates through Energy & Chemicals, Battery & Materials, E&S, and Others segments. The company is also involved in insurance, power, district energy, renewable, city gas, LNG, manufacturing, trading, and oil exploration businesses; storage and sale of petroleum products; manufacturing of industrial gas and separator for secondary batteries; operating gas station and sports club; selling asphalt; issuance and redemption of floating securities; evaluation, certification, manufacturing, and selling of lithium battery; collection and disposal of waste batteries; battery separators; invests in carbon capture and storage, as well as in equity; and installation of electric wire. In addition, it provides business consulting, resource development, information and communication, transporting, and software development services. Further, the company offers energy solutions and operates in hydrogen industry. The company was formerly known as SK Energy Co., Ltd. and changed its name to SK Innovation Co., Ltd. in January 2011. SK Innovation Co., Ltd. was founded in 1962 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 109200.0,
+      "Price": 107700.0,
       "Target Price": 187631.58,
-      "Target Upside(%)": 71.82379120879119,
+      "Target Upside(%)": 74.21688022284121,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": -7.9959996,
@@ -1679,26 +1679,26 @@
       "Gross Margin(%)": 10.9960005,
       "Profit Margin(%)": -1.254,
       "PER": null,
-      "Forward PER": 9.031262,
+      "Forward PER": 8.915477,
       "PBR": null,
-      "PSR": 0.1996086,
+      "PSR": 0.1970495,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 49.9,
       "Earnings Growth(%)": null,
       "Debt/Equity": 105.032,
       "Current Ratio": 1.065,
       "Cash/Debt": 0.34229996593816586,
-      "Market Cap": 18582396207104.0,
+      "Market Cap": 18344159739904.0,
       "Total Revenue": 93094171115520.0,
       "Net Income": -698709245952.0,
       "Free Cashflow": -1325418938368.0,
       "52W High": 165400.0,
-      "52W High Gap(%)": -33.9782345828295,
+      "52W High Gap(%)": -34.8851269649335,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 139022.0,
-      "MA200": 122447.0,
-      "One Year Return(%)": -13.539192399049881,
+      "MA50": 138470.0,
+      "MA200": 122440.5,
+      "One Year Return(%)": -11.937857726901058,
       "Valuation": "중립"
     },
     {
@@ -1711,7 +1711,7 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 82920.0,
+      "Price": 82475.0,
       "Target Price": null,
       "Target Upside(%)": null,
       "Opinion Score": null,
@@ -1735,12 +1735,12 @@
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 152560.0,
-      "52W High Gap(%)": -45.64761405348715,
+      "52W High Gap(%)": -45.93930256948086,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 98797.1,
-      "MA200": 101883.675,
-      "One Year Return(%)": 40.280832346472685,
+      "MA50": 98283.2,
+      "MA200": 101939.65,
+      "One Year Return(%)": 42.85095695851737,
       "Valuation": "비싼 편"
     },
     {
@@ -1753,9 +1753,9 @@
       "Industry": "Banks - Regional",
       "Business Summary": "KB Financial Group Inc. provides financial products and services in South Korea, the United States, New Zealand, China, Cambodia, the United Kingdom, Indonesia, and internationally. The company offers deposit products, such as demand and time deposits, certificates of deposit, foreign currency deposits, and savings deposits for housing subscription; loan products, including mortgage loans to finance home purchases, construction, improvements, or rentals; and home equity loans, overdraft loans, and other consumer loans. It also provides debit and credit cards; working capital loans and facility loans; mortgage loans to home builders or developers; securities underwriting; financing and financial advisory services for mergers and acquisitions; project finance and financial advisory services for social overhead capital projects such as highway, port, power, water, and sewage projects; financing and financial advisory services for real estate development projects; and structured finance. In addition, the company offers brokerage services for stocks, futures, options, equity, derivative-linked securities, and debt instruments; foreign exchange services and derivatives dealing; import and export-related services; offshore lending, syndicated loans, and foreign currency securities investment; and trust account management services. Further, it provides long-term insurance products, automobile insurance products, and general property and casualty insurance products; life insurance comprising annuities, savings insurance, variable life insurance, whole life insurance, term life insurance, and health insurance; bancassurance; consumer finance services; and mortgage financing and construction loans. Additionally, the company is involved in real estate trust management; capital investment; and software advisory, development, and supply. KB Financial Group Inc. was founded in 1963 and is headquartered in Seoul, South Korea.",
       "Currency": "KRW",
-      "Price": 159000.0,
+      "Price": 159600.0,
       "Target Price": 214500.0,
-      "Target Upside(%)": 34.905660377358494,
+      "Target Upside(%)": 34.398496240601496,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": null,
@@ -1763,26 +1763,26 @@
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 17.247,
       "PER": null,
-      "Forward PER": 7.9201727,
+      "Forward PER": 7.95006,
       "PBR": null,
-      "PSR": 1.4637653,
+      "PSR": 1.469289,
       "Dividend Yield(%)": 319.0,
       "Revenue Growth(%)": 514.4,
       "Earnings Growth(%)": 21.099999999999998,
       "Debt/Equity": null,
       "Current Ratio": null,
       "Cash/Debt": 0.8615622365415408,
-      "Market Cap": 55196231139328.0,
+      "Market Cap": 55404520275968.0,
       "Total Revenue": 37708390989824.0,
       "Net Income": 6368595542016.0,
       "Free Cashflow": null,
       "52W High": 194500.0,
-      "52W High Gap(%)": -18.251928020565554,
+      "52W High Gap(%)": -17.94344473007712,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 164308.0,
-      "MA200": 159775.0,
-      "One Year Return(%)": 19.10112359550562,
+      "MA50": 164076.0,
+      "MA200": 159907.5,
+      "One Year Return(%)": 25.867507886435327,
       "Valuation": "중립"
     },
     {
@@ -1795,9 +1795,9 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 14020.0,
+      "Price": 13980.0,
       "Target Price": 30000.0,
-      "Target Upside(%)": 113.98002853067047,
+      "Target Upside(%)": 114.59227467811158,
       "Opinion Score": null,
       "Opinion": "의견 없음",
       "ROE(%)": null,
@@ -1814,17 +1814,17 @@
       "Debt/Equity": null,
       "Current Ratio": null,
       "Cash/Debt": null,
-      "Market Cap": 473991118848.0,
+      "Market Cap": 472638816256.0,
       "Total Revenue": null,
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 34850.0,
-      "52W High Gap(%)": -59.77044476327116,
+      "52W High Gap(%)": -59.885222381635586,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 14694.4,
-      "MA200": 19404.9,
-      "One Year Return(%)": -52.231686541737645,
+      "MA50": 14665.4,
+      "MA200": 19344.3,
+      "One Year Return(%)": -49.25589836660617,
       "Valuation": "중립"
     },
     {
@@ -1837,9 +1837,9 @@
       "Industry": "Biotechnology",
       "Business Summary": "ALTEOGEN Inc., a bio company, focuses on developing long-acting biobetters, proprietary antibody-drug conjugates, and antibody biosimilars. The company develops ALT-P1, a long-acting human growth hormone that is in the Phase IIa clinical trial; and ALT-Q2, a long-acting active form of coagulation factor VII for the treatment of hemophilia based on its NexP technology. It is also involved in the development of ALT-P7, a targeted breast/gastric cancer drug that is in the Phase I clinical trial; ALT-Q5, an antibody-drug conjugate (ADC) for the treatment of ovarian cancer based on its NexMab ADC technology; and ALT-LS2, a SC (subcutaneous) formulation of trastuzuamb for the treatment of breast and gastric cancer. The company has a strategic alliance with Kissei Pharmaceutical for the development of ALT-L9, a biosimilar of Eylea (Aflibercept) which is currently under Phase 1 trial; Cristalia for the development of ALT-L2, a biosimilar of Herceptin (Trastuzumab), a monoclonal antibody for the treatment of breast cancer, which is in the Phase II clinical trial; and Biogen Inc. to develop subcutaneous (SC) formulations of biologics utilizing ALT-B4. ALTEOGEN Inc. was founded in 2008 and is headquartered in Daejeon, South Korea.",
       "Currency": "KRW",
-      "Price": 176200.0,
+      "Price": 175700.0,
       "Target Price": 358333.34,
-      "Target Upside(%)": 103.36738933030647,
+      "Target Upside(%)": 103.94612407512808,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 35.599,
@@ -1847,26 +1847,26 @@
       "Gross Margin(%)": 80.876,
       "Profit Margin(%)": 75.468004,
       "PER": null,
-      "Forward PER": 32.049526,
+      "Forward PER": 31.90401,
       "PBR": null,
-      "PSR": 48.21922,
+      "PSR": 48.00029,
       "Dividend Yield(%)": 16.0,
       "Revenue Growth(%)": 269.5,
       "Earnings Growth(%)": null,
       "Debt/Equity": 1.087,
       "Current Ratio": 5.728,
       "Cash/Debt": 63.74838067450542,
-      "Market Cap": 12248294621184.0,
+      "Market Cap": 12192684441600.0,
       "Total Revenue": 254012719104.0,
       "Net Income": 191699369984.0,
       "Free Cashflow": -61308276736.0,
       "52W High": 437692.3,
-      "52W High Gap(%)": -59.7434087828367,
+      "52W High Gap(%)": -59.8576442857231,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 238966.0,
-      "MA200": 269527.076328125,
-      "One Year Return(%)": -58.27686655597526,
+      "MA50": 236460.0,
+      "MA200": 268555.576328125,
+      "One Year Return(%)": -58.3193437787521,
       "Valuation": "중립"
     },
     {
@@ -1879,9 +1879,9 @@
       "Industry": "Biotechnology",
       "Business Summary": "Samsung Biologics Co.,Ltd., together with its subsidiaries engages in the manufacturing, commercializing, distributing, and selling of biopharmaceuticals products in South Korea, Europe, the United States, and internationally. Its development services include late discovery, cell line development, process development, analytical development, and non-GMP / CGMP manufacturing. The company also offers aseptic filling, lyophilization, finishing, cold chain storage and shipping, and regulatory support services; and quality services and analytical testing services, such as IPC and release testing, stability study and testing, environmental monitoring, biosafety testing, as well as manufactures drug substance. In addition, it engages in the development and manufacture of antibody-drug conjugates and mRNA products. The company was founded in 2011 and is headquartered in Incheon, South Korea.",
       "Currency": "KRW",
-      "Price": 1411000.0,
+      "Price": 1409000.0,
       "Target Price": 1879148.1,
-      "Target Upside(%)": 33.178462083628645,
+      "Target Upside(%)": 33.367501774308025,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": 18.526,
@@ -1889,26 +1889,26 @@
       "Gross Margin(%)": 54.208999999999996,
       "Profit Margin(%)": 38.747,
       "PER": null,
-      "Forward PER": 30.406536,
+      "Forward PER": 30.341888,
       "PBR": null,
-      "PSR": 12.826421,
+      "PSR": 12.7991495,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 30.2,
       "Earnings Growth(%)": 32.9,
       "Debt/Equity": 14.844,
       "Current Ratio": 1.797,
       "Cash/Debt": 1.7827951207654684,
-      "Market Cap": 65686915252224.0,
+      "Market Cap": 65547253317632.0,
       "Total Revenue": 5121219493888.0,
       "Net Income": 1849327878144.0,
       "Free Cashflow": 1295224537088.0,
       "52W High": 1987000.0,
-      "52W High Gap(%)": -28.988424760946153,
+      "52W High Gap(%)": -29.089079013588325,
       "Above MA50": true,
       "Above MA200": false,
-      "MA50": 1399272.23,
-      "MA200": 1495158.0575,
-      "One Year Return(%)": -24.840120460885608,
+      "MA50": 1397052.23,
+      "MA200": 1492603.0575,
+      "One Year Return(%)": -24.94665466292545,
       "Valuation": "중립"
     },
     {
@@ -1921,9 +1921,9 @@
       "Industry": "Electrical Equipment & Parts",
       "Business Summary": "EcoPro BM Co., Ltd. manufactures and sells cathode materials used in batteries in the United States, Korea, Japan, China, Hungary, Malaysia, and internationally. It offers cathode active materials and precursors for electric vehicles (EV), electric energy storage systems (ESS), uninterruptible power supply (UPS), and smart grids, as well as aerospace, medical, and military purposes applications. The company was founded in 2016 and is headquartered in Cheongju, South Korea.",
       "Currency": "KRW",
-      "Price": 90800.0,
+      "Price": 89400.0,
       "Target Price": 144705.39,
-      "Target Upside(%)": 59.36716960352424,
+      "Target Upside(%)": 61.862852348993314,
       "Opinion Score": 3.0,
       "Opinion": "중립",
       "ROE(%)": 3.909,
@@ -1931,26 +1931,26 @@
       "Gross Margin(%)": 10.983,
       "Profit Margin(%)": 1.8980000000000001,
       "PER": null,
-      "Forward PER": 173.27304,
+      "Forward PER": 170.98308,
       "PBR": null,
-      "PSR": 4.2451687,
+      "PSR": 4.1890655,
       "Dividend Yield(%)": 11.0,
       "Revenue Growth(%)": -26.0,
       "Earnings Growth(%)": null,
       "Debt/Equity": 138.137,
       "Current Ratio": 0.793,
       "Cash/Debt": 0.16649859765223857,
-      "Market Cap": 9781482881024.0,
+      "Market Cap": 9652212334592.0,
       "Total Revenue": 2304144572416.0,
       "Net Income": 43734745088.0,
       "Free Cashflow": -340251836416.0,
       "52W High": 260000.0,
-      "52W High Gap(%)": -65.07692307692308,
+      "52W High Gap(%)": -65.61538461538461,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 103747.8753125,
-      "MA200": 155919.9250390625,
-      "One Year Return(%)": -43.25,
+      "MA50": 103245.1103125,
+      "MA200": 155566.4250390625,
+      "One Year Return(%)": -42.098445595854926,
       "Valuation": "중립"
     },
     {
@@ -1963,9 +1963,9 @@
       "Industry": "Electronic Gaming & Multimedia",
       "Business Summary": "Kakao Games Corp. operates a mobile and PC online game service platform for gamers worldwide. The company develops and publishes various genres of games, including PC, mobile, and VR platforms. It provides mobile game services, such as kakao and snack games, mobile game play channel, play by star, and Cacao game shop; and PC online game services comprising PC/online game portal and Cacao games PC room. The company was incorporated in 2013 and is based in Seongnam-si, South Korea.",
       "Currency": "KRW",
-      "Price": 11500.0,
+      "Price": 11700.0,
       "Target Price": 12210.0,
-      "Target Upside(%)": 6.173913043478252,
+      "Target Upside(%)": 4.358974358974366,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": -12.347999,
@@ -1973,26 +1973,26 @@
       "Gross Margin(%)": 100.0,
       "Profit Margin(%)": -33.796,
       "PER": null,
-      "Forward PER": 17.768063,
+      "Forward PER": 18.077072,
       "PBR": null,
-      "PSR": 3.1836832,
+      "PSR": 3.2390516,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": -35.199999999999996,
       "Earnings Growth(%)": null,
       "Debt/Equity": 79.72,
       "Current Ratio": 1.145,
       "Cash/Debt": 0.9867779685783636,
-      "Market Cap": 1223499448320.0,
+      "Market Cap": 1244777676800.0,
       "Total Revenue": 384303136768.0,
       "Net Income": -127026159616.0,
       "Free Cashflow": -72963940352.0,
       "52W High": 18440.0,
-      "52W High Gap(%)": -37.635574837310195,
+      "52W High Gap(%)": -36.55097613882863,
       "Above MA50": true,
       "Above MA200": true,
-      "MA50": 10275.6,
-      "MA200": 10934.5,
-      "One Year Return(%)": -32.35294117647059,
+      "MA50": 10312.0,
+      "MA200": 10921.35,
+      "One Year Return(%)": -28.000000000000004,
       "Valuation": "비싼 편"
     },
     {
@@ -2005,7 +2005,7 @@
       "Industry": null,
       "Business Summary": null,
       "Currency": "KRW",
-      "Price": 12780.0,
+      "Price": 12675.0,
       "Target Price": null,
       "Target Upside(%)": null,
       "Opinion Score": null,
@@ -2029,12 +2029,12 @@
       "Net Income": null,
       "Free Cashflow": null,
       "52W High": 22860.0,
-      "52W High Gap(%)": -44.09448818897638,
+      "52W High Gap(%)": -44.55380577427821,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 14359.0,
-      "MA200": 16151.825,
-      "One Year Return(%)": -23.76975842529079,
+      "MA50": 14306.8,
+      "MA200": 16138.575,
+      "One Year Return(%)": -20.90483619344774,
       "Valuation": "비싼 편"
     },
     {
@@ -2047,9 +2047,9 @@
       "Industry": "Electrical Equipment & Parts",
       "Business Summary": "LG Energy Solution, Ltd. provides energy solutions worldwide. The company offers automotive batteries, which include pouch-type battery cells, modules/packs, and battery management system products for use in electric vehicle batteries; mobility and IT batteries for various applications in IT devices, such as smartphones and laptops, as well as light electric vehicles, electric bicycles, power tools, and wireless earphones; and energy storage systems that are used in power grids, UPS, and commercial and residential applications. It operates in South Korea, China, and the United States. The company also owns lithium ores. LG Energy Solution, Ltd. was founded in 2020 and is headquartered in Seoul, South Korea. LG Energy Solution, Ltd. is a subsidiary of LG Chem, Ltd.",
       "Currency": "KRW",
-      "Price": 324500.0,
+      "Price": 319500.0,
       "Target Price": 482223.34,
-      "Target Upside(%)": 48.60503543913715,
+      "Target Upside(%)": 50.930622848200315,
       "Opinion Score": 4.0,
       "Opinion": "매수추천",
       "ROE(%)": -5.152,
@@ -2057,26 +2057,26 @@
       "Gross Margin(%)": 16.921,
       "Profit Margin(%)": -6.6739999999999995,
       "PER": null,
-      "Forward PER": 45.834663,
+      "Forward PER": 45.19905,
       "PBR": null,
-      "PSR": 3.0110614,
+      "PSR": 2.9693058,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 28.299999999999997,
       "Earnings Growth(%)": null,
       "Debt/Equity": 96.268,
       "Current Ratio": 1.219,
       "Cash/Debt": 0.2459412144485386,
-      "Market Cap": 75933000138752.0,
+      "Market Cap": 74880003342336.0,
       "Total Revenue": 25218017918976.0,
       "Net Income": -1683058982912.0,
       "Free Cashflow": -5886154113024.0,
       "52W High": 497500.0,
-      "52W High Gap(%)": -34.77386934673367,
+      "52W High Gap(%)": -35.77889447236181,
       "Above MA50": false,
       "Above MA200": false,
-      "MA50": 367970.0,
-      "MA200": 384100.0,
-      "One Year Return(%)": -33.02373581011352,
+      "MA50": 367020.0,
+      "MA200": 383682.5,
+      "One Year Return(%)": -30.99352051835853,
       "Valuation": "중립"
     },
     {
@@ -2101,14 +2101,14 @@
       "PER": 34.311638,
       "Forward PER": 25.888987,
       "PBR": 6.661816,
-      "PSR": 6.652787,
+      "PSR": 6.653659,
       "Dividend Yield(%)": 59.0,
       "Revenue Growth(%)": 8.1,
       "Earnings Growth(%)": 8.5,
       "Debt/Equity": 56.336,
       "Current Ratio": 2.05,
       "Cash/Debt": 0.42381870781099323,
-      "Market Cap": 49044348928.0,
+      "Market Cap": 49050775552.0,
       "Total Revenue": 7372000256.0,
       "Net Income": 1440000000.0,
       "Free Cashflow": 1060374976.0,
@@ -2182,7 +2182,7 @@
       "Operating Margin(%)": 36.635,
       "Gross Margin(%)": 73.724,
       "Profit Margin(%)": 15.665999999999999,
-      "PER": 50.605488,
+      "PER": 50.69244,
       "Forward PER": 18.216002,
       "PBR": -113.77941,
       "PSR": 7.899837,
@@ -2225,7 +2225,7 @@
       "Gross Margin(%)": 83.119005,
       "Profit Margin(%)": 23.017000000000003,
       "PER": 35.04315,
-      "Forward PER": 29.561468,
+      "Forward PER": 29.414913,
       "PBR": 11.814041,
       "PSR": 7.9996777,
       "Dividend Yield(%)": 0.0,
@@ -3569,7 +3569,7 @@
       "Gross Margin(%)": 78.976,
       "Profit Margin(%)": 23.492001000000002,
       "PER": 7.8764224,
-      "Forward PER": 8.553514,
+      "Forward PER": 8.541914,
       "PBR": 2.293126,
       "PSR": 1.760747,
       "Dividend Yield(%)": 206.0,
@@ -4022,8 +4022,8 @@
       "Business Summary": "ASML Holding N.V. provides lithography solutions for the development, production, marketing, sales, upgrading, and servicing of advanced semiconductor equipment systems. The company offers lithography, metrology, and inspection systems. It also provides extreme ultraviolet lithography systems; and deep ultraviolet lithography systems comprising immersion and dry lithography systems solutions to manufacture various range of semiconductor nodes and technologies. In addition, the company offers metrology and inspection systems, including YieldStar optical metrology systems, a diffraction-based wafer metrology platform to assess the quality of patterns on the wafers; and HMI electron beam solutions to locate and analyze individual chip defects. Further, it provides computational lithography solutions, and lithography systems and control software solutions; and refurbishes and upgrades lithography systems, as well as offers customer support and related services. Additionally, the company offers hardware, software, and services to chipmakers to produce the patterns of integrated circuits. It operates in Japan, South Korea, Singapore, Taiwan, China, rest of Asia, the Netherlands, rest of Europe, the Middle East, Africa, and the United States. The company was formerly known as ASM Lithography Holding N.V. and changed its name to ASML Holding N.V. in 2001. ASML Holding N.V. was founded in 1984 and is headquartered in Veldhoven, the Netherlands.",
       "Currency": "USD",
       "Price": 1495.1600341796875,
-      "Target Price": 2115.7966,
-      "Target Upside(%)": 41.50970810029857,
+      "Target Price": 2114.6304,
+      "Target Upside(%)": 41.43170976076698,
       "Opinion Score": 5.0,
       "Opinion": "강력매수",
       "ROE(%)": 65.636003,
@@ -4115,7 +4115,7 @@
       "Gross Margin(%)": 75.515,
       "Profit Margin(%)": 42.943999999999996,
       "PER": 44.31801,
-      "Forward PER": 17.827318,
+      "Forward PER": 17.874178,
       "PBR": 16.617662,
       "PSR": 18.590607,
       "Dividend Yield(%)": 75.0,
@@ -4660,7 +4660,7 @@
       "Operating Margin(%)": 14.333999,
       "Gross Margin(%)": 31.768,
       "Profit Margin(%)": 13.533000000000001,
-      "PER": 122.28662,
+      "PER": 116.35758,
       "Forward PER": 36.06184,
       "PBR": 29.35627,
       "PSR": 14.820898,
@@ -4828,7 +4828,7 @@
       "Operating Margin(%)": 23.504,
       "Gross Margin(%)": 75.765,
       "Profit Margin(%)": 3.375,
-      "PER": 108.290596,
+      "PER": 109.69697,
       "Forward PER": 15.585511,
       "PBR": 1.979301,
       "PSR": 3.637618,
@@ -5122,7 +5122,7 @@
       "Operating Margin(%)": 38.397,
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 29.743000000000002,
-      "PER": 16.914003,
+      "PER": 16.988926,
       "Forward PER": 14.695585,
       "PBR": 2.6256247,
       "PSR": 4.6918173,
@@ -5375,7 +5375,7 @@
       "Gross Margin(%)": 100.0,
       "Profit Margin(%)": 22.993,
       "PER": 26.768375,
-      "Forward PER": 16.28933,
+      "Forward PER": 16.327124,
       "PBR": 10.875939,
       "PSR": 9.591453,
       "Dividend Yield(%)": 421.0,
@@ -6382,7 +6382,7 @@
       "Operating Margin(%)": 14.285999999999998,
       "Gross Margin(%)": 41.939998,
       "Profit Margin(%)": 9.408,
-      "PER": 19.476868,
+      "PER": 19.68705,
       "Forward PER": 17.745283,
       "PBR": -339.9379,
       "PSR": 1.8428006,
@@ -6719,7 +6719,7 @@
       "Gross Margin(%)": 0.0,
       "Profit Margin(%)": 22.226000000000003,
       "PER": 11.953432,
-      "Forward PER": 8.174945,
+      "Forward PER": 8.177065,
       "PBR": 1.1150742,
       "PSR": 2.4000797,
       "Dividend Yield(%)": 164.0,
@@ -7558,8 +7558,8 @@
       "Operating Margin(%)": 8.742999999999999,
       "Gross Margin(%)": 19.041,
       "Profit Margin(%)": 6.215,
-      "PER": 34.136795,
-      "Forward PER": 34.06721,
+      "PER": 34.79327,
+      "Forward PER": 34.38217,
       "PBR": 12.00365,
       "PSR": 3.933168,
       "Dividend Yield(%)": 0.0,
@@ -7643,7 +7643,7 @@
       "Gross Margin(%)": 44.384997999999996,
       "Profit Margin(%)": 11.923,
       "PER": 16.14464,
-      "Forward PER": 13.3303585,
+      "Forward PER": 13.304887,
       "PBR": 2.2079303,
       "PSR": 1.8963442,
       "Dividend Yield(%)": 324.0,
@@ -7684,7 +7684,7 @@
       "Operating Margin(%)": 31.225002000000003,
       "Gross Margin(%)": 46.508998,
       "Profit Margin(%)": 13.993,
-      "PER": 22.25658,
+      "PER": 22.330034,
       "Forward PER": 17.715706,
       "PBR": 2.0845401,
       "PSR": 3.0981019,
@@ -7810,7 +7810,7 @@
       "Operating Margin(%)": 14.389,
       "Gross Margin(%)": 35.491002,
       "Profit Margin(%)": 4.2630002000000005,
-      "PER": 53.957897,
+      "PER": 53.581882,
       "Forward PER": 18.81407,
       "PBR": 1.5024621,
       "PSR": 2.886393,
@@ -7936,8 +7936,8 @@
       "Operating Margin(%)": 23.593001,
       "Gross Margin(%)": 58.924997000000005,
       "Profit Margin(%)": 19.003001,
-      "PER": 11.20258,
-      "Forward PER": 10.62706,
+      "PER": 11.499337,
+      "Forward PER": 10.592468,
       "PBR": 4.9988484,
       "PSR": 2.0779498,
       "Dividend Yield(%)": 0.0,
@@ -8063,7 +8063,7 @@
       "Gross Margin(%)": 33.181,
       "Profit Margin(%)": 9.535,
       "PER": 25.856575,
-      "Forward PER": 21.67332,
+      "Forward PER": 21.662018,
       "PBR": 3.7416043,
       "PSR": 2.4120388,
       "Dividend Yield(%)": 133.0,
@@ -8190,7 +8190,7 @@
       "Profit Margin(%)": null,
       "PER": 20.720484,
       "Forward PER": null,
-      "PBR": 1.4605215,
+      "PBR": null,
       "PSR": null,
       "Dividend Yield(%)": 139.0,
       "Revenue Growth(%)": null,
@@ -8209,7 +8209,7 @@
       "MA50": 519.2587969970704,
       "MA200": 507.4442497253418,
       "One Year Return(%)": 10.883857132193642,
-      "Valuation": "저평가 여지"
+      "Valuation": "중립"
     },
     {
       "Ticker": "DIS",
@@ -8357,7 +8357,7 @@
       "Gross Margin(%)": 56.149,
       "Profit Margin(%)": 12.323,
       "PER": 36.999996,
-      "Forward PER": 142.71428,
+      "Forward PER": 166.5,
       "PBR": 1.7514025,
       "PSR": 4.733012,
       "Dividend Yield(%)": 611.0,
@@ -8398,7 +8398,7 @@
       "Operating Margin(%)": 18.280001000000002,
       "Gross Margin(%)": 40.228,
       "Profit Margin(%)": 13.596,
-      "PER": 24.44121,
+      "PER": 24.498251,
       "Forward PER": 17.775742,
       "PBR": 3.6570284,
       "PSR": 3.2559624,
@@ -8902,7 +8902,7 @@
       "Operating Margin(%)": 18.465,
       "Gross Margin(%)": 44.043,
       "Profit Margin(%)": 11.9890004,
-      "PER": 41.401608,
+      "PER": 42.07755,
       "Forward PER": 32.881546,
       "PBR": 8.321315,
       "PSR": 4.9930215,
@@ -8944,7 +8944,7 @@
       "Operating Margin(%)": 21.990000000000002,
       "Gross Margin(%)": 53.723997000000004,
       "Profit Margin(%)": 12.699,
-      "PER": 19.145569,
+      "PER": 19.422152,
       "Forward PER": 18.61381,
       "PBR": 1.707207,
       "PSR": 2.4849038,
@@ -9658,7 +9658,7 @@
       "Operating Margin(%)": 28.817999999999998,
       "Gross Margin(%)": 78.018,
       "Profit Margin(%)": 15.301,
-      "PER": 61.58046,
+      "PER": 62.296513,
       "Forward PER": 31.641178,
       "PBR": 5.6786265,
       "PSR": 9.230565,
@@ -9953,7 +9953,7 @@
       "Gross Margin(%)": 73.621005,
       "Profit Margin(%)": 11.618,
       "PER": 24.889637,
-      "Forward PER": 8.486145,
+      "Forward PER": 8.495556,
       "PBR": 1.325264,
       "PSR": 2.9230275,
       "Dividend Yield(%)": 254.99999999999997,
@@ -10372,8 +10372,8 @@
       "Operating Margin(%)": 21.464,
       "Gross Margin(%)": 35.731998,
       "Profit Margin(%)": 26.773999999999997,
-      "PER": 4.238164,
-      "Forward PER": 5.3979187,
+      "PER": 4.4155455,
+      "Forward PER": 5.3923416,
       "PBR": 0.9392687,
       "PSR": 1.17692,
       "Dividend Yield(%)": 596.0,
@@ -11296,7 +11296,7 @@
       "Operating Margin(%)": 8.625,
       "Gross Margin(%)": 38.179,
       "Profit Margin(%)": 6.522,
-      "PER": 38.077843,
+      "PER": 37.62722,
       "Forward PER": 13.650649,
       "PBR": 3.7359734,
       "PSR": 2.4362295,
@@ -11674,7 +11674,7 @@
       "Operating Margin(%)": 27.52,
       "Gross Margin(%)": 65.345,
       "Profit Margin(%)": 18.44,
-      "PER": 18.100601,
+      "PER": 17.965723,
       "Forward PER": 17.278795,
       "PBR": 18.489264,
       "PSR": 3.254282,
@@ -11842,8 +11842,8 @@
       "Operating Margin(%)": 19.012,
       "Gross Margin(%)": 38.571998,
       "Profit Margin(%)": 15.574999,
-      "PER": 9.165333,
-      "Forward PER": 10.095136,
+      "PER": 9.202142,
+      "Forward PER": 10.0982275,
       "PBR": 1.9899547,
       "PSR": 1.2426145,
       "Dividend Yield(%)": 195.0,
@@ -11927,7 +11927,7 @@
       "Gross Margin(%)": 79.455,
       "Profit Margin(%)": 32.825002,
       "PER": 50.34953,
-      "Forward PER": 35.67815,
+      "Forward PER": 35.667545,
       "PBR": -12.624437,
       "PSR": 16.028992,
       "Dividend Yield(%)": 16.0,
@@ -12388,7 +12388,7 @@
       "Operating Margin(%)": 1.822,
       "Gross Margin(%)": 13.012,
       "Profit Margin(%)": 0.808,
-      "PER": 43.269234,
+      "PER": 43.90244,
       "Forward PER": 24.786137,
       "PBR": 2.8709965,
       "PSR": 0.35052994,
@@ -12598,7 +12598,7 @@
       "Operating Margin(%)": 32.497,
       "Gross Margin(%)": 62.722,
       "Profit Margin(%)": 25.357000000000003,
-      "PER": 47.04275,
+      "PER": 47.45485,
       "Forward PER": 41.687927,
       "PBR": 29.684284,
       "PSR": 11.900691,
@@ -12640,7 +12640,7 @@
       "Operating Margin(%)": 21.392,
       "Gross Margin(%)": 44.906,
       "Profit Margin(%)": 14.646,
-      "PER": 33.05007,
+      "PER": 33.00417,
       "Forward PER": 24.17049,
       "PBR": 4.3603435,
       "PSR": 4.7712297,
@@ -12683,7 +12683,7 @@
       "Gross Margin(%)": 36.271997999999996,
       "Profit Margin(%)": 1.677,
       "PER": 231.88573,
-      "Forward PER": 20.991592,
+      "Forward PER": 20.994797,
       "PBR": 1.5327379,
       "PSR": 1.872283,
       "Dividend Yield(%)": 197.0,
@@ -12724,7 +12724,7 @@
       "Operating Margin(%)": 19.057,
       "Gross Margin(%)": 67.67999999999999,
       "Profit Margin(%)": 19.718,
-      "PER": 36.06446,
+      "PER": 35.629948,
       "Forward PER": 33.482243,
       "PBR": 10.004833,
       "PSR": 6.895773,
@@ -13399,14 +13399,14 @@
       "PER": 52.568104,
       "Forward PER": 19.209873,
       "PBR": 5.6774306,
-      "PSR": 1.313992,
+      "PSR": 1.3023937,
       "Dividend Yield(%)": 91.0,
       "Revenue Growth(%)": 34.5,
       "Earnings Growth(%)": -25.4,
       "Debt/Equity": 124.734,
       "Current Ratio": 1.287,
       "Cash/Debt": 0.29080393650242853,
-      "Market Cap": 18683936768.0,
+      "Market Cap": 18519017472.0,
       "Total Revenue": 14219215872.0,
       "Net Income": 359329984.0,
       "Free Cashflow": 645677888.0,
@@ -13566,7 +13566,7 @@
       "Profit Margin(%)": 19.96,
       "PER": 24.405218,
       "Forward PER": 22.214693,
-      "PBR": 6.0671353,
+      "PBR": 5.899522,
       "PSR": 4.755268,
       "Dividend Yield(%)": 137.0,
       "Revenue Growth(%)": 8.799999999999999,
@@ -13817,7 +13817,7 @@
       "Gross Margin(%)": 33.650999999999996,
       "Profit Margin(%)": -13.991999999999999,
       "PER": null,
-      "Forward PER": 12.255298,
+      "Forward PER": 12.271049,
       "PBR": 0.8264218,
       "PSR": 1.199691,
       "Dividend Yield(%)": 637.0,
@@ -14069,7 +14069,7 @@
       "Gross Margin(%)": 62.318003,
       "Profit Margin(%)": 28.654000000000003,
       "PER": 29.277285,
-      "Forward PER": 28.13376,
+      "Forward PER": 28.124514,
       "PBR": 11.4251175,
       "PSR": 8.362985,
       "Dividend Yield(%)": 214.0,
@@ -14237,7 +14237,7 @@
       "Gross Margin(%)": 16.014999,
       "Profit Margin(%)": 4.092,
       "PER": 15.835227,
-      "Forward PER": 16.012733,
+      "Forward PER": 16.513468,
       "PBR": 0.92262363,
       "PSR": 0.62211215,
       "Dividend Yield(%)": 239.0,
@@ -14572,7 +14572,7 @@
       "Operating Margin(%)": 22.225,
       "Gross Margin(%)": 45.049,
       "Profit Margin(%)": 20.737,
-      "PER": 20.340721,
+      "PER": 20.454039,
       "Forward PER": 19.953424,
       "PBR": 2.4391298,
       "PSR": 4.228447,
@@ -15247,14 +15247,14 @@
       "PER": 464.16666,
       "Forward PER": 42.23638,
       "PBR": 9.042942,
-      "PSR": 9.674508,
+      "PSR": 9.659567,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": 30.5,
       "Earnings Growth(%)": null,
       "Debt/Equity": 1.846,
       "Current Ratio": 4.866,
       "Cash/Debt": 43.83062214385691,
-      "Market Cap": 26921930752.0,
+      "Market Cap": 26880352256.0,
       "Total Revenue": 2782769920.0,
       "Net Income": 58897000.0,
       "Free Cashflow": 561356224.0,
@@ -15371,7 +15371,7 @@
       "Gross Margin(%)": 46.658,
       "Profit Margin(%)": 4.9060002,
       "PER": 40.00778,
-      "Forward PER": 27.399216,
+      "Forward PER": 28.094524,
       "PBR": 9.221186,
       "PSR": 1.9628216,
       "Dividend Yield(%)": 0.0,
@@ -15412,8 +15412,8 @@
       "Operating Margin(%)": 8.514,
       "Gross Margin(%)": 25.6,
       "Profit Margin(%)": 6.21,
-      "PER": 13.313878,
-      "Forward PER": 9.17999,
+      "PER": 13.418301,
+      "Forward PER": 9.177577,
       "PBR": 2.914703,
       "PSR": 0.78136605,
       "Dividend Yield(%)": 231.0,
@@ -15665,7 +15665,7 @@
       "Gross Margin(%)": 55.265,
       "Profit Margin(%)": 22.657,
       "PER": 42.236362,
-      "Forward PER": 35.66576,
+      "Forward PER": 35.6789,
       "PBR": 9.242092,
       "PSR": 9.488496,
       "Dividend Yield(%)": 0.0,
@@ -15749,7 +15749,7 @@
       "Gross Margin(%)": 7.632999999999999,
       "Profit Margin(%)": -9.431000000000001,
       "PER": null,
-      "Forward PER": 15.655577,
+      "Forward PER": 16.00736,
       "PBR": 0.6167525,
       "PSR": 0.5857611,
       "Dividend Yield(%)": 401.0,
@@ -15874,7 +15874,7 @@
       "Operating Margin(%)": 35.161,
       "Gross Margin(%)": 75.198,
       "Profit Margin(%)": 3.641,
-      "PER": 147.76,
+      "PER": 149.25252,
       "Forward PER": 16.452564,
       "PBR": 8.119127,
       "PSR": 5.4062853,
@@ -16465,14 +16465,14 @@
       "PER": 32.86842,
       "Forward PER": 25.01298,
       "PBR": 5.533046,
-      "PSR": 6.0721784,
+      "PSR": 6.0701537,
       "Dividend Yield(%)": 115.99999999999999,
       "Revenue Growth(%)": 10.299999999999999,
       "Earnings Growth(%)": 23.0,
       "Debt/Equity": 55.619,
       "Current Ratio": 1.823,
       "Cash/Debt": 0.06265716099389354,
-      "Market Cap": 18093846528.0,
+      "Market Cap": 18087813120.0,
       "Total Revenue": 2979794944.0,
       "Net Income": 555177984.0,
       "Free Cashflow": 613806656.0,
@@ -16672,7 +16672,7 @@
       "Operating Margin(%)": 27.378999999999998,
       "Gross Margin(%)": 50.918,
       "Profit Margin(%)": 13.508999999999999,
-      "PER": 23.494898,
+      "PER": 23.615383,
       "Forward PER": 20.397766,
       "PBR": 2.307461,
       "PSR": 3.174673,
@@ -16882,7 +16882,7 @@
       "Operating Margin(%)": 33.68,
       "Gross Margin(%)": 44.681,
       "Profit Margin(%)": 20.705000000000002,
-      "PER": 27.928452,
+      "PER": 27.483654,
       "Forward PER": 22.516726,
       "PBR": 4.4021373,
       "PSR": 5.681348,
@@ -17084,8 +17084,8 @@
       "Business Summary": "Novo Nordisk A/S, together with its subsidiaries, engages in the research and development, manufacture, and distribution of pharmaceutical products. It operates through two segments, Obesity and Diabetes Care, and Rare Disease. The Obesity and Diabetes care segment provides products for diabetes, obesity, cardiovascular, and other emerging therapy areas. The Rare Disease segment offers products in the areas of rare blood disorders, rare endocrine disorders, and hormone replacement therapy. The company also provides NovoPen 6 and NovoPen Echo Plus, smart insulin pens; Dose Check, an insulin dose guidance application; growth hormone pens and injection needles; and Wegovy pill an oral glucagon-like peptide-1 (GLP-1) receptor agonist therapy for weight management. The company has a collaboration with Anthropic accelerate the development of new medicines and advance AI-driven software development. It operates in Europe, Canada, the United States, Japan, Korea, Oceania, Southeast Asia, Mainland China, Hong Kong and Taiwan, Latin America, the Middle East, and Africa. It has a strategic collaboration with Orbis Medicines to discover and develop oral macrocycle therapeutics for cardiometabolic diseases. The company was formerly known as Novo Industri A/S and changed its name to Novo Nordisk A/S in April 1989. The company was founded in 1923 and is headquartered in Bagsvaerd, Denmark.",
       "Currency": "USD",
       "Price": 41.630001068115234,
-      "Target Price": 45.560966,
-      "Target Upside(%)": 9.442625104555958,
+      "Target Price": 45.504734,
+      "Target Upside(%)": 9.307549441435059,
       "Opinion Score": 3.0,
       "Opinion": "중립",
       "ROE(%)": 58.384,
@@ -18353,7 +18353,7 @@
       "Gross Margin(%)": 84.744,
       "Profit Margin(%)": 50.343,
       "PER": 118.302826,
-      "Forward PER": 66.2625,
+      "Forward PER": 66.16984,
       "PBR": 36.041626,
       "PSR": 55.537468,
       "Dividend Yield(%)": 0.0,
@@ -18898,7 +18898,7 @@
       "Operating Margin(%)": 17.695999,
       "Gross Margin(%)": 40.548,
       "Profit Margin(%)": 13.783000000000001,
-      "PER": 11.121951,
+      "PER": 11.312978,
       "Forward PER": 10.041365,
       "PBR": 2.5467198,
       "PSR": 1.4358194,
@@ -19321,14 +19321,14 @@
       "PER": 14.15953,
       "Forward PER": 10.287098,
       "PBR": 2.5513632,
-      "PSR": 2.0501726,
+      "PSR": 2.047383,
       "Dividend Yield(%)": 128.0,
       "Revenue Growth(%)": 15.299999999999999,
       "Earnings Growth(%)": 15.1,
       "Debt/Equity": 47.594,
       "Current Ratio": null,
       "Cash/Debt": 2.6331361633929746,
-      "Market Cap": 32439879680.0,
+      "Market Cap": 32395743232.0,
       "Total Revenue": 15822999552.0,
       "Net Income": 2361999872.0,
       "Free Cashflow": null,
@@ -19615,14 +19615,14 @@
       "PER": 28.014507,
       "Forward PER": 25.643919,
       "PBR": 10.983217,
-      "PSR": 3.019399,
+      "PSR": 3.0319507,
       "Dividend Yield(%)": 77.0,
       "Revenue Growth(%)": 13.3,
       "Earnings Growth(%)": 70.5,
       "Debt/Equity": 70.281,
       "Current Ratio": 1.612,
       "Cash/Debt": 0.9048295868888958,
-      "Market Cap": 74010894336.0,
+      "Market Cap": 74318561280.0,
       "Total Revenue": 24511797248.0,
       "Net Income": 2659063040.0,
       "Free Cashflow": 2002041600.0,
@@ -20074,7 +20074,7 @@
       "Operating Margin(%)": 18.556,
       "Gross Margin(%)": 37.951002,
       "Profit Margin(%)": 2.506,
-      "PER": 61.430553,
+      "PER": 62.00467,
       "Forward PER": 12.067873,
       "PBR": 2.4647992,
       "PSR": 1.5479441,
@@ -20915,7 +20915,7 @@
       "Gross Margin(%)": 52.771,
       "Profit Margin(%)": 20.895,
       "PER": 13.03581,
-      "Forward PER": 12.043669,
+      "Forward PER": 12.021188,
       "PBR": 2.879432,
       "PSR": 2.6758108,
       "Dividend Yield(%)": 283.0,
@@ -21167,7 +21167,7 @@
       "Gross Margin(%)": 18.542999,
       "Profit Margin(%)": 2.122,
       "PER": 20.50532,
-      "Forward PER": 14.318133,
+      "Forward PER": 14.287169,
       "PBR": 9.382986,
       "PSR": 0.44573715,
       "Dividend Yield(%)": 285.0,
@@ -21251,7 +21251,7 @@
       "Gross Margin(%)": 59.667,
       "Profit Margin(%)": 19.958000000000002,
       "PER": 34.279922,
-      "Forward PER": 21.794424,
+      "Forward PER": 21.819098,
       "PBR": -6.6437073,
       "PSR": 6.2945075,
       "Dividend Yield(%)": 0.0,
@@ -21505,14 +21505,14 @@
       "PER": 16.765316,
       "Forward PER": 16.848545,
       "PBR": 4.110548,
-      "PSR": 0.6809837,
+      "PSR": 0.68099165,
       "Dividend Yield(%)": 287.0,
       "Revenue Growth(%)": 5.3,
       "Earnings Growth(%)": 100.49999999999999,
       "Debt/Equity": 107.583,
       "Current Ratio": 0.988,
       "Cash/Debt": 0.28188162824746316,
-      "Market Cap": 73345351680.0,
+      "Market Cap": 73346203648.0,
       "Total Revenue": 107704999936.0,
       "Net Income": 4392000000.0,
       "Free Cashflow": 3432999936.0,
@@ -21545,16 +21545,16 @@
       "Gross Margin(%)": 31.467,
       "Profit Margin(%)": 9.729000000000001,
       "PER": 24.883331,
-      "Forward PER": 23.404472,
+      "Forward PER": 23.44748,
       "PBR": 13.892679,
-      "PSR": 2.3802433,
+      "PSR": 2.3700511,
       "Dividend Yield(%)": 143.0,
       "Revenue Growth(%)": 5.4,
       "Earnings Growth(%)": 23.599999999999998,
       "Debt/Equity": 134.419,
       "Current Ratio": 1.147,
       "Cash/Debt": 0.41936158959249203,
-      "Market Cap": 148439121920.0,
+      "Market Cap": 147803504640.0,
       "Total Revenue": 62363000832.0,
       "Net Income": 6066999808.0,
       "Free Cashflow": 4398125056.0,
@@ -21587,7 +21587,7 @@
       "Gross Margin(%)": 60.321999999999996,
       "Profit Margin(%)": 5.183,
       "PER": 52.39142,
-      "Forward PER": 46.008133,
+      "Forward PER": 44.63845,
       "PBR": 4.2310605,
       "PSR": 6.65018,
       "Dividend Yield(%)": 162.0,
@@ -22175,8 +22175,8 @@
       "Gross Margin(%)": 57.721999999999994,
       "Profit Margin(%)": -3.7520003,
       "PER": null,
-      "Forward PER": 22.32702,
-      "PBR": 11.806593,
+      "Forward PER": 22.580133,
+      "PBR": 11.609254,
       "PSR": 6.65413,
       "Dividend Yield(%)": 0.0,
       "Revenue Growth(%)": -15.6,
@@ -22511,8 +22511,8 @@
       "Gross Margin(%)": 44.505,
       "Profit Margin(%)": 7.965,
       "PER": 8.123483,
-      "Forward PER": 8.434604,
-      "PBR": 1.5019852,
+      "Forward PER": 8.433899,
+      "PBR": 1.4727824,
       "PSR": 0.6096438,
       "Dividend Yield(%)": 41.0,
       "Revenue Growth(%)": 5.3,
@@ -22721,7 +22721,7 @@
       "Gross Margin(%)": 39.192,
       "Profit Margin(%)": 16.329001,
       "PER": 24.753689,
-      "Forward PER": 18.30413,
+      "Forward PER": 18.119263,
       "PBR": 7.1905575,
       "PSR": 3.9797049,
       "Dividend Yield(%)": 70.0,
@@ -22973,7 +22973,7 @@
       "Gross Margin(%)": 59.83500000000001,
       "Profit Margin(%)": 17.273001,
       "PER": 29.197529,
-      "Forward PER": 24.243233,
+      "Forward PER": 24.362556,
       "PBR": 8.908392,
       "PSR": 4.956304,
       "Dividend Yield(%)": 44.0,
@@ -23015,7 +23015,7 @@
       "Gross Margin(%)": 27.478,
       "Profit Margin(%)": 13.775,
       "PER": 32.973965,
-      "Forward PER": 27.614498,
+      "Forward PER": 27.625694,
       "PBR": 4.249093,
       "PSR": 4.4651084,
       "Dividend Yield(%)": 75.0,
@@ -23039,10 +23039,10 @@
     },
     {
       "Ticker": "VMRK",
-      "Name": "Vivmark Residential",
-      "Yahoo Name": "Vivmark Residential",
-      "Search Aliases": "VMRK VMRK Vivmark Residential",
-      "Stock": "VMRK - Vivmark Residential",
+      "Name": "AvalonBay Communities, Inc.",
+      "Yahoo Name": "AvalonBay Communities, Inc.",
+      "Search Aliases": "VMRK VMRK AvalonBay Communities, Inc.",
+      "Stock": "VMRK - AvalonBay Communities, Inc.",
       "Sector": "Real Estate",
       "Industry": "REIT - Residential",
       "Business Summary": "Vivmark Residential focused on building, buying, and managing high-quality apartment communities across major U.S. metro areas. The company owns or held investments in more than 184,000 rental apartments across premier U.S. markets and over 11,100 apartments under construction. Vivmark Residential based in Chicago, Illinois.",
@@ -23057,7 +23057,7 @@
       "Gross Margin(%)": 62.23800000000001,
       "Profit Margin(%)": -2.538,
       "PER": null,
-      "Forward PER": 40.85502,
+      "Forward PER": 42.88853,
       "PBR": 1.385784,
       "PSR": 14.196198,
       "Dividend Yield(%)": 438.0,
@@ -23100,7 +23100,7 @@
       "Profit Margin(%)": null,
       "PER": 23.948858,
       "Forward PER": null,
-      "PBR": 1.7740128,
+      "PBR": null,
       "PSR": null,
       "Dividend Yield(%)": 107.0,
       "Revenue Growth(%)": null,
@@ -23119,7 +23119,7 @@
       "MA50": 702.8932006835937,
       "MA200": 673.0033001708985,
       "One Year Return(%)": 12.228280546942472,
-      "Valuation": "저평가 여지"
+      "Valuation": "중립"
     },
     {
       "Ticker": "VRSK",
@@ -23224,8 +23224,8 @@
       "Operating Margin(%)": 21.107,
       "Gross Margin(%)": 38.115,
       "Profit Margin(%)": 15.995000000000001,
-      "PER": 39.160854,
-      "Forward PER": 20.37261,
+      "PER": 37.770096,
+      "Forward PER": 20.465128,
       "PBR": 14.140658,
       "PSR": 5.9321136,
       "Dividend Yield(%)": 12.0,
@@ -23352,7 +23352,7 @@
       "Profit Margin(%)": null,
       "PER": 23.450363,
       "Forward PER": null,
-      "PBR": 2.6601722,
+      "PBR": null,
       "PSR": null,
       "Dividend Yield(%)": 106.0,
       "Revenue Growth(%)": null,
@@ -23371,7 +23371,7 @@
       "MA50": 375.7613995361328,
       "MA200": 360.7915489196777,
       "One Year Return(%)": 12.505305836364489,
-      "Valuation": "저평가 여지"
+      "Valuation": "중립"
     },
     {
       "Ticker": "VTR",
@@ -23939,16 +23939,16 @@
       "Gross Margin(%)": 24.836999000000002,
       "Profit Margin(%)": 3.0,
       "PER": 46.40942,
-      "Forward PER": 39.75691,
+      "Forward PER": 39.742226,
       "PBR": 10.355727,
-      "PSR": 1.3810524,
+      "PSR": 1.385288,
       "Dividend Yield(%)": 77.0,
       "Revenue Growth(%)": 5.8999999999999995,
       "Earnings Growth(%)": -9.1,
       "Debt/Equity": 71.653,
       "Current Ratio": 0.767,
       "Cash/Debt": 0.15353166539828053,
-      "Market Cap": 1016233525248.0,
+      "Market Cap": 1019350286336.0,
       "Total Revenue": 735839977472.0,
       "Net Income": 22076000256.0,
       "Free Cashflow": 7127625216.0,
@@ -24025,14 +24025,14 @@
       "PER": 26.05641,
       "Forward PER": 24.167526,
       "PBR": 13.976454,
-      "PSR": 3.7374616,
+      "PSR": 3.737816,
       "Dividend Yield(%)": 120.0,
       "Revenue Growth(%)": 6.7,
       "Earnings Growth(%)": 42.0,
       "Debt/Equity": 71.369,
       "Current Ratio": 1.447,
       "Cash/Debt": 0.6734112401711708,
-      "Market Cap": 29918961664.0,
+      "Market Cap": 29921800192.0,
       "Total Revenue": 8005155840.0,
       "Net Income": 1179083008.0,
       "Free Cashflow": 1069320128.0,
@@ -24360,7 +24360,7 @@
       "Profit Margin(%)": null,
       "PER": 30.02927,
       "Forward PER": null,
-      "PBR": 1.1401025,
+      "PBR": null,
       "PSR": null,
       "Dividend Yield(%)": 47.0,
       "Revenue Growth(%)": null,
@@ -24379,7 +24379,7 @@
       "MA50": 187.1018002319336,
       "MA200": 170.81555030822753,
       "One Year Return(%)": 18.18844517516709,
-      "Valuation": "중립"
+      "Valuation": "비싼 편"
     },
     {
       "Ticker": "XLV",
@@ -24402,7 +24402,7 @@
       "Profit Margin(%)": null,
       "PER": 30.782463,
       "Forward PER": null,
-      "PBR": 1.4840165,
+      "PBR": null,
       "PSR": null,
       "Dividend Yield(%)": 138.0,
       "Revenue Growth(%)": null,
@@ -24421,7 +24421,7 @@
       "MA50": 175.04560028076173,
       "MA200": 160.20470008850097,
       "One Year Return(%)": 24.38253561615187,
-      "Valuation": "중립"
+      "Valuation": "비싼 편"
     },
     {
       "Ticker": "XOM",
@@ -24527,7 +24527,7 @@
       "Gross Margin(%)": 47.704,
       "Profit Margin(%)": 1.798,
       "PER": 111.289474,
-      "Forward PER": 15.738654,
+      "Forward PER": 15.733589,
       "PBR": 2.2320156,
       "PSR": 1.9936727,
       "Dividend Yield(%)": 0.0,
@@ -24611,7 +24611,7 @@
       "Gross Margin(%)": 69.333,
       "Profit Margin(%)": 8.954000500000001,
       "PER": 26.063131,
-      "Forward PER": 11.492461,
+      "Forward PER": 11.497775,
       "PBR": 1.543004,
       "PSR": 2.2791111,
       "Dividend Yield(%)": 93.0,
@@ -24694,7 +24694,7 @@
       "Operating Margin(%)": 37.907999999999994,
       "Gross Margin(%)": 71.64500000000001,
       "Profit Margin(%)": 26.406000000000002,
-      "PER": 14.111111,
+      "PER": 14.255102,
       "Forward PER": 13.141804,
       "PBR": 10.340488,
       "PSR": 3.5872574,
@@ -24720,18 +24720,6 @@
   ],
   "charts": {
     "000270.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 118000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 117000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 117400.0,
@@ -25017,13 +25005,13 @@
       {
         "date": "2026-01-26",
         "close": 155200.0,
-        "ma50": 127354.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 153500.0,
-        "ma50": 128064.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -25918,13 +25906,13 @@
         "date": "2026-09-07",
         "close": 128400.0,
         "ma50": 136582.0,
-        "ma200": 146406.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 125400.0,
         "ma50": 136384.0,
-        "ma200": 146443.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -26189,21 +26177,15 @@
         "close": 94600.0,
         "ma50": 111858.0,
         "ma200": 143416.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 95400.0,
+        "ma50": 111142.0,
+        "ma200": 143074.0
       }
     ],
     "000660.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 612000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 560000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 606000.0,
@@ -26489,13 +26471,13 @@
       {
         "date": "2026-01-26",
         "close": 736000.0,
-        "ma50": 623900.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 800000.0,
-        "ma50": 627660.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -27390,13 +27372,13 @@
         "date": "2026-09-07",
         "close": 1783000.0,
         "ma50": 1820620.0,
-        "ma200": 1312225.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 1793000.0,
         "ma50": 1803020.0,
-        "ma200": 1318130.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -27661,21 +27643,15 @@
         "close": 1216000.0,
         "ma50": 1544460.0,
         "ma200": 1519410.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 1193000.0,
+        "ma50": 1534460.0,
+        "ma200": 1521660.0
       }
     ],
     "003550.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 84700.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 82900.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 83600.0,
@@ -27961,13 +27937,13 @@
       {
         "date": "2026-01-26",
         "close": 89600.0,
-        "ma50": 82790.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 91100.0,
-        "ma50": 82918.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -28862,13 +28838,13 @@
         "date": "2026-09-07",
         "close": 124500.0,
         "ma50": 105700.0,
-        "ma200": 97561.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 118900.0,
         "ma50": 106106.0,
-        "ma200": 97732.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -29133,21 +29109,15 @@
         "close": 86800.0,
         "ma50": 106266.0,
         "ma200": 102660.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 88300.0,
+        "ma50": 105626.0,
+        "ma200": 102656.0
       }
     ],
     "005380.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 278500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 272500.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 271500.0,
@@ -29433,13 +29403,13 @@
       {
         "date": "2026-01-26",
         "close": 492500.0,
-        "ma50": 325680.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 488500.0,
-        "ma50": 329880.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -30334,13 +30304,13 @@
         "date": "2026-09-07",
         "close": 393000.0,
         "ma50": 421170.0,
-        "ma200": 465082.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 385000.0,
         "ma50": 419260.0,
-        "ma200": 465615.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -30605,21 +30575,15 @@
         "close": 269500.0,
         "ma50": 329230.0,
         "ma200": 469075.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 270750.0,
+        "ma50": 326635.0,
+        "ma200": 468033.75
       }
     ],
     "005490.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 321500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 314000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 314500.0,
@@ -30905,13 +30869,13 @@
       {
         "date": "2026-01-26",
         "close": 365000.0,
-        "ma50": 318430.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 359500.0,
-        "ma50": 319190.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -31806,13 +31770,13 @@
         "date": "2026-09-07",
         "close": 335500.0,
         "ma50": 319060.0,
-        "ma200": 352747.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 328500.0,
         "ma50": 319530.0,
-        "ma200": 352782.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -32077,21 +32041,15 @@
         "close": 275000.0,
         "ma50": 303030.0,
         "ma200": 349475.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 268500.0,
+        "ma50": 301580.0,
+        "ma200": 349030.0
       }
     ],
     "005930.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 102800.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 97200.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 100600.0,
@@ -32377,13 +32335,13 @@
       {
         "date": "2026-01-26",
         "close": 152100.0,
-        "ma50": 118212.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 159500.0,
-        "ma50": 119346.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -33278,13 +33236,13 @@
         "date": "2026-09-07",
         "close": 270000.0,
         "ma50": 264330.0,
-        "ma200": 212587.25
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 269500.0,
         "ma50": 262930.0,
-        "ma200": 213420.75
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -33549,21 +33507,15 @@
         "close": 206000.0,
         "ma50": 240860.0,
         "ma200": 240570.25
+      },
+      {
+        "date": "2026-11-16",
+        "close": 206000.0,
+        "ma50": 239760.0,
+        "ma200": 240874.25
       }
     ],
     "006400.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 334500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 315000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 317000.0,
@@ -33849,13 +33801,13 @@
       {
         "date": "2026-01-26",
         "close": 387000.0,
-        "ma50": 299820.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 387500.0,
-        "ma50": 300880.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -34750,13 +34702,13 @@
         "date": "2026-09-07",
         "close": 541000.0,
         "ma50": 467100.0,
-        "ma200": 440965.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 530000.0,
         "ma50": 468600.0,
-        "ma200": 441942.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -35021,21 +34973,15 @@
         "close": 478000.0,
         "ma50": 529680.0,
         "ma200": 493727.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 479500.0,
+        "ma50": 527890.0,
+        "ma200": 494495.0
       }
     ],
     "009540.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 439000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 432000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 436500.0,
@@ -35321,13 +35267,13 @@
       {
         "date": "2026-01-26",
         "close": 424000.0,
-        "ma50": 427060.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 426500.0,
-        "ma50": 426810.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -36222,13 +36168,13 @@
         "date": "2026-09-07",
         "close": 351500.0,
         "ma50": 360600.0,
-        "ma200": 403250.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 346500.0,
         "ma50": 360620.0,
-        "ma200": 402787.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -36493,21 +36439,15 @@
         "close": 237500.0,
         "ma50": 294120.0,
         "ma200": 372160.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 238750.0,
+        "ma50": 291825.0,
+        "ma200": 371138.75
       }
     ],
     "010140.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 26500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 26300.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 26200.0,
@@ -36793,13 +36733,13 @@
       {
         "date": "2026-01-26",
         "close": 29900.0,
-        "ma50": 26310.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 30300.0,
-        "ma50": 26386.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -37694,13 +37634,13 @@
         "date": "2026-09-07",
         "close": 21400.0,
         "ma50": 21717.8,
-        "ma200": 26315.45
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 21300.0,
         "ma50": 21683.8,
-        "ma200": 26289.45
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -37965,21 +37905,15 @@
         "close": 16610.0,
         "ma50": 18825.8,
         "ma200": 24676.45
+      },
+      {
+        "date": "2026-11-16",
+        "close": 16650.0,
+        "ma50": 18738.8,
+        "ma200": 24605.45
       }
     ],
     "012330.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 300000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 298000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 294000.0,
@@ -38265,13 +38199,13 @@
       {
         "date": "2026-01-26",
         "close": 465500.0,
-        "ma50": 365360.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 460000.0,
-        "ma50": 368560.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -39166,13 +39100,13 @@
         "date": "2026-09-07",
         "close": 432000.0,
         "ma50": 482150.0,
-        "ma200": 457187.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 415000.0,
         "ma50": 480720.0,
-        "ma200": 457762.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -39437,21 +39371,15 @@
         "close": 355500.0,
         "ma50": 370470.0,
         "ma200": 459357.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 361000.0,
+        "ma50": 368820.0,
+        "ma200": 458907.5
       }
     ],
     "028260.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 225000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 219500.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 220500.0,
@@ -39737,13 +39665,13 @@
       {
         "date": "2026-01-26",
         "close": 297500.0,
-        "ma50": 250530.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 298000.0,
-        "ma50": 251990.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -40638,13 +40566,13 @@
         "date": "2026-09-07",
         "close": 384000.0,
         "ma50": 370540.0,
-        "ma200": 329772.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 382000.0,
         "ma50": 368290.0,
-        "ma200": 330557.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -40909,21 +40837,15 @@
         "close": 285000.0,
         "ma50": 326360.0,
         "ma200": 346775.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 286500.0,
+        "ma50": 324280.0,
+        "ma200": 346727.5
       }
     ],
     "032830.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 168400.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 153600.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 153600.0,
@@ -41209,13 +41131,13 @@
       {
         "date": "2026-01-26",
         "close": 182200.0,
-        "ma50": 158880.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 187100.0,
-        "ma50": 159254.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -42110,13 +42032,13 @@
         "date": "2026-09-07",
         "close": 312000.0,
         "ma50": 318320.0,
-        "ma200": 257630.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 308000.0,
         "ma50": 315830.0,
-        "ma200": 258328.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -42381,21 +42303,15 @@
         "close": 252000.0,
         "ma50": 272180.0,
         "ma200": 282855.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 255000.0,
+        "ma50": 271090.0,
+        "ma200": 283254.5
       }
     ],
     "034020.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 83100.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 78400.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 78800.0,
@@ -42681,13 +42597,13 @@
       {
         "date": "2026-01-26",
         "close": 91800.0,
-        "ma50": 80706.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 93600.0,
-        "ma50": 80916.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -43582,13 +43498,13 @@
         "date": "2026-09-07",
         "close": 87900.0,
         "ma50": 76842.0,
-        "ma200": 91092.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 89500.0,
         "ma50": 77010.0,
-        "ma200": 91124.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -43853,21 +43769,15 @@
         "close": 46850.0,
         "ma50": 70442.0,
         "ma200": 88813.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 45950.0,
+        "ma50": 69733.0,
+        "ma200": 88566.75
       }
     ],
     "035420.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 265500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 253500.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 255000.0,
@@ -44153,13 +44063,13 @@
       {
         "date": "2026-01-26",
         "close": 272500.0,
-        "ma50": 248200.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 281500.0,
-        "ma50": 248520.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -45054,13 +44964,13 @@
         "date": "2026-09-07",
         "close": 218000.0,
         "ma50": 207800.0,
-        "ma200": 227382.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 214500.0,
         "ma50": 208162.0,
-        "ma200": 227127.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -45325,21 +45235,15 @@
         "close": 172500.0,
         "ma50": 190238.0,
         "ma200": 213909.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 173800.0,
+        "ma50": 189414.0,
+        "ma200": 213558.5
       }
     ],
     "035720.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 63700.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 61400.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 60700.0,
@@ -45625,13 +45529,13 @@
       {
         "date": "2026-01-26",
         "close": 61800.0,
-        "ma50": 59494.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 62200.0,
-        "ma50": 59464.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -46526,13 +46430,13 @@
         "date": "2026-09-07",
         "close": 36550.0,
         "ma50": 36454.0,
-        "ma200": 48111.25
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 35400.0,
         "ma50": 36499.0,
-        "ma200": 47969.75
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -46797,21 +46701,15 @@
         "close": 31700.0,
         "ma50": 32586.0,
         "ma200": 41973.25
+      },
+      {
+        "date": "2026-11-16",
+        "close": 32150.0,
+        "ma50": 32499.0,
+        "ma200": 41839.0
       }
     ],
     "051910.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 419500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 407500.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 402000.0,
@@ -47097,13 +46995,13 @@
       {
         "date": "2026-01-26",
         "close": 349500.0,
-        "ma50": 357440.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 344000.0,
-        "ma50": 355930.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -47998,13 +47896,13 @@
         "date": "2026-09-07",
         "close": 279500.0,
         "ma50": 266810.0,
-        "ma200": 327682.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 270000.0,
         "ma50": 266790.0,
-        "ma200": 326935.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -48269,21 +48167,15 @@
         "close": 232000.0,
         "ma50": 256580.0,
         "ma200": 304110.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 227500.0,
+        "ma50": 255490.0,
+        "ma200": 303552.5
       }
     ],
     "055550.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 80700.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 79600.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 78200.0,
@@ -48569,13 +48461,13 @@
       {
         "date": "2026-01-26",
         "close": 82400.0,
-        "ma50": 78556.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 86100.0,
-        "ma50": 78664.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -49470,13 +49362,13 @@
         "date": "2026-09-07",
         "close": 113900.0,
         "ma50": 105180.0,
-        "ma200": 93829.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 113200.0,
         "ma50": 105612.0,
-        "ma200": 93991.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -49741,21 +49633,15 @@
         "close": 89800.0,
         "ma50": 99784.0,
         "ma200": 98396.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 89300.0,
+        "ma50": 99348.0,
+        "ma200": 98433.0
       }
     ],
     "066570.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 92500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 90200.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 91400.0,
@@ -50041,13 +49927,13 @@
       {
         "date": "2026-01-26",
         "close": 102500.0,
-        "ma50": 93240.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 101300.0,
-        "ma50": 93416.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -50942,13 +50828,13 @@
         "date": "2026-09-07",
         "close": 214000.0,
         "ma50": 188508.0,
-        "ma200": 149137.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 205000.0,
         "ma50": 188690.0,
-        "ma200": 149700.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -51213,21 +51099,15 @@
         "close": 135600.0,
         "ma50": 181226.0,
         "ma200": 168666.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 135200.0,
+        "ma50": 179800.0,
+        "ma200": 168817.0
       }
     ],
     "068270.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 185809.53125,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 186761.90625,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 180857.140625,
@@ -51513,13 +51393,13 @@
       {
         "date": "2026-01-26",
         "close": 204761.90625,
-        "ma50": 184780.9534375,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 201428.578125,
-        "ma50": 185093.334375,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -52414,13 +52294,13 @@
         "date": "2026-09-07",
         "close": 186300.0,
         "ma50": 184748.0,
-        "ma200": 188745.23828125
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 183100.0,
         "ma50": 185092.0,
-        "ma200": 188731.690625
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -52685,21 +52565,15 @@
         "close": 214000.0,
         "ma50": 188734.0,
         "ma200": 190035.45234375
+      },
+      {
+        "date": "2026-11-16",
+        "close": 215000.0,
+        "ma50": 189274.0,
+        "ma200": 190124.738046875
       }
     ],
     "069500.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 59070.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 56510.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 57715.0,
@@ -52985,13 +52859,13 @@
       {
         "date": "2026-01-26",
         "close": 72305.0,
-        "ma50": 61308.5,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 74775.0,
-        "ma50": 61622.6,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -53886,13 +53760,13 @@
         "date": "2026-09-07",
         "close": 110820.0,
         "ma50": 110152.2,
-        "ma200": 93325.775
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 110335.0,
         "ma50": 109611.3,
-        "ma200": 93582.1
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -54157,21 +54031,15 @@
         "close": 83115.0,
         "ma50": 98649.6,
         "ma200": 101807.4
+      },
+      {
+        "date": "2026-11-16",
+        "close": 82685.0,
+        "ma50": 98145.6,
+        "ma200": 101864.875
       }
     ],
     "086520.KQ": [
-      {
-        "date": "2025-11-13",
-        "close": 94700.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 89900.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 88200.0,
@@ -54457,13 +54325,13 @@
       {
         "date": "2026-01-26",
         "close": 130200.0,
-        "ma50": 95482.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 138400.0,
-        "ma50": 96356.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -55358,13 +55226,13 @@
         "date": "2026-09-07",
         "close": 82500.0,
         "ma50": 85052.0,
-        "ma200": 118263.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 81100.0,
         "ma50": 84766.0,
-        "ma200": 118195.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -55629,21 +55497,15 @@
         "close": 72700.0,
         "ma50": 79964.0,
         "ma200": 114977.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 72100.0,
+        "ma50": 79662.0,
+        "ma200": 114846.0
       }
     ],
     "086790.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 96200.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 94400.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 93100.0,
@@ -55929,13 +55791,13 @@
       {
         "date": "2026-01-26",
         "close": 101200.0,
-        "ma50": 94258.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 105000.0,
-        "ma50": 94434.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -56830,13 +56692,13 @@
         "date": "2026-09-07",
         "close": 138900.0,
         "ma50": 128936.0,
-        "ma200": 114619.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 136800.0,
         "ma50": 129478.0,
-        "ma200": 114822.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -57101,21 +56963,15 @@
         "close": 124600.0,
         "ma50": 126978.0,
         "ma200": 121889.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 124300.0,
+        "ma50": 126716.0,
+        "ma200": 122009.0
       }
     ],
     "091160.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 59570.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 56100.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 58695.0,
@@ -57401,13 +57257,13 @@
       {
         "date": "2026-01-26",
         "close": 73445.0,
-        "ma50": 61417.8,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 78105.0,
-        "ma50": 61788.5,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -58302,13 +58158,13 @@
         "date": "2026-09-07",
         "close": 131200.0,
         "ma50": 129064.2,
-        "ma200": 107907.05
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 131535.0,
         "ma50": 128261.0,
-        "ma200": 108266.875
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -58573,21 +58429,15 @@
         "close": 98520.0,
         "ma50": 121322.3,
         "ma200": 121577.05
+      },
+      {
+        "date": "2026-11-16",
+        "close": 95600.0,
+        "ma50": 120739.9,
+        "ma200": 121702.55
       }
     ],
     "096770.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 126300.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 122700.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 122300.0,
@@ -58873,13 +58723,13 @@
       {
         "date": "2026-01-26",
         "close": 114100.0,
-        "ma50": 110442.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 111500.0,
-        "ma50": 110146.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -59774,13 +59624,13 @@
         "date": "2026-09-07",
         "close": 137900.0,
         "ma50": 115794.0,
-        "ma200": 115908.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 138000.0,
         "ma50": 116764.0,
-        "ma200": 115967.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -60045,21 +59895,15 @@
         "close": 109200.0,
         "ma50": 139022.0,
         "ma200": 122447.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 107700.0,
+        "ma50": 138470.0,
+        "ma200": 122440.5
       }
     ],
     "102110.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 59110.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 56505.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 57735.0,
@@ -60345,13 +60189,13 @@
       {
         "date": "2026-01-26",
         "close": 72380.0,
-        "ma50": 61358.8,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 74905.0,
-        "ma50": 61674.7,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -61246,13 +61090,13 @@
         "date": "2026-09-07",
         "close": 111030.0,
         "ma50": 110315.3,
-        "ma200": 93381.275
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 110660.0,
         "ma50": 109773.4,
-        "ma200": 93639.025
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -61517,21 +61361,15 @@
         "close": 82920.0,
         "ma50": 98797.1,
         "ma200": 101883.675
+      },
+      {
+        "date": "2026-11-16",
+        "close": 82475.0,
+        "ma50": 98283.2,
+        "ma200": 101939.65
       }
     ],
     "105560.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 133500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 129500.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 126800.0,
@@ -61817,13 +61655,13 @@
       {
         "date": "2026-01-26",
         "close": 135500.0,
-        "ma50": 126924.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 143000.0,
-        "ma50": 127114.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -62718,13 +62556,13 @@
         "date": "2026-09-07",
         "close": 175900.0,
         "ma50": 169730.0,
-        "ma200": 151381.0
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 173700.0,
         "ma50": 170218.0,
-        "ma200": 151582.0
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -62989,21 +62827,15 @@
         "close": 159000.0,
         "ma50": 164308.0,
         "ma200": 159775.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 159600.0,
+        "ma50": 164076.0,
+        "ma200": 159907.5
       }
     ],
     "112040.KQ": [
-      {
-        "date": "2025-11-13",
-        "close": 29350.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 28700.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 27550.0,
@@ -63289,13 +63121,13 @@
       {
         "date": "2026-01-26",
         "close": 30000.0,
-        "ma50": 26680.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 30800.0,
-        "ma50": 26709.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -64190,13 +64022,13 @@
         "date": "2026-09-07",
         "close": 15200.0,
         "ma50": 16613.8,
-        "ma200": 22103.15
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 15060.0,
         "ma50": 16621.6,
-        "ma200": 22031.7
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -64461,21 +64293,15 @@
         "close": 14020.0,
         "ma50": 14694.4,
         "ma200": 19404.9
+      },
+      {
+        "date": "2026-11-16",
+        "close": 13980.0,
+        "ma50": 14665.4,
+        "ma200": 19344.3
       }
     ],
     "196170.KQ": [
-      {
-        "date": "2025-11-13",
-        "close": 422307.6875,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 426153.84375,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 421538.46875,
@@ -64761,13 +64587,13 @@
       {
         "date": "2026-01-26",
         "close": 312307.6875,
-        "ma50": 367415.384375,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 313846.15625,
-        "ma50": 365246.15375,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -65662,13 +65488,13 @@
         "date": "2026-09-07",
         "close": 286000.0,
         "ma50": 271990.0,
-        "ma200": 301162.883984375
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 277000.0,
         "ma50": 272245.384375,
-        "ma200": 300436.345546875
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -65933,21 +65759,15 @@
         "close": 176200.0,
         "ma50": 238966.0,
         "ma200": 269527.076328125
+      },
+      {
+        "date": "2026-11-16",
+        "close": 175700.0,
+        "ma50": 236460.0,
+        "ma200": 268555.576328125
       }
     ],
     "207940.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 1877331.375,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 1877331.375,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 1877331.375,
@@ -66233,13 +66053,13 @@
       {
         "date": "2026-01-26",
         "close": 1807000.0,
-        "ma50": 1768386.3925,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 1790000.0,
-        "ma50": 1766639.765,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -67134,13 +66954,13 @@
         "date": "2026-09-07",
         "close": 1466000.0,
         "ma50": 1474420.0,
-        "ma200": 1578591.598125
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 1440000.0,
         "ma50": 1476360.0,
-        "ma200": 1576404.94125
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -67405,21 +67225,15 @@
         "close": 1411000.0,
         "ma50": 1399272.23,
         "ma200": 1495158.0575
+      },
+      {
+        "date": "2026-11-16",
+        "close": 1409000.0,
+        "ma50": 1397052.23,
+        "ma200": 1492603.0575
       }
     ],
     "247540.KQ": [
-      {
-        "date": "2025-11-13",
-        "close": 160000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 150600.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 154400.0,
@@ -67705,13 +67519,13 @@
       {
         "date": "2026-01-26",
         "close": 209000.0,
-        "ma50": 156906.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 213500.0,
-        "ma50": 157976.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -68606,13 +68420,13 @@
         "date": "2026-09-07",
         "close": 106700.0,
         "ma50": 113293.70015625,
-        "ma200": 167530.9250390625
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 104800.0,
         "ma50": 112715.70015625,
-        "ma200": 167254.9250390625
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -68877,21 +68691,15 @@
         "close": 90800.0,
         "ma50": 103747.8753125,
         "ma200": 155919.9250390625
+      },
+      {
+        "date": "2026-11-16",
+        "close": 89400.0,
+        "ma50": 103245.1103125,
+        "ma200": 155566.4250390625
       }
     ],
     "293490.KQ": [
-      {
-        "date": "2025-11-13",
-        "close": 17000.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 16580.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 16250.0,
@@ -69177,13 +68985,13 @@
       {
         "date": "2026-01-26",
         "close": 16240.0,
-        "ma50": 15436.4,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 16320.0,
-        "ma50": 15422.8,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -70078,13 +69886,13 @@
         "date": "2026-09-07",
         "close": 8900.0,
         "ma50": 8209.0,
-        "ma200": 12084.05
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 8940.0,
         "ma50": 8249.2,
-        "ma200": 12043.75
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -70349,21 +70157,15 @@
         "close": 11500.0,
         "ma50": 10275.6,
         "ma200": 10934.5
+      },
+      {
+        "date": "2026-11-16",
+        "close": 11700.0,
+        "ma50": 10312.0,
+        "ma200": 10921.35
       }
     ],
     "305720.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 16765.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 16055.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 16025.0,
@@ -70649,13 +70451,13 @@
       {
         "date": "2026-01-26",
         "close": 17095.0,
-        "ma50": 15066.1,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 17160.0,
-        "ma50": 15074.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -71550,13 +71352,13 @@
         "date": "2026-09-07",
         "close": 14835.0,
         "ma50": 13888.4,
-        "ma200": 16298.85
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 14475.0,
         "ma50": 13898.1,
-        "ma200": 16287.4
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -71821,21 +71623,15 @@
         "close": 12780.0,
         "ma50": 14359.0,
         "ma200": 16151.825
+      },
+      {
+        "date": "2026-11-16",
+        "close": 12675.0,
+        "ma50": 14306.8,
+        "ma200": 16138.575
       }
     ],
     "373220.KS": [
-      {
-        "date": "2025-11-13",
-        "close": 484500.0,
-        "ma50": null,
-        "ma200": null
-      },
-      {
-        "date": "2025-11-14",
-        "close": 463000.0,
-        "ma50": null,
-        "ma200": null
-      },
       {
         "date": "2025-11-17",
         "close": 463000.0,
@@ -72121,13 +71917,13 @@
       {
         "date": "2026-01-26",
         "close": 416000.0,
-        "ma50": 410090.0,
+        "ma50": null,
         "ma200": null
       },
       {
         "date": "2026-01-27",
         "close": 408500.0,
-        "ma50": 408570.0,
+        "ma50": null,
         "ma200": null
       },
       {
@@ -73022,13 +72818,13 @@
         "date": "2026-09-07",
         "close": 362500.0,
         "ma50": 344810.0,
-        "ma200": 393422.5
+        "ma200": null
       },
       {
         "date": "2026-09-08",
         "close": 348500.0,
         "ma50": 345150.0,
-        "ma200": 392742.5
+        "ma200": null
       },
       {
         "date": "2026-09-09",
@@ -73293,6 +73089,12 @@
         "close": 324500.0,
         "ma50": 367970.0,
         "ma200": 384100.0
+      },
+      {
+        "date": "2026-11-16",
+        "close": 319500.0,
+        "ma50": 367020.0,
+        "ma200": 383682.5
       }
     ],
     "A": [
